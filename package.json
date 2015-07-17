@@ -1,6 +1,6 @@
 {
-  "name": "liquid-wormhole",
-  "version": "0.0.0",
+  "name": "liquid-tether",
+  "version": "0.0.3",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",

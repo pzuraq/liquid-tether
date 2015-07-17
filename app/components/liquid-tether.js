@@ -1,1 +1,1 @@
-export { default } from 'liquid-wormhole/components/liquid-tether';
+export { default } from 'liquid-tether/components/liquid-tether';

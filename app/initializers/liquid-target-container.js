@@ -1,1 +1,1 @@
-export { default, initialize } from 'liquid-wormhole/initializers/liquid-target-container';
+export { default, initialize } from 'liquid-tether/initializers/liquid-target-container';

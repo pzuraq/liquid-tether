@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  name: 'liquid-wormhole',
+  name: 'liquid-tether',
 
   included: function(app) {
     if (app.import) {

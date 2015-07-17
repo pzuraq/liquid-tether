@@ -22,6 +22,8 @@ export default LiquidWormhole.extend({
   to: 'liquid-tether',
 
   didInsertElement() {
+    this._tetherElement = this.$('.liquid-tether')[0];
+
     this._super();
 
     this.addTether();
@@ -47,9 +49,10 @@ export default LiquidWormhole.extend({
     'constraints',
     'optimizations',
     'render-in-place',
-    'destinationName',
+    'liquidTargetName',
     function() {
       this.removeTether(this._tether);
+      this._tetherElement.setAttribute('style', '');
       this.addTether();
     }
   ),
@@ -63,7 +66,6 @@ export default LiquidWormhole.extend({
   removeTether(tether) {
     if (tether) {
       tether.destroy();
-      this._firstNode.setAttribute('style', '');
     }
   },
 
@@ -90,7 +92,7 @@ export default LiquidWormhole.extend({
 
   _tetherOptions() {
     let options = {
-      element: this._firstNode,
+      element: this._tetherElement,
       target: get(this, '_tetherTarget'),
     };
     [ 'class-prefix',

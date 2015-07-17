@@ -1,3 +1,8 @@
+const options = {
+  duration: 1000,
+  easing: 'easeInOutQuart'
+};
+
 export default function() {
   this.transition(
     this.hasClass('liquid-tether'),
@@ -9,8 +14,9 @@ export default function() {
     this.toValue((toValue) => {
       return toValue.index === 0;
     }),
-    this.use('fade'),
-    this.reverse('fade')
+    this.use('tether', ['to-left', options], ['fade', options]),
+    this.reverse('tether', ['to-right', options], ['fade', options]),
+    this.debug()
   );
 
   this.transition(
@@ -18,8 +24,8 @@ export default function() {
     this.toValue((toValue, fromValue) => {
       return toValue.index > fromValue.index;
     }),
-    this.use('to-up'),
-    this.reverse('to-down')
+    this.use('tether', ['to-left', options]),
+    this.reverse('tether', ['to-right', options])
   );
 
 

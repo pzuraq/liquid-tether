@@ -1,1 +1,1 @@
-export { default } from 'liquid-wormhole/services/liquid-target';
+export { default } from 'liquid-tether/services/liquid-target';

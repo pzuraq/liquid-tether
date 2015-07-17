@@ -35,7 +35,7 @@ export default function moveOver(dimension, direction, opts) {
 }
 
 function biggestSize(context, dimension) {
-  let sizes = [], maxSize;
+  let sizes = [], maxSize, minSize, isInTarget;
 
   if (context.newElement) {
     sizes.push(parseInt(context.newElement.css(dimension), 10));
@@ -48,7 +48,11 @@ function biggestSize(context, dimension) {
 
   maxSize = Math.max.apply(null, sizes);
 
-  if (maxSize === 0) {
+  minSize = Math.min.apply(null, sizes);
+  isInTarget = (context.newElement && context.newElement.closest('.liquid-target').length) ||
+               (context.oldElement && context.oldElement.closest('.liquid-target').length);
+
+  if (maxSize === 0 || (isInTarget && minSize === 0)) {
     if (dimension === 'height') {
       maxSize = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     } else {

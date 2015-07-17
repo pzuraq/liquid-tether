@@ -25,3 +25,10 @@
 body {
   margin: 0;
 }
+
+.ui-modal .liquid-tether-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}

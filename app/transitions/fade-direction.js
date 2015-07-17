@@ -1,5 +1,5 @@
 import { isAnimating, finish, timeSpent, animate, stop } from "liquid-fire";
-export default function fade(dimension, direction, offset, opts) {
+export default function fade(dimension, direction, offset=20, opts) {
   const oldParams = { opacity: 0 },
         newParams = { opacity: [(opts.maxOpacity || 1), 0] },
         fadingElement = findFadingElement(this);
