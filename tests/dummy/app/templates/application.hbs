@@ -1,3 +1,69 @@
-<h2 id="title">Welcome to Ember.js</h2>
+{{liquid-target name="modal" class="modal-outlet"}}
 
-{{outlet}}
+<button {{action "openModalDialog"}}>
+  Open Modal Dialog
+</button>
+
+<button id="popup-button" {{action "openPopup"}}>
+  Popup
+</button>
+
+<button id="popup-button" {{action "toggleInline"}}>
+  Inline
+</button>
+
+{{#if modalDialogStepOne}}
+  {{#liquid-tether to="modal" target="document.body" target-modifier="visible" attachment="middle center"}}
+    <div class="modal">
+      This is a modal dialog!
+
+      <button {{action "prevModalDialogStep"}}>
+        Prev
+      </button>
+
+      <button {{action "nextModalDialogStep"}}>
+        Next
+      </button>
+    </div>
+  {{/liquid-tether}}
+{{/if}}
+
+{{#if modalDialogStepTwo}}
+  {{#liquid-tether to="modal" target="document.body" target-modifier="visible" attachment="top right" target-attachment="top right"}}
+    <div class="modal">
+      Another modal dialog!
+
+      <button {{action "prevModalDialogStep"}}>
+        Prev
+      </button>
+
+      <button {{action "nextModalDialogStep"}}>
+        Next
+      </button>
+    </div>
+  {{/liquid-tether}}
+{{/if}}
+
+{{#if modalDialogStepThree}}
+  {{#liquid-tether to="modal" target="document.body" target-modifier="visible" attachment="bottom right" target-attachment="bottom right"}}
+    <div class="modal">
+      Almost done!
+
+      <button {{action "prevModalDialogStep"}}>
+        Prev
+      </button>
+
+      <button {{action "closeModalDialog"}}>
+        Complete!
+      </button>
+    </div>
+  {{/liquid-tether}}
+{{/if}}
+
+{{#if showPopup}}
+  {{#liquid-tether render-in-place=inline target="#popup-button" attachment="top left" target-attachment="bottom left"}}
+    <div class="modal">
+      Popup
+    </div>
+  {{/liquid-tether}}
+{{/if}}

@@ -1,0 +1,20 @@
+.modal {
+  height: 250px;
+  width: 250px;
+  padding: 50px;
+  font-size: 50px;
+  background-color: black;
+  color: white;
+}
+
+.liquid-tether {
+  position: absolute;
+}
+
+.liquid-target .liquid-child {
+  overflow: visible;
+}
+
+body {
+  margin: 0;
+}

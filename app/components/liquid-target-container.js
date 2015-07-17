@@ -1,0 +1,1 @@
+export { default } from 'liquid-wormhole/components/liquid-target-container';

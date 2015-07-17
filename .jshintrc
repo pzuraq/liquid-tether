@@ -2,7 +2,8 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "Tether"
   ],
   "browser": true,
   "boss": true,
