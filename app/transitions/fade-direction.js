@@ -1,8 +1,20 @@
 import { isAnimating, finish, timeSpent, animate, stop } from "liquid-fire";
-export default function fade(opts={}) {
-  var firstStep;
-  var outOpts = opts;
-  var fadingElement = findFadingElement(this);
+export default function fade(dimension, direction, offset, opts) {
+  const oldParams = { opacity: 0 },
+        newParams = { opacity: [(opts.maxOpacity || 1), 0] },
+        fadingElement = findFadingElement(this);
+
+  let outOpts = opts,
+      firstStep,
+      property;
+
+  if (dimension.toLowerCase() === 'x') {
+    oldParams.translateX = `${(direction * offset)}px`;
+    newParams.translateX = ['0px', `${(direction * offset)}px`];
+  } else {
+    oldParams.translateY = `${(direction * offset)}px`;
+    newParams.translateY = ['0px', `${(direction * offset)}px`];
+  }
 
   if (fadingElement) {
     // We still have some older version that is in the process of
@@ -15,10 +27,10 @@ export default function fade(opts={}) {
       outOpts = { duration: timeSpent(this.oldElement, 'fade-in') };
     }
     stop(this.oldElement);
-    firstStep = animate(this.oldElement, {opacity: 0, translateY: ['20px', '0px']}, outOpts, 'fade-out');
+    firstStep = animate(this.oldElement, oldParams, outOpts, 'fade-out');
   }
   return firstStep.then(() => {
-    return animate(this.newElement, {opacity: [(opts.maxOpacity || 1), 0], translateY: ['0px', '20px']}, opts, 'fade-in');
+    return animate(this.newElement, newParams, opts, 'fade-in');
   });
 }
 

@@ -7,17 +7,24 @@ export default Ember.Service.extend({
 
   nodes: {},
 
-  appendRange(target, firstNode, lastNode, options) {
-    this.get(`nodes.${target}`).pushObject({ firstNode, lastNode, options });
+  appendRange(target, id, firstNode, lastNode, options) {
+    if (Ember.typeOf(target) === 'string') {
+      this.get(`nodes.${target}`).pushObject({ id, firstNode, lastNode, options });
+    } else {
+      while(firstNode) {
+        target.insertBefore(firstNode, null);
+        firstNode = firstNode !== lastNode ? lastNode.parentNode.firstChild : null;
+      }
+    }
   },
 
-  removeRange(target, firstNode, lastNode) {
-    const targetNodes = this.get(`nodes.${target}`);
-    const nodesToRemove = targetNodes.find((nodes) => {
-      return nodes.firstNode === firstNode && nodes.lastNode === lastNode;
-    });
+  removeRange(target, id) {
+    if (Ember.typeOf(target) === 'string') {
+      const targetNodes = this.get(`nodes.${target}`);
+      const nodesToRemove = targetNodes.findBy('id', id);
 
-    targetNodes.removeObject(nodesToRemove);
+      targetNodes.removeObject(nodesToRemove);
+    }
   },
 
   addDefaultTarget(target) {

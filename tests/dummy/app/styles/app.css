@@ -7,13 +7,20 @@
   color: white;
 }
 
-.liquid-tether {
-  position: absolute;
+.modal-2 {
+  height: 400px;
+  width: 400px;
 }
 
-.liquid-target .liquid-child {
-  overflow: visible;
+.popover {
+  height: 250px;
+  width: 250px;
+  padding: 50px;
+  font-size: 50px;
+  background-color: black;
+  color: white;
 }
+
 
 body {
   margin: 0;

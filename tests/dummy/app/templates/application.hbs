@@ -1,4 +1,4 @@
-{{liquid-target name="modal" class="modal-outlet"}}
+{{liquid-target name="ui-modal" class="ui-modal"}}
 
 <button {{action "openModalDialog"}}>
   Open Modal Dialog
@@ -13,7 +13,7 @@
 </button>
 
 {{#if modalDialogStepOne}}
-  {{#liquid-tether to="modal" target="document.body" target-modifier="visible" attachment="middle center"}}
+  {{#liquid-tether to="ui-modal" render-in-place=inline target="document.body" target-modifier="visible" attachment="middle center"}}
     <div class="modal">
       This is a modal dialog!
 
@@ -29,8 +29,8 @@
 {{/if}}
 
 {{#if modalDialogStepTwo}}
-  {{#liquid-tether to="modal" target="document.body" target-modifier="visible" attachment="top right" target-attachment="top right"}}
-    <div class="modal">
+  {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="top right" target-attachment="top right"}}
+    <div class="modal modal-2">
       Another modal dialog!
 
       <button {{action "prevModalDialogStep"}}>
@@ -45,7 +45,7 @@
 {{/if}}
 
 {{#if modalDialogStepThree}}
-  {{#liquid-tether to="modal" target="document.body" target-modifier="visible" attachment="bottom right" target-attachment="bottom right"}}
+  {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="bottom right" target-attachment="bottom right"}}
     <div class="modal">
       Almost done!
 

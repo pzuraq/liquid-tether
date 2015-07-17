@@ -46,7 +46,7 @@ export default LiquidWormhole.extend({
     'targetModifier',
     'constraints',
     'optimizations',
-    'renderInPlace',
+    'render-in-place',
     'destinationName',
     function() {
       this.removeTether(this._tether);
@@ -55,7 +55,7 @@ export default LiquidWormhole.extend({
   ),
 
   addTether() {
-    if (!this.get('renderInPlace') && get(this, '_tetherTarget')) {
+    if (!this.get('render-in-place') && get(this, '_tetherTarget')) {
       this._tether = new Tether(this._tetherOptions());
     }
   },
@@ -63,6 +63,7 @@ export default LiquidWormhole.extend({
   removeTether(tether) {
     if (tether) {
       tether.destroy();
+      this._firstNode.setAttribute('style', '');
     }
   },
 

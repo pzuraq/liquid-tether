@@ -1,6 +1,11 @@
 export default function() {
   this.transition(
-    this.hasClass('modal-outlet'),
+    this.hasClass('liquid-tether'),
+    this.use('fade-up')
+  );
+
+  this.transition(
+    this.hasClass('ui-modal'),
     this.toValue((toValue) => {
       return toValue.index === 0;
     }),
@@ -9,16 +14,13 @@ export default function() {
   );
 
   this.transition(
-    this.hasClass('modal-outlet'),
+    this.hasClass('ui-modal'),
     this.toValue((toValue, fromValue) => {
       return toValue.index > fromValue.index;
     }),
-    this.use('fly-to'),
-    this.reverse('fly-to')
+    this.use('to-up'),
+    this.reverse('to-down')
   );
 
-  this.transition(
-    this.hasClass('liquid-tether'),
-    this.use('fade-up')
-  );
+
 }

@@ -20,18 +20,18 @@ export default Ember.Component.extend({
     const liquidTarget = this.get('liquidTarget');
     const options = this._wormholeOptions();
 
+    this._target = liquidTarget;
     this._firstNode = this.element.firstChild;
     this._lastNode = this.element.lastChild;
 
-    this.get('liquidTargetService').appendRange(liquidTarget, this._firstNode, this._lastNode, options);
+    this.get('liquidTargetService').appendRange(liquidTarget, this.get('id'), this._firstNode, this._lastNode, options);
   },
 
   willDestroyElement() {
-    const liquidTarget = this.get('liquidTarget');
     const options = this._wormholeOptions();
 
     run.schedule('render', () => {
-      this.get('liquidTargetService').removeRange(liquidTarget, this._firstNode, this._lastNode, options);
+      this.get('liquidTargetService').removeRange(this._target, this.get('id'));
     });
   },
 
@@ -39,8 +39,9 @@ export default Ember.Component.extend({
     const liquidTarget = this.get('liquidTarget');
     const options = this._wormholeOptions();
 
-    run.schedule('render', () => {
-      this.get('liquidTargetService').appendRange(liquidTarget, this._firstNode, this._lastNode, options);
-    });
+    this.get('liquidTargetService').removeRange(this._target, this.get('id'));
+    this.get('liquidTargetService').appendRange(liquidTarget, this.get('id'), this._firstNode, this._lastNode, options);
+
+    this._target = liquidTarget;
   })
 });
