@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import EmberWormhole from './liquid-wormhole';
+import LiquidWormhole from './liquid-wormhole';
 import layout from '../templates/components/liquid-tether';
 
 const { computed, get, observer, run } = Ember;
@@ -7,7 +7,7 @@ const { computed, get, observer, run } = Ember;
 const { camelize } = Ember.String;
 const { reads } = computed;
 
-export default EmberWormhole.extend({
+export default LiquidWormhole.extend({
   layout: layout,
   'class-prefix': 'liquid-tether',
   target: null,
@@ -21,13 +21,13 @@ export default EmberWormhole.extend({
 
   to: 'liquid-tether',
 
-  didInsertElement: function() {
+  didInsertElement() {
     this._super();
 
     this.addTether();
   },
 
-  willDestroyElement: function() {
+  willDestroyElement() {
     this._super();
 
     var tether = this._tether;
@@ -54,16 +54,27 @@ export default EmberWormhole.extend({
     }
   ),
 
-  addTether: function() {
+  addTether() {
     if (!this.get('renderInPlace') && get(this, '_tetherTarget')) {
       this._tether = new Tether(this._tetherOptions());
     }
   },
 
-  removeTether: function(tether) {
+  removeTether(tether) {
     if (tether) {
       tether.destroy();
     }
+  },
+
+  _wormholeOptions() {
+    return {
+      disable: () => {
+        this._tether.disable();
+      },
+      enable: () => {
+        this._tether.enable();
+      }
+    };
   },
 
   _tetherTarget: computed('target', function() {
@@ -76,7 +87,7 @@ export default EmberWormhole.extend({
     return t;
   }),
 
-  _tetherOptions: function() {
+  _tetherOptions() {
     let options = {
       element: this._firstNode,
       target: get(this, '_tetherTarget'),

@@ -7,8 +7,8 @@ export default Ember.Service.extend({
 
   nodes: {},
 
-  appendRange(target, firstNode, lastNode) {
-    this.get(`nodes.${target}`).pushObject({ firstNode, lastNode });
+  appendRange(target, firstNode, lastNode, options) {
+    this.get(`nodes.${target}`).pushObject({ firstNode, lastNode, options });
   },
 
   removeRange(target, firstNode, lastNode) {
