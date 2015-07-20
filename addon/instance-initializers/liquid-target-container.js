@@ -1,7 +1,7 @@
 export function initialize(instance) {
   const liquidTargetContainer = instance.container.lookupFactory('component:liquid-target-container').create();
 
-  liquidTargetContainer.append();
+  liquidTargetContainer.appendTo(instance.rootElement);
 
   instance.container.lookup('service:liquid-target').addDefaultTarget('liquid-tether');
 }

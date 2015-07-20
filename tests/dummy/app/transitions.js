@@ -6,7 +6,7 @@ const options = {
 export default function() {
   this.transition(
     this.hasClass('liquid-tether'),
-    this.use('fade-up')
+    this.use('tether', ['fade-up', options])
   );
 
   this.transition(
@@ -24,8 +24,8 @@ export default function() {
     this.toValue((toValue, fromValue) => {
       return toValue.index > fromValue.index;
     }),
-    this.use('tether', ['to-left', options]),
-    this.reverse('tether', ['to-right', options])
+    this.use('tether', ['fly-to', options]),
+    this.reverse('tether', ['fly-to', options])
   );
 
 

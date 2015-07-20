@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-const { get, set } = Ember;
-
 export default Ember.Service.extend({
   defaultTargets: Ember.A(),
 
@@ -28,6 +26,10 @@ export default Ember.Service.extend({
   },
 
   addDefaultTarget(target) {
-    this.get('defaultTargets').pushObject(target);
+    const defaultTargets = this.get('defaultTargets');
+
+    if (!defaultTargets.contains(target)) {
+      defaultTargets.pushObject(target);
+    }
   }
 });

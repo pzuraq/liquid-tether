@@ -17,6 +17,14 @@
     <div class="modal">
       This is a modal dialog!
 
+      {{#test-component}}
+        {{#test-component}}
+          {{#test-component}}
+            test
+          {{/test-component}}
+        {{/test-component}}
+      {{/test-component}}
+
       <button {{action "prevModalDialogStep"}}>
         Prev
       </button>
@@ -64,6 +72,13 @@
   {{#liquid-tether render-in-place=inline target="#popup-button" attachment="top left" target-attachment="bottom left"}}
     <div class="modal">
       Popup
+      {{#test-component}}
+        {{#test-component}}
+          {{#test-component}}
+            test
+          {{/test-component}}
+        {{/test-component}}
+      {{/test-component}}
     </div>
   {{/liquid-tether}}
 {{/if}}

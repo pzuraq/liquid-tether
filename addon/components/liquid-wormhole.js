@@ -1,19 +1,19 @@
 import Ember from 'ember';
 
-const { computed, inject, observer, run, generateGuid } = Ember;
+const { computed, inject, observer, generateGuid } = Ember;
 
 const { service } = inject;
 const { alias } = computed;
 
 export default Ember.Component.extend({
   to: null,
-  'render-in-place': false,
+  'render-inline': false,
 
   liquidTargetName: alias('to'),
   liquidTargetService: service('liquid-target'),
 
-  liquidTarget: computed('liquidTargetName', 'render-in-place', function() {
-    return this.get('render-in-place') ? this.element : this.get('liquidTargetName');
+  liquidTarget: computed('liquidTargetName', 'render-inline', function() {
+    return this.get('render-inline') ? this.element : this.get('liquidTargetName');
   }),
 
   didInsertElement() {
@@ -28,9 +28,7 @@ export default Ember.Component.extend({
   },
 
   willDestroyElement() {
-    run.schedule('render', () => {
-      this.get('liquidTargetService').removeRange(this._target, this._id);
-    });
+    this.get('liquidTargetService').removeRange(this._target, this._id);
   },
 
   liquidTargetDidChange: observer('liquidTarget', function() {

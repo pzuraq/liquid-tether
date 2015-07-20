@@ -5,7 +5,6 @@ import layout from '../templates/components/liquid-tether';
 const { computed, get, observer, run } = Ember;
 
 const { camelize } = Ember.String;
-const { reads } = computed;
 
 export default LiquidWormhole.extend({
   layout: layout,
@@ -39,16 +38,16 @@ export default LiquidWormhole.extend({
   },
 
   tetherDidChange: observer(
-    'classPrefix',
+    'class-prefix',
     'target',
     'attachment',
-    'targetAttachment',
+    'target-attachment',
     'offset',
-    'targetOffset',
-    'targetModifier',
+    'target-offset',
+    'target-modifier',
     'constraints',
     'optimizations',
-    'render-in-place',
+    'render-inline',
     'liquidTargetName',
     function() {
       this.removeTether(this._tether);
@@ -58,7 +57,7 @@ export default LiquidWormhole.extend({
   ),
 
   addTether() {
-    if (!this.get('render-in-place') && get(this, '_tetherTarget')) {
+    if (!this.get('render-inline') && get(this, '_tetherTarget')) {
       this._tether = new Tether(this._tetherOptions());
     }
   },

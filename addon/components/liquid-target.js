@@ -27,7 +27,7 @@ export default Ember.Component.extend({
 
   currentNodes: computed('nodes.lastObject', function() {
     const index = this.get('nodes.length');
-    const { firstNode, lastNode, options } = index ? this.get('nodes.lastObject') : { null, null, options: {} };
+    const { firstNode, lastNode, options } = index ? this.get('nodes.lastObject') : { firstNode: null, lastNode: null, options: {} };
 
     return { firstNode, lastNode, options, index };
   })
