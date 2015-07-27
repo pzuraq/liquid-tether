@@ -1,3 +1,11 @@
-.liquid-target .liquid-child {
+/*.liquid-target .liquid-child {
   overflow: visible;
+}*/
+
+.liquid-tether-element {
+  position: absolute;
+}
+
+.liquid-target-container * {
+  z-index: 9999;
 }

@@ -12,73 +12,100 @@
   Inline
 </button>
 
-{{#if modalDialogStepOne}}
-  {{#liquid-tether to="ui-modal" render-in-place=inline target="document.body" target-modifier="visible" attachment="middle center"}}
-    <div class="modal">
-      This is a modal dialog!
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
+<h1>test</h1>
 
-      {{#test-component}}
+<div style="position: absolute;">
+  {{#if modalDialogStepOne}}
+    {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="middle center"}}
+      <div class="modal">
+        This is a modal dialog!
+
         {{#test-component}}
           {{#test-component}}
-            test
+            {{#test-component}}
+              test
+            {{/test-component}}
           {{/test-component}}
         {{/test-component}}
-      {{/test-component}}
 
-      <button {{action "prevModalDialogStep"}}>
-        Prev
-      </button>
+        <button {{action "prevModalDialogStep"}}>
+          Prev
+        </button>
 
-      <button {{action "nextModalDialogStep"}}>
-        Next
-      </button>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+        <button {{action "nextModalDialogStep"}}>
+          Next
+        </button>
+      </div>
+    {{/liquid-tether}}
+  {{/if}}
 
-{{#if modalDialogStepTwo}}
-  {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="top right" target-attachment="top right"}}
-    <div class="modal modal-2">
-      Another modal dialog!
+  {{#if modalDialogStepTwo}}
+    {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="top right" target-attachment="top right"}}
+      <div class="modal modal-2">
+        Another modal dialog!
 
-      <button {{action "prevModalDialogStep"}}>
-        Prev
-      </button>
+        <button {{action "prevModalDialogStep"}}>
+          Prev
+        </button>
 
-      <button {{action "nextModalDialogStep"}}>
-        Next
-      </button>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+        <button {{action "nextModalDialogStep"}}>
+          Next
+        </button>
+      </div>
+    {{/liquid-tether}}
+  {{/if}}
 
-{{#if modalDialogStepThree}}
-  {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="bottom right" target-attachment="bottom right"}}
-    <div class="modal">
-      Almost done!
+  {{#if modalDialogStepThree}}
+    {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="bottom right" target-attachment="bottom right"}}
+      <div class="modal">
+        Almost done!
 
-      <button {{action "prevModalDialogStep"}}>
-        Prev
-      </button>
+        <button {{action "prevModalDialogStep"}}>
+          Prev
+        </button>
 
-      <button {{action "closeModalDialog"}}>
-        Complete!
-      </button>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+        <button {{action "closeModalDialog"}}>
+          Complete!
+        </button>
+      </div>
+    {{/liquid-tether}}
+  {{/if}}
 
-{{#if showPopup}}
-  {{#liquid-tether render-in-place=inline target="#popup-button" attachment="top left" target-attachment="bottom left"}}
-    <div class="modal">
-      Popup
-      {{#test-component}}
+  {{#if showPopup}}
+    {{#liquid-tether target="#popup-button" attachment="top left" target-attachment="bottom left"}}
+      <div class="modal">
+        Popup
         {{#test-component}}
           {{#test-component}}
-            test
+            {{#test-component}}
+              test
+            {{/test-component}}
           {{/test-component}}
         {{/test-component}}
-      {{/test-component}}
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+      </div>
+    {{/liquid-tether}}
+  {{/if}}
+</div>

@@ -7,37 +7,36 @@ const { alias } = computed;
 
 export default Ember.Component.extend({
   to: null,
-  'render-inline': false,
 
-  liquidTargetName: alias('to'),
+  liquidTarget: alias('to'),
   liquidTargetService: service('liquid-target'),
 
-  liquidTarget: computed('liquidTargetName', 'render-inline', function() {
-    return this.get('render-inline') ? this.element : this.get('liquidTargetName');
+  nodes: computed(function() {
+    return this.$().children();
   }),
 
   didInsertElement() {
-    const options = this._wormholeOptions();
-
-    this._target = this.get('liquidTarget');
-    this._firstNode = this.element.firstChild;
-    this._lastNode = this.element.lastChild;
-    this._id = generateGuid();
-
-    this.get('liquidTargetService').appendRange(this._target, this._id, this._firstNode, this._lastNode, options);
+    this.appendNodes();
   },
 
   willDestroyElement() {
-    this.get('liquidTargetService').removeRange(this._target, this._id);
+    this.removeNodes();
   },
 
   liquidTargetDidChange: observer('liquidTarget', function() {
-    const liquidTarget = this.get('liquidTarget');
-    const options = this._wormholeOptions();
+    this.removeNodes();
+    this.appendNodes();
+  }),
 
-    this.get('liquidTargetService').removeRange(this._target, this._id);
-    this.get('liquidTargetService').appendRange(liquidTarget, this._id, this._firstNode, this._lastNode, options);
+  appendNodes() {
+    const nodes = this.get('nodes');
 
-    this._target = liquidTarget;
-  })
+    this._target = this.get('liquidTarget');
+
+    this.get('liquidTargetService').appendRange(this, this._target, nodes);
+  },
+
+  removeNodes() {
+    this.get('liquidTargetService').removeRange(this, this._target);
+  }
 });

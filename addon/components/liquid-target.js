@@ -13,8 +13,9 @@ export default Ember.Component.extend({
 
   init() {
     const name = this.get('name');
-    if (!this.get(`liquidTargetService.nodes.${name}`)) {
-      this.set(`liquidTargetService.nodes.${name}`, Ember.A());
+
+    if (!this.get(`liquidTargetService.targets.${name}`)) {
+      this.set(`liquidTargetService.targets.${name}`, Ember.A());
     }
 
     this._super(...arguments);
@@ -22,13 +23,13 @@ export default Ember.Component.extend({
 
   nodes: computed('liquidTargetService', 'name', function() {
     const name = this.get('name');
-    return this.get(`liquidTargetService.nodes.${name}`);
+    return this.get(`liquidTargetService.targets.${name}`);
   }),
 
   currentNodes: computed('nodes.lastObject', function() {
     const index = this.get('nodes.length');
-    const { firstNode, lastNode, options } = index ? this.get('nodes.lastObject') : { firstNode: null, lastNode: null, options: {} };
+    const { nodes } = index ? this.get('nodes.lastObject') : { null };
 
-    return { firstNode, lastNode, options, index };
+    return { nodes, index };
   })
 });

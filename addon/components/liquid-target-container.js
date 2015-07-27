@@ -7,6 +7,7 @@ const { service } = inject;
 
 export default Ember.Component.extend({
   layout: layout,
+  classNames: ['liquid-target-container'],
 
   liquidTargetService: service('liquid-target')
 });

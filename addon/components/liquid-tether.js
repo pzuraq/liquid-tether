@@ -8,6 +8,9 @@ const { camelize } = Ember.String;
 
 export default LiquidWormhole.extend({
   layout: layout,
+
+  to: 'liquid-tether',
+
   'class-prefix': 'liquid-tether',
   target: null,
   attachment: null,
@@ -17,8 +20,6 @@ export default LiquidWormhole.extend({
   'target-modifier': null,
   constraints: null,
   optimizations: null,
-
-  to: 'liquid-tether',
 
   didInsertElement() {
     this._tetherElement = this.$('.liquid-tether')[0];
@@ -47,11 +48,9 @@ export default LiquidWormhole.extend({
     'target-modifier',
     'constraints',
     'optimizations',
-    'render-inline',
     'liquidTargetName',
     function() {
       this.removeTether(this._tether);
-      this._tetherElement.setAttribute('style', '');
       this.addTether();
     }
   ),
@@ -66,17 +65,6 @@ export default LiquidWormhole.extend({
     if (tether) {
       tether.destroy();
     }
-  },
-
-  _wormholeOptions() {
-    return {
-      disable: () => {
-        this._tether.disable();
-      },
-      enable: () => {
-        this._tether.enable();
-      }
-    };
   },
 
   _tetherTarget: computed('target', function() {
