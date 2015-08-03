@@ -2,34 +2,27 @@ import Ember from 'ember';
 import layout from '../templates/components/liquid-target';
 
 const { computed, inject } = Ember;
-
 const { service } = inject;
 
 export default Ember.Component.extend({
   layout: layout,
   classNames: ['liquid-target'],
 
-  liquidTargetService: service('liquid-target'),
+  liquidTargetService: service('liquidTarget'),
 
-  init() {
-    const name = this.get('name');
-
-    if (!this.get(`liquidTargetService.targets.${name}`)) {
-      this.set(`liquidTargetService.targets.${name}`, Ember.A());
-    }
-
-    this._super(...arguments);
-  },
-
-  nodes: computed('liquidTargetService', 'name', function() {
-    const name = this.get('name');
-    return this.get(`liquidTargetService.targets.${name}`);
+  currentItem: computed('items.lastObject', function() {
+    return this.get('items.lastObject') || {};
   }),
 
-  currentNodes: computed('nodes.lastObject', function() {
-    const index = this.get('nodes.length');
-    const { nodes } = index ? this.get('nodes.lastObject') : { null };
+  cleanup() {
+    if (this.get('items.length') === 0) {
+      this.sendAction('on-cleanup', this.get('target'));
+    }
+  },
 
-    return { nodes, index };
-  })
+  actions: {
+    didAnimateTransition() {
+      this.cleanup();
+    }
+  }
 });

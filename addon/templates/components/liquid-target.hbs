@@ -1,3 +1,3 @@
-{{#liquid-with currentNodes containerless=true class=class as |currentNodes|}}
-  {{liquid-append nodes=currentNodes.nodes}}
-{{/liquid-with}}
+{{#liquid-bind currentItem containerless=true as |currentItem|}}
+  {{liquid-append nodes=currentItem.nodes did-animate-transition="didAnimateTransition"}}
+{{/liquid-bind}}

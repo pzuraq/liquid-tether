@@ -1,0 +1,23 @@
+<div class="green-box">
+  Target
+</div>
+
+{{#liquid-tether
+  to="outer-tether"
+  target=".green-box"
+  attachment="top left"
+  targetAttachment="bottom left"
+  targetModifier="visible"}}
+  <div class="red-box">
+    Outer Tether
+    {{#liquid-tether
+      to="inner-tether"
+      target=".red-box"
+      attachment="top left"
+      targetModifier="visible"}}
+      <div class="blue-box">
+        Inner Tether
+      </div>
+    {{/liquid-tether}}
+  </div>
+{{/liquid-tether}}

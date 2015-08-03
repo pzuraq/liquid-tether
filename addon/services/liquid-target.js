@@ -1,26 +1,45 @@
 import Ember from 'ember';
 
+const { computed } = Ember;
+
 export default Ember.Service.extend({
-  defaultTargets: Ember.A(),
+  targets: computed(() => Ember.A()),
 
-  targets: {},
+  appendItem(targetName, item) {
+    const targets = this.get('targets');
+    let target;
 
-  appendRange(id, target, nodes) {
-    this.get(`targets.${target}`).pushObject({ id, nodes });
-  },
+    if (!(target = targets.findBy('name', targetName))) {
+      Ember.run(function() {
+        target = {
+          name: targetName,
+          items: Ember.A(),
+          class: `${targetName}-liquid-target`
+        };
 
-  removeRange(id, target) {
-    const targetNodes = this.get(`targets.${target}`);
-    const nodesToRemove = targetNodes.findBy('id', id);
-
-    targetNodes.removeObject(nodesToRemove);
-  },
-
-  addDefaultTarget(target) {
-    const defaultTargets = this.get('defaultTargets');
-
-    if (!defaultTargets.contains(target)) {
-      defaultTargets.pushObject(target);
+        targets.pushObject(target);
+      });
     }
+
+    target.items.pushObject(item);
+  },
+
+  removeItem(targetName, item) {
+    const targets = this.get('targets');
+    const target = targets.findBy('name', targetName);
+
+    target.items.removeObject(item);
+  },
+
+  removeTarget(target) {
+    const targets = this.get('targets');
+
+    if (targets) {
+      this.get('targets').removeObject(target);
+    }
+  },
+
+  addDefaultTarget() {
+    console.log('addDefaultTarget has been deprecated');
   }
 });

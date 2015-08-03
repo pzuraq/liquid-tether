@@ -1,111 +1,20 @@
-{{liquid-target name="ui-modal" class="ui-modal"}}
+<nav class="main-nav hidden-xs">
+  <h1>Liquid Tether</h1>
+  {{link-to 'Introduction' 'index'}}
 
-<button {{action "openModalDialog"}}>
-  Open Modal Dialog
-</button>
+  {{link-to 'The Basics' 'basics'}}
+  {{link-to 'Parameters' 'basics' (query-params a="parameters") class="subnav"}}
+  {{link-to 'Transitions' 'basics' (query-params a="transitions") class="subnav"}}
+  {{link-to 'DOM Structure and Styles' 'basics' (query-params a="dom-structure-and-styles") class="subnav"}}
 
-<button id="popup-button" {{action "openPopup"}}>
-  Popup
-</button>
+  {{link-to 'Examples' 'examples'}}
+  {{link-to 'Hello World' 'examples' (query-params a="hello-world") class="subnav"}}
+  {{link-to 'Animation With Context' 'examples' (query-params a="animation-with-context") class="subnav"}}
+  {{link-to 'Routed Tethers' 'examples' (query-params a="routed-tethers") class="subnav"}}
+  {{link-to 'Moving Modals' 'examples' (query-params a="moving-modals") class="subnav"}}
+  {{link-to 'Liquid Wormhole' 'examples' (query-params a="liquid-wormhole") class="subnav"}}
+</nav>
 
-<button id="popup-button" {{action "toggleInline"}}>
-  Inline
-</button>
-
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-<h1>test</h1>
-
-<div style="position: absolute;">
-  {{#if modalDialogStepOne}}
-    {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="middle center"}}
-      <div class="modal">
-        This is a modal dialog!
-
-        {{#test-component}}
-          {{#test-component}}
-            {{#test-component}}
-              test
-            {{/test-component}}
-          {{/test-component}}
-        {{/test-component}}
-
-        <button {{action "prevModalDialogStep"}}>
-          Prev
-        </button>
-
-        <button {{action "nextModalDialogStep"}}>
-          Next
-        </button>
-      </div>
-    {{/liquid-tether}}
-  {{/if}}
-
-  {{#if modalDialogStepTwo}}
-    {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="top right" target-attachment="top right"}}
-      <div class="modal modal-2">
-        Another modal dialog!
-
-        <button {{action "prevModalDialogStep"}}>
-          Prev
-        </button>
-
-        <button {{action "nextModalDialogStep"}}>
-          Next
-        </button>
-      </div>
-    {{/liquid-tether}}
-  {{/if}}
-
-  {{#if modalDialogStepThree}}
-    {{#liquid-tether to="ui-modal" target="document.body" target-modifier="visible" attachment="bottom right" target-attachment="bottom right"}}
-      <div class="modal">
-        Almost done!
-
-        <button {{action "prevModalDialogStep"}}>
-          Prev
-        </button>
-
-        <button {{action "closeModalDialog"}}>
-          Complete!
-        </button>
-      </div>
-    {{/liquid-tether}}
-  {{/if}}
-
-  {{#if showPopup}}
-    {{#liquid-tether target="#popup-button" attachment="top left" target-attachment="bottom left"}}
-      <div class="modal">
-        Popup
-        {{#test-component}}
-          {{#test-component}}
-            {{#test-component}}
-              test
-            {{/test-component}}
-          {{/test-component}}
-        {{/test-component}}
-      </div>
-    {{/liquid-tether}}
-  {{/if}}
+<div class="main-container">
+  {{outlet}}
 </div>

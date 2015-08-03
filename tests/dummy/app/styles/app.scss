@@ -1,0 +1,129 @@
+@import 'bootstrap';
+@import 'modals';
+@import 'flyouts';
+@import 'popovers';
+@import 'tabs';
+
+a {
+  transition: color 0.25s;
+  -webkit-transition: color 0.25s;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  background-color: $clouds;
+  font-weight: 100;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: $midnight-blue;
+  border-right: solid 10px tint($midnight-blue, 10%);
+
+  h1 {
+    font-size: 24px;
+    color: $clouds;
+    padding: 0 20px;
+    font-weight: 100;
+  }
+
+  a {
+    padding: 10px 20px;
+
+    color: $clouds;
+    display: block;
+    font-weight: 100;
+
+    &:hover, &.active {
+      background-color: tint($midnight-blue, 5%);
+    }
+
+    &.subnav {
+      font-size: 0.8em;
+      padding-left: 40px;
+    }
+  }
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 100;
+  margin-top: 0;
+}
+
+pre, pre.hljs {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.popover {
+  display: block;
+  position: relative;
+}
+
+.main-container {
+  padding: 0 20px 100px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 270px;
+  }
+}
+
+.modal-target .liquid-tether-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.example-button-container {
+  margin: 40px;
+
+  &.frontpage {
+    #hello-world {
+      margin: 60px 0;
+    }
+  }
+}
+
+.tab-content {
+  max-height: 700px;
+  overflow: scroll;
+}
+
+#hello-world-popover {
+  max-width: 430px;
+}
+
+.fixed-to-bottom {
+  position: fixed;
+  bottom: 0;
+  padding: 20px 24px 20px 0;
+}
+
+.red-box, .blue-box, .green-box {
+  padding: 20px;
+  color: white;
+}
+
+.red-box {
+  background-color: red;
+}
+
+.blue-box {
+  background-color: blue;
+}
+
+.green-box {
+  background-color: green;
+}

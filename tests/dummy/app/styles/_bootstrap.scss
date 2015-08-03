@@ -1,0 +1,127 @@
+// Add percentage of white to a color
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
+
+@function fade($color, $percent){
+  @return fade-out($color, 1 - ($percent / 100%));
+}
+
+$brand-secondary: #d35400;
+
+// Flat UI Variables
+@import "flat-ui/variables";
+
+$border-radius-base:        2px;
+$border-radius-large:       2px;
+$border-radius-small:       2px;
+
+$link-color:                $pumpkin;
+$link-hover-color:          $carrot;
+
+// Main Bootstrap
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+@import "bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+
+// Components w/ JavaScript
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+
+// Flat-UI-Icons
+@import "flat-ui/modules/glyphicons";
+
+// Utility mixins for greater good
+@import "flat-ui/mixins";
+
+@import "flat-ui/modules/scaffolding";
+
+// Modules
+@import "flat-ui/modules/type";
+@import "flat-ui/modules/code";
+@import "flat-ui/modules/thumbnails";
+@import "flat-ui/modules/buttons";
+@import "flat-ui/modules/button-groups";
+@import "flat-ui/modules/caret";
+@import "flat-ui/modules/select";
+@import "flat-ui/modules/forms";
+@import "flat-ui/modules/input-icons";
+@import "flat-ui/modules/input-groups";
+@import "flat-ui/modules/checkbox-and-radio";
+@import "flat-ui/modules/navbar";
+@import "flat-ui/modules/tagsinput";
+@import "flat-ui/modules/typeahead";
+@import "flat-ui/modules/progress-bars";
+@import "flat-ui/modules/slider";
+@import "flat-ui/modules/pager";
+@import "flat-ui/modules/pagination";
+@import "flat-ui/modules/tooltip";
+@import "flat-ui/modules/dropdown";
+@import "flat-ui/modules/switch";
+@import "flat-ui/modules/share";
+
+// Examples
+@import "flat-ui/modules/palette";
+@import "flat-ui/modules/tile";
+@import "flat-ui/modules/todo";
+@import "flat-ui/modules/video";
+@import "flat-ui/modules/login";
+
+@import "flat-ui/modules/footer";
+
+// Spaces
+@import "flat-ui/spaces";
+
+.btn-primary:active:focus {
+  background: $btn-primary-active-bg;
+  border-color: $btn-primary-active-bg;
+}

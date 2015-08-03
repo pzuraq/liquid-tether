@@ -5,5 +5,9 @@ export default Ember.Component.extend({
     const nodes = this.get('nodes');
 
     this.$().append(nodes);
+  },
+
+  didAnimateTransition() {
+    this.sendAction('did-animate-transition');
   }
 });

@@ -6,6 +6,16 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('basics');
+  this.route('examples', function() {
+    this.route('step-one');
+    this.route('step-two');
+  });
+  this.route('scenarios', function() {
+    this.route('multiple-tethers');
+    this.route('component-in-tether');
+    this.route('nested-tethers');
+  });
 });
 
 export default Router;

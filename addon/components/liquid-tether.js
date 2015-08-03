@@ -11,13 +11,13 @@ export default LiquidWormhole.extend({
 
   to: 'liquid-tether',
 
-  'class-prefix': 'liquid-tether',
+  classPrefix: 'liquid-tether',
   target: null,
   attachment: null,
-  'target-attachment': null,
+  targetAttachment: null,
   offset: null,
-  'target-offset': null,
-  'target-modifier': null,
+  targetOffset: null,
+  targetModifier: null,
   constraints: null,
   optimizations: null,
 
@@ -27,6 +27,12 @@ export default LiquidWormhole.extend({
     this._super();
 
     this.addTether();
+
+    run.schedule('render', () => {
+      if (this._tether) {
+        this._tether.position();        
+      }
+    });
   },
 
   willDestroyElement() {
@@ -42,13 +48,13 @@ export default LiquidWormhole.extend({
     'class-prefix',
     'target',
     'attachment',
-    'target-attachment',
+    'targetAttachment',
     'offset',
-    'target-offset',
-    'target-modifier',
+    'targetOffset',
+    'targetModifier',
     'constraints',
     'optimizations',
-    'liquidTargetName',
+    'liquidTarget',
     function() {
       this.removeTether(this._tether);
       this.addTether();
@@ -81,13 +87,14 @@ export default LiquidWormhole.extend({
     let options = {
       element: this._tetherElement,
       target: get(this, '_tetherTarget'),
+      moveRoot: false
     };
-    [ 'class-prefix',
+    [ 'classPrefix',
       'attachment',
-      'target-attachment',
+      'targetAttachment',
       'offset',
-      'target-offset',
-      'target-modifier',
+      'targetOffset',
+      'targetModifier',
       'constraints',
       'optimizations'
     ].forEach((k) => {

@@ -1,0 +1,33 @@
+<!-- examples.hbs -->
+
+<div class="example-button-container">
+  {{#link-to "examples.modal"}}Open Routed Modal{{/link-to}}
+</div>
+
+<!-- modal.hbs -->
+
+{{#liquid-tether
+  to="modal-dialog"
+  target="document.body"
+  targetModifier="visible"
+  attachment="middle center"
+  tetherClass="modal-dialog"
+  overlayClass="modal-backdrop"}}
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Modal Header</h4>
+    </div>
+
+    <div class="modal-body">
+      <p>
+        Here's a modal! It's located in it's own route, so you can separate
+        context for more complicated modals and make them routeable.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      {{#link-to "examples"}}Cancel{{/link-to}}
+      {{#link-to "examples"}}Ok{{/link-to}}
+    </div>
+  </div>
+{{/liquid-tether}}
