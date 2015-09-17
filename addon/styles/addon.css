@@ -6,3 +6,11 @@
   position: relative;
   z-index: 9999;
 }
+
+.liquid-target {
+  position: relative;
+}
+
+.liquid-wormhole-container {
+  display: none;
+}

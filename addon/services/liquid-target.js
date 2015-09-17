@@ -14,7 +14,8 @@ export default Ember.Service.extend({
         target = {
           name: targetName,
           items: Ember.A(),
-          class: `${targetName}-liquid-target`
+          class: `${targetName}-liquid-target`,
+          contextClass: item.get('targetClass')
         };
 
         targets.pushObject(target);

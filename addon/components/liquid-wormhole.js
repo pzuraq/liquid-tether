@@ -7,6 +7,7 @@ const { alias } = computed;
 
 export default Ember.Component.extend({
   to: null,
+  classNames: ['liquid-wormhole-container'],
 
   liquidTarget: alias('to'),
   liquidTargetService: service('liquid-target'),
@@ -20,13 +21,17 @@ export default Ember.Component.extend({
     this.appendToTarget();
   }),
 
-  appendToTarget: on('didInsertElement', function() {
+  didInsertElement() {
     this._target = this.get('liquidTarget');
 
     this.get('liquidTargetService').appendItem(this._target, this);
-  }),
 
-  removeFromTarget: on('willDestroyElement', function() {
+    this._super.apply(this, arguments);
+  },
+
+  willDestroyElement() {
     this.get('liquidTargetService').removeItem(this._target, this);
-  })
+
+    this._super.apply(this, arguments);
+  }
 });

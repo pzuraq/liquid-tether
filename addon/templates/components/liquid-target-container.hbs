@@ -1,8 +1,16 @@
-{{#each liquidTargetService.targets as |target|}}
-  {{liquid-target
+{{#each liquidTargetService.targets as |target index|}}
+  {{#liquid-target
     target=target
     name=target.name
     items=target.items
     class=target.class
-    on-cleanup="removeTarget"}}
+    index=index
+    contextClass=target.contextClass
+    on-cleanup="removeTarget"
+
+    as |target|}}
+    {{#liquid-versions value=target.currentItem notify=target renderWhenFalse=true as |currentItem|}}
+      {{liquid-append nodes=currentItem.nodes}}
+    {{/liquid-versions}}
+  {{/liquid-target}}
 {{/each}}

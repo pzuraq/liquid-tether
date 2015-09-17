@@ -24,19 +24,19 @@ export default LiquidWormhole.extend({
   didInsertElement() {
     this._tetherElement = this.$('.liquid-tether')[0];
 
-    this._super();
+    this._super.apply(this, arguments);
 
     this.addTether();
 
     run.schedule('render', () => {
       if (this._tether) {
-        this._tether.position();        
+        this._tether.position();
       }
     });
   },
 
   willDestroyElement() {
-    this._super();
+    this._super.apply(this, arguments);
 
     var tether = this._tether;
     run.schedule('render', () => {
