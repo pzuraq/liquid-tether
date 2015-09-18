@@ -12,5 +12,5 @@
 }
 
 .liquid-wormhole-container {
-  display: none;
+  position: absolute;
 }
