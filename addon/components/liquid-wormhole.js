@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { computed, inject, observer, on } = Ember;
+const { computed, inject, observer } = Ember;
 
 const { service } = inject;
 const { alias } = computed;
