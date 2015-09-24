@@ -1,6 +1,6 @@
 import explode from './explode';
 
-export default function target(tetherUse, overlayUse) {
+export default function tether(tetherUse, overlayUse) {
   const transitions = [];
   transitions.push({
     pick: '.liquid-tether > :first-child',

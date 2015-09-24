@@ -1,0 +1,34 @@
+<ul class="nav nav-tabs nav-append-content">
+  {{#if templateEl}}
+    {{#ui-tab tagName="li" target=templateEl currentTab=currentTab on-click="changeTab"}}
+      <a>
+        Template
+      </a>
+    {{/ui-tab}}
+  {{/if}}
+  {{#if jsEl}}
+    {{#ui-tab tagName="li" target=jsEl currentTab=currentTab on-click="changeTab"}}
+      <a>
+        JS
+      </a>
+    {{/ui-tab}}
+  {{/if}}
+  {{#if stylesEl}}
+    {{#ui-tab tagName="li" target=stylesEl currentTab=currentTab on-click="changeTab"}}
+      <a>
+        Styles
+      </a>
+    {{/ui-tab}}
+  {{/if}}
+  {{#if transitionsEl}}
+    {{#ui-tab tagName="li" target=transitionsEl currentTab=currentTab on-click="changeTab"}}
+      <a>
+        Transitions
+      </a>
+    {{/ui-tab}}
+  {{/if}}
+</ul>
+
+<div class="tab-content">
+  {{yield}}
+</div>

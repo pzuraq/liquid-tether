@@ -1,11 +1,16 @@
-/*.liquid-target .liquid-child {
-  overflow: visible;
-}*/
-
 .liquid-tether-element {
   position: absolute;
 }
 
-.liquid-target-container * {
+.liquid-target-container {
+  position: relative;
   z-index: 9999;
+}
+
+.liquid-target {
+  position: relative;
+}
+
+.liquid-wormhole-container {
+  display: none;
 }

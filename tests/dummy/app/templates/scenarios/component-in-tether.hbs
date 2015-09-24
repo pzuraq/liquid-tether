@@ -1,0 +1,9 @@
+<button {{action "toggleModal"}}>Toggle</button>
+
+{{#unless hideModal}}
+  {{#liquid-tether to="component-in-tether" target="document.body" attachment="middle center"}}
+    {{#test-component}}
+      testing
+    {{/test-component}}
+  {{/liquid-tether}}
+{{/unless}}

@@ -1,32 +1,83 @@
+import { target } from 'liquid-tether';
+
 const options = {
-  duration: 1000,
-  easing: 'easeInOutQuart'
+  duration: 1500,
+  easing: 'easeInOutQuint'
 };
 
 export default function() {
   this.transition(
-    this.hasClass('liquid-tether'),
-    this.use('tether', ['fade-up', options])
+    target('hello-world'),
+    this.use('tether', ['to-up', options])
+  );
+
+  /* Modal Examples */
+
+  this.transition(
+    target('modal-dialog'),
+    this.toValue(({ index: newIndex }, { index: oldIndex }) => newIndex > oldIndex),
+    this.use('tether', ['to-left', options]),
+    this.reverse('tether', ['to-right', options])
   );
 
   this.transition(
-    this.hasClass('ui-modal'),
-    this.toValue((toValue) => {
-      return toValue.index === 0;
-    }),
-    this.use('tether', ['to-left', options], ['fade', options]),
-    this.reverse('tether', ['to-right', options], ['fade', options]),
-    this.debug()
+    target('modal-dialog'),
+    this.toValue(({ index }) => index === 1),
+    this.use('tether', 'fade', 'fade')
   );
 
   this.transition(
-    this.hasClass('ui-modal'),
-    this.toValue((toValue, fromValue) => {
-      return toValue.index > fromValue.index;
-    }),
+    target('modal-dialog'),
+    this.toValue(({ index }) => !index),
+    this.use('tether', 'fade', 'fade')
+  );
+
+  /* Flyto Example */
+
+  this.transition(
+    target('flyto-dialog'),
+    this.toValue(({ index }) => !index),
+    this.use('tether', ['to-left', options], 'fade')
+  );
+
+  this.transition(
+    target('flyto-dialog'),
+    this.toValue(({ index: newIndex }, { index: oldIndex }) => newIndex > oldIndex),
     this.use('tether', ['fly-to', options]),
     this.reverse('tether', ['fly-to', options])
   );
 
+  this.transition(
+    target('flyto-dialog'),
+    this.toValue(({ index }) => index === 1),
+    this.use('tether', ['to-right', options], 'fade')
+  );
 
+  /* Flyout Example */
+
+  this.transition(
+    target('flyout'),
+    this.toValue(({ index }) => index === 1),
+    this.use('explode', {
+      pick: '.flyout',
+      use: ['to-left', options]
+    }, {
+      pick: '.modal-backdrop',
+      use: 'fade'
+    }),
+    this.reverse('explode', {
+      pick: '.flyout',
+      use: ['to-right', options]
+    }, {
+      pick: '.modal-backdrop',
+      use: 'fade'
+    })
+  );
+
+  /* Scenarios */
+
+  this.transition(
+    target('component-in-tether'),
+    this.use('tether', ['fade', options])
+  );
 }

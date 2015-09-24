@@ -1,0 +1,19 @@
+<button {{action 'toggleHello'}} id="hello-world" class="btn btn-primary btn-embossed">
+  Hello, World!
+</button>
+
+{{#if showHello}}
+  {{#liquid-tether
+    to="hello-world"
+    target="#hello-world"
+    attachment="middle left"
+    target-attachment="middle right"
+  }}
+    <div id="hello-world-popover" class="popover right">
+      <div class="arrow"></div>
+      <div class="popover-title">
+        Hello!
+      </div>
+    </div>
+  {{/liquid-tether}}
+{{/if}}

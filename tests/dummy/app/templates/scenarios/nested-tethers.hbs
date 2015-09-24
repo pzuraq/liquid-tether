@@ -1,0 +1,26 @@
+<div class="green-box">
+  Target
+</div>
+
+{{#liquid-tether
+  to="outer-tether"
+  target=".green-box"
+  attachment="top left"
+  targetAttachment="bottom left"}}
+  <div class="red-box">
+    Outer Tether
+
+    <button {{action "showInnerTether"}}>Show</button>
+
+    {{#if showingInner}}
+      {{#liquid-tether
+        to="inner-tether"
+        target=".red-box"
+        attachment="top left"}}
+        <div class="blue-box">
+          Inner Tether
+        </div>
+      {{/liquid-tether}}
+    {{/if}}
+  </div>
+{{/liquid-tether}}

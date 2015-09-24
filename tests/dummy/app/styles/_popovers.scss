@@ -1,0 +1,82 @@
+//
+// Popover
+// --------------------------------------------------
+
+.popover {
+  background-color: white;
+  border: none;
+  border-left: solid 1px mix($brand-primary, white, 13%);
+  border-right: solid 1px mix($brand-primary, white, 13%);
+  padding: 0;
+  border-radius: 3px;
+  @include box-shadow(0px 2px rgba(0,0,0,0.15));
+
+  .arrow {
+    width: 18px;
+    height: 18px;
+    transform: rotate(45deg);
+    background-color: mix($brand-primary, white, 1%);
+  }
+
+  &.right .arrow {
+    border: none;
+    left: -9px;
+    margin-top: -9px;
+    @include box-shadow(2px 2px rgba(0,0,0,0.15));
+  }
+  &.left .arrow {
+    border: none;
+    right: -9px;
+    margin-top: -9px;
+    @include box-shadow(2px 2px rgba(0,0,0,0.15));
+  }
+  &.bottom .arrow {
+    border: none;
+    margin-right: -9px;
+    top: -9px;
+    @include box-shadow(2px 2px rgba(0,0,0,0.15));
+  }
+  &.top .arrow {
+    border: none;
+    bottom: -9px;
+    margin-left: -9px;
+    @include box-shadow(2px 2px rgba(0,0,0,0.15));
+  }
+  .arrow {
+    border-width: 9px;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// Popover Title
+.popover-title {
+  position: relative;
+  background-color: mix($brand-primary, white, 1%);
+  color: $text-color;
+  font-size: $component-font-size-base;
+  line-height: 1.5;
+  font-weight: 100;
+  font-size: 1.2em;
+  padding: 10px 20px 11px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+// Popover Content
+.popover-content {
+  font-weight: 100;
+  position: relative;
+  background-color: mix($brand-primary, white, 1%);
+  padding: 9px 20px 9px;
+
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  p {
+    font-size: ceil($component-font-size-base * 0.933); // ~14px
+    line-height: 1.286; // 18px
+  }
+}

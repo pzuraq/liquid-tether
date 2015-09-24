@@ -11,83 +11,85 @@ export default LiquidWormhole.extend({
 
   to: 'liquid-tether',
 
-  'class-prefix': 'liquid-tether',
+  classPrefix: 'liquid-tether',
   target: null,
   attachment: null,
-  'target-attachment': null,
+  targetAttachment: null,
   offset: null,
-  'target-offset': null,
-  'target-modifier': null,
+  targetOffset: null,
+  targetModifier: null,
   constraints: null,
   optimizations: null,
 
   didInsertElement() {
     this._tetherElement = this.$('.liquid-tether')[0];
 
-    this._super();
+    this._super.apply(this, arguments);
+  },
 
+  didAppendNodes() {
     this.addTether();
   },
 
   willDestroyElement() {
-    this._super();
+    this._super.apply(this, arguments);
 
-    var tether = this._tether;
     run.schedule('render', () => {
-      this.removeTether(tether);
+      this.removeTether();
     });
+  },
+
+  addTether() {
+    if (get(this, '_tetherTarget')) {
+      this._tether = new Tether(this._tetherOptions());
+    }
+  },
+
+  removeTether() {
+    if (this._tether) {
+      this._tether.destroy();
+    }
   },
 
   tetherDidChange: observer(
     'class-prefix',
     'target',
     'attachment',
-    'target-attachment',
+    'targetAttachment',
     'offset',
-    'target-offset',
-    'target-modifier',
+    'targetOffset',
+    'targetModifier',
     'constraints',
     'optimizations',
-    'liquidTargetName',
+    'liquidTarget',
     function() {
       this.removeTether(this._tether);
       this.addTether();
     }
   ),
 
-  addTether() {
-    if (!this.get('render-inline') && get(this, '_tetherTarget')) {
-      this._tether = new Tether(this._tetherOptions());
-    }
-  },
-
-  removeTether(tether) {
-    if (tether) {
-      tether.destroy();
-    }
-  },
-
   _tetherTarget: computed('target', function() {
-    let t = get(this, 'target');
-    if (t && t.element) {
-      t = t.element;
-    } else if (t === 'document.body') {
-      t = document.body;
+    let target = get(this, 'target');
+    if (target && target.element) {
+      target = target.element;
+    } else if (target === 'document.body') {
+      target = document.body;
     }
-    return t;
+    return target;
   }),
 
   _tetherOptions() {
     let options = {
       element: this._tetherElement,
       target: get(this, '_tetherTarget'),
+      moveRoot: false
     };
-    [ 'class-prefix',
+    [ 'classPrefix',
       'attachment',
-      'target-attachment',
+      'targetAttachment',
       'offset',
-      'target-offset',
-      'target-modifier',
+      'targetOffset',
+      'targetModifier',
       'constraints',
       'optimizations'
     ].forEach((k) => {

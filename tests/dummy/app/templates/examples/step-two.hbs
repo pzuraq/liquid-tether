@@ -1,0 +1,26 @@
+{{#liquid-tether
+  to="modal-dialog"
+  index=2
+  target="document.body"
+  targetModifier="visible"
+  attachment="middle center"
+  tetherClass="modal-dialog"
+  overlayClass="modal-backdrop"}}
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Modal Header</h4>
+    </div>
+
+    <div class="modal-body">
+      <p>
+        Here's a modal! It's located in it's own route, so you can separate
+        context for more complicated modals and make them routeable.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      {{#link-to "examples.step-one" class="btn btn-default btn-embossed" activeClass=null}}Prev{{/link-to}}
+      {{#link-to "examples" class="btn btn-primary btn-embossed" activeClass=null}}Ok{{/link-to}}
+    </div>
+  </div>
+{{/liquid-tether}}
