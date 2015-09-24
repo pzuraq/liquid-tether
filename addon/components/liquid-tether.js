@@ -25,23 +25,30 @@ export default LiquidWormhole.extend({
     this._tetherElement = this.$('.liquid-tether')[0];
 
     this._super.apply(this, arguments);
+  },
 
+  didAppendNodes() {
     this.addTether();
-
-    run.schedule('render', () => {
-      if (this._tether) {
-        this._tether.position();
-      }
-    });
   },
 
   willDestroyElement() {
     this._super.apply(this, arguments);
 
-    var tether = this._tether;
     run.schedule('render', () => {
-      this.removeTether(tether);
+      this.removeTether();
     });
+  },
+
+  addTether() {
+    if (get(this, '_tetherTarget')) {
+      this._tether = new Tether(this._tetherOptions());
+    }
+  },
+
+  removeTether() {
+    if (this._tether) {
+      this._tether.destroy();
+    }
   },
 
   tetherDidChange: observer(
@@ -61,26 +68,14 @@ export default LiquidWormhole.extend({
     }
   ),
 
-  addTether() {
-    if (!this.get('render-inline') && get(this, '_tetherTarget')) {
-      this._tether = new Tether(this._tetherOptions());
-    }
-  },
-
-  removeTether(tether) {
-    if (tether) {
-      tether.destroy();
-    }
-  },
-
   _tetherTarget: computed('target', function() {
-    let t = get(this, 'target');
-    if (t && t.element) {
-      t = t.element;
-    } else if (t === 'document.body') {
-      t = document.body;
+    let target = get(this, 'target');
+    if (target && target.element) {
+      target = target.element;
+    } else if (target === 'document.body') {
+      target = document.body;
     }
-    return t;
+    return target;
   }),
 
   _tetherOptions() {

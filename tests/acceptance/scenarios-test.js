@@ -31,6 +31,8 @@ test('components are not destroyed until animation has finished', function() {
 test('nested tethers work properly', function() {
   visit('/scenarios/nested-tethers');
 
+  click('button');
+
   andThen(() => {
     const redbox = find('.red-box');
     const greenbox = find('.green-box');

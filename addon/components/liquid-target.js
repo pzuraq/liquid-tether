@@ -33,7 +33,15 @@ export default Ember.Component.extend({
 
   actions: {
     willTransition() {},
-    afterChildInsertion() {},
+
+    afterChildInsertion() {
+      const currentItem = this.get('currentItem');
+
+      if (currentItem.didAppendNodes) {
+        this.get('currentItem').didAppendNodes();
+      }
+    },
+
     afterTransition() {
       const contextClass = this.get('currentItem.targetClass');
 

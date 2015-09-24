@@ -17,8 +17,8 @@ export default Ember.Component.extend({
   }),
 
   liquidTargetDidChange: observer('liquidTarget', function() {
-    this.removeFromTarget();
-    this.appendToTarget();
+    this.get('liquidTargetService').removeItem(this._target, this);
+    this.get('liquidTargetService').appendItem(this._target, this);
   }),
 
   didInsertElement() {
