@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pzuraq/liquid-tether.svg?branch=master)](https://travis-ci.org/pzuraq/liquid-tether)
+
 # Liquid Tether
 
 Liquid Tether combines the ideas behind
