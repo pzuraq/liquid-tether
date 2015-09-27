@@ -8,11 +8,5 @@ export default Ember.Component.extend({
   layout: layout,
   classNames: ['liquid-target-container'],
 
-  liquidTargetService: service('liquid-target'),
-
-  actions: {
-    removeTarget(target) {
-      this.get('liquidTargetService').removeTarget(target);
-    }
-  }
+  liquidTargetService: service('liquid-target')
 });
