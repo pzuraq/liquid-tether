@@ -13,7 +13,9 @@ export default Ember.Component.extend({
   liquidTargetService: service('liquid-target'),
 
   nodes: computed(function() {
-    return this.$().children();
+    if (this.element) {
+      return this.$().children();      
+    }
   }),
 
   liquidTargetDidChange: observer('liquidTarget', function() {
