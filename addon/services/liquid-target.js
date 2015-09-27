@@ -4,6 +4,7 @@ const { computed } = Ember;
 
 export default Ember.Service.extend({
   targets: computed(() => Ember.A()),
+  queue: computed(() => Ember.A()),
 
   appendItem(targetName, item) {
     const targets = this.get('targets');
@@ -15,32 +16,70 @@ export default Ember.Service.extend({
           name: targetName,
           items: Ember.A(),
           class: `${targetName}-liquid-target`,
-          contextClass: item.get('targetClass')
+          contextClass: item.get('targetClass'),
+          firstTime: true
         };
 
         targets.pushObject(target);
       });
     }
 
-    target.items.pushObject(item);
+    this.appendToQueue(target, 'pushObject', item);
   },
 
   removeItem(targetName, item) {
     const targets = this.get('targets');
     const target = targets.findBy('name', targetName);
 
-    target.items.removeObject(item);
+    this.appendToQueue(target, 'removeObject', item);
   },
 
-  removeTarget(target) {
-    const targets = this.get('targets');
+  appendToQueue(target, method, item) {
+    this.get('queue').pushObject({ target, method, item });
 
-    if (targets) {
-      this.get('targets').removeObject(target);
+    if (!this.get('isAnimating')) {
+      this.flushQueue();
     }
   },
 
-  addDefaultTarget() {
-    console.log('addDefaultTarget has been deprecated');
+  flushQueue() {
+    const queue = this.get('queue');
+
+    queue.forEach(({ target, method, item }) => {
+      target.items[method](item);
+    });
+
+    queue.clear();
+  },
+
+  willAnimate() {
+    this.set('isAnimating', true);
+  },
+
+  didAnimate() {
+    if (!this.get('isDestroyed')) {
+      if (this.get('queue.length')) {
+        this.flushQueue();
+      } else {
+        this.cleanTargets();
+      }
+
+      this.set('isAnimating', false);
+    }
+  },
+
+  cleanTargets() {
+    const targets = this.get('targets');
+
+    if (targets) {
+      const targetsToRemove = targets.filter((target) => {
+        const firstTime = target.firstTime;
+        target.firstTime = false;
+
+        return !firstTime && target.items.get('length') === 0;
+      });
+
+      targets.removeObjects(targetsToRemove);
+    }
   }
 });

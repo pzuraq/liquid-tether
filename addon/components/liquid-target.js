@@ -22,17 +22,10 @@ export default Ember.Component.extend({
     return this.get('items.lastObject') || {};
   }),
 
-  cleanup() {
-    const firstTime = this.firstTime;
-    this.firstTime = false;
-
-    if (this.get('items.length') === 0 && !firstTime) {
-      this.sendAction('on-cleanup', this.get('target'));
-    }
-  },
-
   actions: {
-    willTransition() {},
+    willTransition() {
+      this.get('liquidTargetService').willAnimate();
+    },
 
     afterChildInsertion() {
       const currentItem = this.get('currentItem');
@@ -46,7 +39,7 @@ export default Ember.Component.extend({
       const contextClass = this.get('currentItem.targetClass');
 
       this.set('contextClass', contextClass);
-      this.cleanup();
+      this.get('liquidTargetService').didAnimate();
     }
   }
 });
