@@ -53,7 +53,9 @@ export default Ember.Service.extend({
   },
 
   willAnimate() {
-    this.set('isAnimating', true);
+    if (!this.get('isDestroyed')) {
+      this.set('isAnimating', true);
+    }
   },
 
   didAnimate() {
