@@ -3,7 +3,7 @@ import { injectTransitionSpies } from '../helpers/integration';
 
 let app;
 
-module('Acceptance: Demos', {
+module('Acceptance: Scenarios', {
   setup: function() {
     app = startApp();
 
