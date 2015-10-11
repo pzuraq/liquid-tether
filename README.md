@@ -12,8 +12,8 @@ Interactive documentation can be found
 
 ## Ember Compatibility
 
-Liquid Tether has only been tested on Ember 1.13. Testing for newer versions of
-Ember is on the roadmap. Older versions are not currently on the roadmap.
+Liquid Tether is tested on all versions of Ember >= 1.13. Long term support will
+continue for 1.13 and up for as long Ember core support continues.
 
 ## Installation
 
