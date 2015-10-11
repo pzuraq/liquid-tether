@@ -2,6 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/liquid-target';
 
 const { computed, inject } = Ember;
+const { htmlSafe } = Ember.String;
 const { service } = inject;
 
 export default Ember.Component.extend({
@@ -15,7 +16,7 @@ export default Ember.Component.extend({
   liquidTargetService: service('liquidTarget'),
 
   style: computed('index', function() {
-    return `z-index: ${1000000 + this.get('index')}`;
+    return htmlSafe(`z-index: ${1000000 + this.get('index')}`);
   }),
 
   currentItem: computed('items.lastObject', function() {
