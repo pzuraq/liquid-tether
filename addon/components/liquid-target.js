@@ -37,9 +37,12 @@ export default Ember.Component.extend({
     },
 
     afterTransition() {
-      const contextClass = this.get('currentItem.targetClass');
+      if (!this.firstTime) {
+        const contextClass = this.get('currentItem.targetClass');
+        this.set('contextClass', contextClass);
+      }
 
-      this.set('contextClass', contextClass);
+      this.firstTime = false;
       this.get('liquidTargetService').didAnimate();
     }
   }
