@@ -14,7 +14,11 @@
   .arrow {
     width: 18px;
     height: 18px;
+
     transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+
     background-color: mix($brand-primary, white, 1%);
   }
 
