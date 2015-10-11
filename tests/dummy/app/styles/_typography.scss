@@ -1,0 +1,22 @@
+a {
+  transition: color 0.25s;
+  -webkit-transition: color 0.25s;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 100;
+  margin-top: 0;
+}
+
+pre, pre.hljs {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}

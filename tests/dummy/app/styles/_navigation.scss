@@ -1,0 +1,47 @@
+.main-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: $midnight-blue;
+  border-right: solid 10px tint($midnight-blue, 10%);
+
+  h1 {
+    font-size: 24px;
+    color: $clouds;
+    padding: 0 20px;
+    font-weight: 100;
+
+    a {
+      vertical-align: sub;
+      margin-left: 16px;
+
+      svg {
+        fill: white;
+        height: 32px;
+        width: 32px;
+      }
+
+      &:hover svg {
+        fill: darken(white, 10%);
+      }
+    }
+  }
+
+  .nav-item {
+    padding: 10px 20px;
+
+    color: $clouds;
+    display: block;
+    font-weight: 100;
+
+    &:hover, &.active {
+      background-color: tint($midnight-blue, 5%);
+    }
+
+    &.sub-nav-item {
+      font-size: 0.8em;
+      padding-left: 40px;
+    }
+  }
+}

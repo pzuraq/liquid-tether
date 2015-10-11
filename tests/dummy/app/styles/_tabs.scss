@@ -216,6 +216,8 @@ $nav-list-gap:           13px;
   padding: 20px 20px 5px;
   position: relative;
   z-index: 1;
+  max-height: 700px;
+  overflow: scroll;
 
   > div {
     display: none;

@@ -1,18 +1,25 @@
 <nav class="main-nav hidden-xs">
-  <h1>Liquid Tether</h1>
-  {{link-to 'Introduction' 'index'}}
+  <h1>
+    Liquid Tether
 
-  {{link-to 'The Basics' 'basics'}}
-  {{link-to 'Parameters' 'basics' (query-params a="parameters") class="subnav"}}
-  {{link-to 'Transitions' 'basics' (query-params a="transitions") class="subnav"}}
-  {{link-to 'DOM Structure and Styles' 'basics' (query-params a="dom-structure-and-styles") class="subnav"}}
+    <a href="https://github.com/pzuraq/liquid-tether">
+      {{svg-icon.github}}
+    </a>
+  </h1>
+  {{link-to 'Introduction' 'index' class="nav-item"}}
 
-  {{link-to 'Examples' 'examples'}}
-  {{link-to 'Hello World' 'examples' (query-params a="hello-world") class="subnav"}}
-  {{link-to 'Animation With Context' 'examples' (query-params a="animation-with-context") class="subnav"}}
-  {{link-to 'Routed Tethers' 'examples' (query-params a="routed-tethers") class="subnav"}}
-  {{link-to 'Moving Modals' 'examples' (query-params a="moving-modals") class="subnav"}}
-  {{link-to 'Liquid Wormhole' 'examples' (query-params a="liquid-wormhole") class="subnav"}}
+  {{link-to 'The Basics' 'basics' class="nav-item"}}
+  {{link-to 'Parameters' 'basics' (query-params a="parameters") class="nav-item sub-nav-item"}}
+  {{link-to 'Transitions' 'basics' (query-params a="transitions") class="nav-item sub-nav-item"}}
+  {{link-to 'DOM Structure and Styles' 'basics' (query-params a="dom-structure-and-styles") class="nav-item sub-nav-item"}}
+  {{link-to 'Ember Compatibility' 'basics' (query-params a="ember-compatibility") class="nav-item sub-nav-item"}}
+
+  {{link-to 'Examples' 'examples' class="nav-item"}}
+  {{link-to 'Hello World' 'examples' (query-params a="hello-world") class="nav-item sub-nav-item"}}
+  {{link-to 'Animation With Context' 'examples' (query-params a="animation-with-context") class="nav-item sub-nav-item"}}
+  {{link-to 'Routed Tethers' 'examples' (query-params a="routed-tethers") class="nav-item sub-nav-item"}}
+  {{link-to 'Moving Modals' 'examples' (query-params a="moving-modals") class="nav-item sub-nav-item"}}
+  {{link-to 'Liquid Wormhole' 'examples' (query-params a="liquid-wormhole") class="nav-item sub-nav-item"}}
 </nav>
 
 <div class="main-container">
