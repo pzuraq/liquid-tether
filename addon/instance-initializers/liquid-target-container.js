@@ -1,5 +1,6 @@
 export function initialize(instance) {
-  const liquidTargetContainer = instance.container.lookup('component:liquid-target-container');
+  const lookup = instance.lookup || instance.container.lookup;
+  const liquidTargetContainer = lookup('component:liquid-target-container');
 
   liquidTargetContainer.appendTo(instance.rootElement);
 }
