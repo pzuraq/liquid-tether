@@ -103,8 +103,8 @@ export default LiquidWormhole.extend({
 
   actions: {
     clickOverlay() {
-      if (this.get('overlayClick')) {
-        this.sendAction('overlayClick');
+      if (this.get('on-overlay-click')) {
+        this.sendAction('on-overlay-click');
       }
     }
   }
