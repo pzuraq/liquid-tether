@@ -84,3 +84,18 @@ test('routed tethers can determine context', function() {
   andThen(() => ranTetherTransition('fade'));
   andThen(() => ranOverlayTransition('fade'));
 });
+
+test('clickable overlay responds and has correct class', function() {
+  visit('/examples');
+
+  click('#animation-with-context-button');
+  andThen(() => ranTetherTransition('fade'));
+  andThen(() => ranOverlayTransition('fade'));
+  andThen(() => {
+    equal(find('.liquid-tether-overlay.clickable').length, 1, 'clickable overlay exists');
+  });
+
+  click('.liquid-tether-overlay.clickable');
+  andThen(() => ranTetherTransition('fade'));
+  andThen(() => ranOverlayTransition('fade'));
+});
