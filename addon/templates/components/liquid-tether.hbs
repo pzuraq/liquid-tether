@@ -1,4 +1,4 @@
-<div class="liquid-tether-overlay {{overlayClass}}"></div>
+<div class="liquid-tether-overlay {{overlayClass}} {{if on-overlay-click 'clickable'}}" {{action 'clickOverlay'}}></div>
 <div class="liquid-tether {{tetherClass}}">
   {{yield}}
 </div>
