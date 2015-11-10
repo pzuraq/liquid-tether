@@ -99,5 +99,13 @@ export default LiquidWormhole.extend({
       }
     });
     return options;
+  },
+
+  actions: {
+    clickOverlay() {
+      if (this.get('overlayClick')) {
+        this.sendAction('overlayClick');
+      }
+    }
   }
 });
