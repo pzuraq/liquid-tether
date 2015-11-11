@@ -10,6 +10,8 @@ body {
   margin: 0;
   background-color: $clouds;
   font-weight: 100;
+  // don't show scrollbars for certain transitions
+  overflow-x: hidden;
 }
 
 .main-container {
