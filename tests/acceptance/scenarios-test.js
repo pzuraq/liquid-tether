@@ -62,6 +62,16 @@ test('target only shows one tether at a time', function() {
   });
 });
 
+test('container has correct class if targets are present', function() {
+  ok(find('.liquid-target-container.has-targets').length === 0, 'No targets class');
+
+  visit('/scenarios/multiple-tethers');
+
+  andThen(() => {
+    ok(find('.liquid-target-container.has-targets').length > 0, 'Has targets class');
+  });
+});
+
 function withinTolerance(offset1, offset2) {
   return Math.abs(offset1 - offset2) <= 3;
 }
