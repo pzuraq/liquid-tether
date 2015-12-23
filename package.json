@@ -1,6 +1,6 @@
 {
   "name": "liquid-tether",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Modals made easy",
   "directories": {
     "doc": "doc",
@@ -37,7 +37,7 @@
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
     "ember-try": "0.0.6",
-    "liquid-fire": "0.21.2",
+    "liquid-fire": "0.22.1",
     "ui-tabs": "firefly-ui/ui-tabs",
     "phantomjs": "^1.9.17"
   },
