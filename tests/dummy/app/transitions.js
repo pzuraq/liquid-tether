@@ -8,7 +8,7 @@ const options = {
 export default function() {
   this.transition(
     target('hello-world'),
-    this.use('tether', ['to-up', options])
+    this.use('tether', ['fade-left', { duration: 400, easing: [600, 22] }])
   );
 
   /* Modal Examples */

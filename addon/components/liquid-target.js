@@ -20,7 +20,7 @@ export default Ember.Component.extend({
   }),
 
   currentItem: computed('items.lastObject', function() {
-    return this.get('items.lastObject') || {};
+    return this.get('items.lastObject') || { emptyTether: true };
   }),
 
   actions: {
