@@ -47,7 +47,7 @@ test('basic liquid-tether works correctly', function() {
   click('#hello-world-button');
   andThen(() => {
     equal(find('.liquid-target-container .liquid-tether').length, 1, 'it exists');
-    ranTetherTransition('to-up');
+    ranTetherTransition('fade-left');
   });
 });
 

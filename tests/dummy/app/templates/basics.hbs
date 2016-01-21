@@ -80,7 +80,20 @@
 </div>
 
 <p>
-  There are also times when you may want to have knowledge of the context of
+  It also adds the <code>onOpenTether</code> and <code>onCloseTether</code>
+  constraints. These are quick constraints that you can add to give context to
+  <code>use</code> and <code>reverse</code>. For instance, applying the
+  <code>onOpenTether</code> constraint will apply the <code>use</code> animation
+  to the tether as enters the dom, and the <code>reverse</code> animation to the
+  tether as it leaves the dom.
+</p>
+
+<div class="tab-content">
+  {{code-snippet name="open-tether-example.js"}}
+</div>
+
+<p>
+  There are times when you may want to have knowledge of the context of
   your tethers. For instance, if you have a multi-step modal dialogue you may
   want to use different animations for the beginning of the dialogue, going to
   the next step, going to the previous step, and ending the dialogue. You can
