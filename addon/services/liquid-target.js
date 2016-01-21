@@ -52,21 +52,11 @@ export default Ember.Service.extend({
     queue.clear();
   },
 
-  willAnimate() {
-    if (!this.get('isDestroyed')) {
-      this.set('isAnimating', true);
-    }
-  },
-
   didAnimate() {
-    if (!this.get('isDestroyed')) {
-      if (this.get('queue.length')) {
-        this.flushQueue();
-      } else {
-        this.cleanTargets();
-      }
-
-      this.set('isAnimating', false);
+    if (this.get('queue.length')) {
+      this.flushQueue();
+    } else {
+      this.cleanTargets();
     }
   },
 
@@ -78,7 +68,7 @@ export default Ember.Service.extend({
         const firstTime = target.firstTime;
         target.firstTime = false;
 
-        return !firstTime && target.items.get('length') === 0;
+        return !firstTime && !target.isAnimating && target.items.get('length') === 0;
       });
 
       targets.removeObjects(targetsToRemove);
