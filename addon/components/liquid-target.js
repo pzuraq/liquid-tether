@@ -25,7 +25,7 @@ export default Ember.Component.extend({
 
   actions: {
     willTransition() {
-      this.get('liquidTargetService').willAnimate();
+      this.set('target.isAnimating', true);
     },
 
     afterChildInsertion() {
@@ -37,12 +37,13 @@ export default Ember.Component.extend({
     },
 
     afterTransition() {
-      if (!this.firstTime) {
+      if (!this.firstTime && !this.isDestroyed) {
         const contextClass = this.get('currentItem.targetClass');
         this.set('contextClass', contextClass);
       }
 
       this.firstTime = false;
+      this.set('target.isAnimating', false);
       this.get('liquidTargetService').didAnimate();
     }
   }
