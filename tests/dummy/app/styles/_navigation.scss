@@ -1,35 +1,49 @@
+.nav-container {
+  padding: 14px 15px;
+
+  .nav-button.active {
+    opacity: .4;
+  }
+}
+
 .main-nav {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 250px;
   background-color: $midnight-blue;
-  border-right: solid 10px tint($midnight-blue, 10%);
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 3;
+
+  @media screen and (max-width: 768px) {
+    border-bottom: solid 2px shade($midnight-blue, 10%);
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    right: auto;
+    bottom: 0;
+    width: 250px;
+    border-right: solid 10px tint($midnight-blue, 10%);
+  }
 
   h1 {
     font-size: 24px;
     color: $clouds;
-    padding: 0 20px;
     font-weight: 100;
+    margin: 0;
+  }
 
-    a {
-      vertical-align: sub;
-      margin-left: 16px;
+  .nav-menu {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
-      svg {
-        fill: white;
-        height: 32px;
-        width: 32px;
-      }
-
-      &:hover svg {
-        fill: darken(white, 10%);
-      }
+    &.nav-open {
+      display: block;
     }
   }
 
   .nav-item {
-    padding: 10px 20px;
+    padding: 10px 15px;
 
     color: $clouds;
     display: block;
@@ -42,6 +56,20 @@
     &.sub-nav-item {
       font-size: 0.8em;
       padding-left: 40px;
+    }
+  }
+
+  .nav-svg {
+    svg {
+      fill: white;
+      height: 32px;
+      width: 32px;
+      vertical-align: sub;
+      margin-left: 10px;
+    }
+
+    &:hover svg {
+      fill: darken(white, 10%);
     }
   }
 }

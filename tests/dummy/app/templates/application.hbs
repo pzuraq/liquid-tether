@@ -1,26 +1,4 @@
-<nav class="main-nav hidden-xs">
-  <h1>
-    Liquid Tether
-
-    <a href="https://github.com/pzuraq/liquid-tether">
-      {{svg-icon.github}}
-    </a>
-  </h1>
-  {{link-to 'Introduction' 'index' class="nav-item"}}
-
-  {{link-to 'The Basics' 'basics' class="nav-item"}}
-  {{link-to 'Parameters' 'basics' (query-params a="parameters") class="nav-item sub-nav-item"}}
-  {{link-to 'Transitions' 'basics' (query-params a="transitions") class="nav-item sub-nav-item"}}
-  {{link-to 'DOM Structure and Styles' 'basics' (query-params a="dom-structure-and-styles") class="nav-item sub-nav-item"}}
-  {{link-to 'Ember Compatibility' 'basics' (query-params a="ember-compatibility") class="nav-item sub-nav-item"}}
-
-  {{link-to 'Examples' 'examples' class="nav-item"}}
-  {{link-to 'Hello World' 'examples' (query-params a="hello-world") class="nav-item sub-nav-item"}}
-  {{link-to 'Animation With Context' 'examples' (query-params a="animation-with-context") class="nav-item sub-nav-item"}}
-  {{link-to 'Routed Tethers' 'examples' (query-params a="routed-tethers") class="nav-item sub-nav-item"}}
-  {{link-to 'Moving Modals' 'examples' (query-params a="moving-modals") class="nav-item sub-nav-item"}}
-  {{link-to 'Liquid Wormhole' 'examples' (query-params a="liquid-wormhole") class="nav-item sub-nav-item"}}
-</nav>
+{{main-nav}}
 
 <div class="main-container">
   {{outlet}}
