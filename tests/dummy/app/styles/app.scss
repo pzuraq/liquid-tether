@@ -15,10 +15,10 @@ body {
 }
 
 .main-container {
-  padding: 0 20px 100px;
+  padding: 80px 20px 100px;
 
   @media screen and (min-width: 768px) {
-    padding-left: 270px;
+    padding: 0 20px 100px 270px;
   }
 }
 
