@@ -1,27 +1,27 @@
 <ul class="nav nav-tabs nav-append-content">
-  {{#if templateEl}}
-    {{#ui-tab tagName="li" target=templateEl currentTab=currentTab on-click="changeTab"}}
+  {{#if $template}}
+    {{#ui-tab tagName="li" target=$template currentTab=currentTab on-click="changeTab"}}
       <a>
         Template
       </a>
     {{/ui-tab}}
   {{/if}}
-  {{#if jsEl}}
-    {{#ui-tab tagName="li" target=jsEl currentTab=currentTab on-click="changeTab"}}
+  {{#if $js}}
+    {{#ui-tab tagName="li" target=$js currentTab=currentTab on-click="changeTab"}}
       <a>
         JS
       </a>
     {{/ui-tab}}
   {{/if}}
-  {{#if stylesEl}}
-    {{#ui-tab tagName="li" target=stylesEl currentTab=currentTab on-click="changeTab"}}
+  {{#if $styles}}
+    {{#ui-tab tagName="li" target=$styles currentTab=currentTab on-click="changeTab"}}
       <a>
         Styles
       </a>
     {{/ui-tab}}
   {{/if}}
-  {{#if transitionsEl}}
-    {{#ui-tab tagName="li" target=transitionsEl currentTab=currentTab on-click="changeTab"}}
+  {{#if $transitions}}
+    {{#ui-tab tagName="li" target=$transitions currentTab=currentTab on-click="changeTab"}}
       <a>
         Transitions
       </a>
