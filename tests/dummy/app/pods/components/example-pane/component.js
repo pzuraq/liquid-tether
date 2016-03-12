@@ -1,27 +1,31 @@
 import Ember from 'ember';
 
+const { on, run } = Ember;
+
 export default Ember.Component.extend({
-  didInsertElement() {
-    const templateEl = this.$('.template')[0];
-    const jsEl = this.$('.js')[0];
-    const stylesEl = this.$('.styles')[0];
-    const transitionsEl = this.$('.transitions')[0];
-    const currentEl = templateEl || jsEl || stylesEl || transitionsEl;
+  setupTabs: on('didRender', function() {
+    run.schedule('afterRender', () => {
+      const $template = this.$('.template')[0];
+      const $js = this.$('.js')[0];
+      const $styles = this.$('.styles')[0];
+      const $transitions = this.$('.transitions')[0];
+      const $current = $template || $js || $styles || $transitions;
 
 
-    this.set('templateEl', templateEl);
-    this.set('stylesEl', stylesEl);
-    this.set('jsEl', jsEl);
-    this.set('transitionsEl', transitionsEl);
+      this.set('$template', $template);
+      this.set('$styles', $styles);
+      this.set('$js', $js);
+      this.set('$transitions', $transitions);
 
-    this.set('currentTab', currentEl);
+      this.set('currentTab', $current);
 
-    this.$(currentEl).show();
-  },
+      this.$($current).show();
+    });
+  }),
 
   actions: {
-    changeTab(tabEl) {
-      this.set('currentTab', tabEl);
+    changeTab($tab) {
+      this.set('currentTab', $tab);
     }
   }
 });
