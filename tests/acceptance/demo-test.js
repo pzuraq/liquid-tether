@@ -58,13 +58,13 @@ test('tethers can determine context', function() {
   andThen(() => ranTetherTransition('fade'));
   andThen(() => ranOverlayTransition('fade'));
 
-  click(':contains(Next)');
+  click('button:contains(Next)');
   andThen(() => ranTetherTransition('to-left'));
 
-  click(':contains(Back)');
+  click('button:contains(Back)');
   andThen(() => ranTetherTransition('to-right'));
 
-  click(':contains(Cancel)');
+  click('button:contains(Cancel)');
   andThen(() => ranTetherTransition('fade'));
   andThen(() => ranOverlayTransition('fade'));
 });
