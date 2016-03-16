@@ -1,6 +1,6 @@
 {
   "name": "liquid-tether",
-  "version": "0.1.11",
+  "version": "1.0.0",
   "description": "Modals made easy",
   "directories": {
     "doc": "doc",
@@ -51,6 +51,7 @@
   "dependencies": {
     "broccoli-funnel": "^0.2.8",
     "broccoli-merge-trees": "^0.2.3",
+    "liquid-wormhole": "^1.0.0",
     "tether": "pzuraq/tether#move-disable",
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-babel": "^5.1.5"
