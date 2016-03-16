@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import LiquidWormhole from './liquid-wormhole';
+import LiquidWormhole from 'liquid-wormhole/components/liquid-wormhole';
 import layout from '../templates/components/liquid-tether';
 
 const { computed, get, observer, run } = Ember;

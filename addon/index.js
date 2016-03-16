@@ -5,9 +5,9 @@ export function target(name) {
 }
 
 export function onOpenTether() {
-  return new Constraint('newValue', ({ emptyTether }) => !emptyTether);
+  return new Constraint('newValue', ({ emptyTarget }) => !emptyTarget);
 }
 
 export function onCloseTether() {
-  return new Constraint('newValue', ({ emptyTether }) => emptyTether);
+  return new Constraint('newValue', ({ emptyTarget }) => emptyTarget);
 }

@@ -1,1 +1,0 @@
-export { default } from 'liquid-tether/services/liquid-target';
