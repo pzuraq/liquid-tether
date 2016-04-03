@@ -3,7 +3,7 @@ import Ember from 'ember';
 const { on, run } = Ember;
 
 export default Ember.Component.extend({
-  setupTabs: on('didRender', function() {
+  setupTabs: on('didInsertElement', function() {
     run.schedule('afterRender', () => {
       const $template = this.$('.template')[0];
       const $js = this.$('.js')[0];
