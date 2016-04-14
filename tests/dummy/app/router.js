@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('multiple-tethers');
     this.route('component-in-tether');
     this.route('nested-tethers');
+    this.route('multiple-targets-same-animation');
   });
 });
 
