@@ -1,4 +1,4 @@
-import { target } from 'liquid-tether';
+import { target, onOpenTether } from 'liquid-tether';
 
 const options = {
   duration: 1500,
@@ -57,7 +57,7 @@ export default function() {
 
   this.transition(
     target('flyout'),
-    this.toValue(({ index }) => index === 1),
+    onOpenTether(),
     this.use('explode', {
       pick: '.flyout',
       use: ['to-left', options]
@@ -79,5 +79,15 @@ export default function() {
   this.transition(
     target('component-in-tether'),
     this.use('tether', ['fade', options])
+  );
+
+  this.transition(
+    target(/multiple-[1,3]/),
+    this.use('tether', ['fade', options])
+  );
+
+  this.transition(
+    target(/multiple-2/),
+    this.use('tether', ['to-up', options])
   );
 }

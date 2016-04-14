@@ -1,3 +1,4 @@
+/* global ranTetherTransition */
 import { startApp, destroyApp } from '../helpers/app-lifecycle';
 import { injectTransitionSpies } from '../helpers/integration';
 
@@ -71,6 +72,17 @@ test('container has correct class if targets are present', function() {
     ok(find('.liquid-target-container.has-targets').length > 0, 'Has targets class');
   });
 });
+
+test('multiple targets can use the same animation via regex', function() {
+  visit('/scenarios/multiple-targets-same-animation');
+
+  andThen(() => ranTetherTransition('fade'));
+  click('.second-tether');
+  andThen(() => ranTetherTransition('to-up'));
+  click('.third-tether');
+  andThen(() => ranTetherTransition('fade'));
+});
+
 
 function withinTolerance(offset1, offset2) {
   return Math.abs(offset1 - offset2) <= 3;

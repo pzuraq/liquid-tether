@@ -1,0 +1,19 @@
+{{#liquid-tether to="multiple-1" target="document.body" attachment="middle center"}}
+  123
+{{/liquid-tether}}
+
+<button {{action 'showSecondTether'}} class="second-tether">Click Me</button>
+
+{{#if secondTether}}
+  {{#liquid-tether to="multiple-2" target="document.body" attachment="middle center"}}
+    456
+  {{/liquid-tether}}
+{{/if}}
+
+<button {{action 'showThirdTether'}} class="third-tether">Click Me</button>
+
+{{#if secondTether}}
+  {{#liquid-tether to="multiple-3" target="document.body" attachment="middle center"}}
+    456
+  {{/liquid-tether}}
+{{/if}}
