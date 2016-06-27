@@ -10,17 +10,14 @@
   <div class="red-box">
     Outer Tether
 
-    <button {{action "showInnerTether"}}>Show</button>
+    {{#liquid-tether
+      to="inner-tether"
+      target=".red-box"
+      attachment="top left"}}
+      <div class="blue-box">
+        Inner Tether
+      </div>
+    {{/liquid-tether}}
 
-    {{#if showingInner}}
-      {{#liquid-tether
-        to="inner-tether"
-        target=".red-box"
-        attachment="top left"}}
-        <div class="blue-box">
-          Inner Tether
-        </div>
-      {{/liquid-tether}}
-    {{/if}}
   </div>
 {{/liquid-tether}}

@@ -1,0 +1,18 @@
+<div class="green-box">
+  Target
+</div>
+
+{{#liquid-tether
+  to="outer-tether"
+  target=".green-box"
+  attachment="top center"
+  targetAttachment="bottom center"}}
+  <div class="red-box">
+    Outer Tether
+
+    {{link-to 'Test' 'scenarios.nested-routes.test'}}
+
+    {{outlet}}
+
+  </div>
+{{/liquid-tether}}
