@@ -18,11 +18,11 @@
 
   {{#if showHello}}
     {{#liquid-tether
-      to="hello-world"
       target="#hello-world-button"
       attachment="middle left"
       targetAttachment="middle right"
-      class="container123"
+
+      class="hello-world"
       tetherClass="tether123"
       overlayClass="overlay123"
     }}
@@ -68,86 +68,89 @@
 </div>
 
 {{#if showFirstModalDialog}}
+  {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
+
   {{#liquid-tether
-    to="modal-dialog"
+    stack="my-modal"
     index=1
+
     target="document.body"
     targetModifier="visible"
     attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"
-    on-overlay-click="closeModalDialog"}}
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
 
-      <div class="modal-body">
-        <p>Here's a modal!</p>
-      </div>
+    class="modal-content"}}
+    <div class="modal-header">
+      <h4 class="modal-title">Modal Header</h4>
+    </div>
 
-      <div class="modal-footer">
-        <button {{action "closeModalDialog"}} class="btn btn-default btn-embossed">Cancel</button>
-        <button {{action "nextModalDialog"}} class="btn btn-primary btn-embossed">Next</button>
-      </div>
+    <div class="modal-body">
+      <p>Here's a modal!</p>
+    </div>
+
+    <div class="modal-footer">
+      <button {{action "closeModalDialog"}} class="btn btn-default btn-embossed">Cancel</button>
+      <button {{action "nextModalDialog"}} class="btn btn-primary btn-embossed">Next</button>
     </div>
   {{/liquid-tether}}
 {{/if}}
 
 {{#if showSecondModalDialog}}
+  {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
+
   {{#liquid-tether
-    to="modal-dialog"
+    stack="my-modal"
     index=2
+
     target="document.body"
     targetModifier="visible"
     attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Another Modal</h4>
-      </div>
 
-      <div class="modal-body">
-        <p>
-          This modal came in from the right instead of fading. The next modal
-          will also slide in from the right, while the previous modal will slide
-          in from the left, maintaing spacial context.
-        </p>
-      </div>
+    class="modal-content"
+  }}
+    <div class="modal-header">
+      <h4 class="modal-title">Another Modal</h4>
+    </div>
 
-      <div class="modal-footer">
-        <button {{action "prevModalDialog"}} class="btn btn-default btn-embossed">Back</button>
-        <button {{action "nextModalDialog"}} class="btn btn-primary btn-embossed">Next</button>
-      </div>
+    <div class="modal-body">
+      <p>
+        This modal came in from the right instead of fading. The next modal
+        will also slide in from the right, while the previous modal will slide
+        in from the left, maintaing spacial context.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button {{action "prevModalDialog"}} class="btn btn-default btn-embossed">Back</button>
+      <button {{action "nextModalDialog"}} class="btn btn-primary btn-embossed">Next</button>
     </div>
   {{/liquid-tether}}
 {{/if}}
 
 {{#if showThirdModalDialog}}
+  {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
+
   {{#liquid-tether
-    to="modal-dialog"
+    stack="my-modal"
     index=3
+
     target="document.body"
     targetModifier="visible"
     attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Another Modal</h4>
-      </div>
 
-      <div class="modal-body">
-        <p>
-          This is the last modal! It'll fade out when you finish the dialog.
-        </p>
-      </div>
+    class="modal-content"}}
+    <div class="modal-header">
+      <h4 class="modal-title">Another Modal</h4>
+    </div>
 
-      <div class="modal-footer">
-        <button {{action "prevModalDialog"}} class="btn btn-default btn-embossed">Back</button>
-        <button {{action "closeModalDialog"}} class="btn btn-primary btn-embossed">Finish</button>
-      </div>
+    <div class="modal-body">
+      <p>
+        This is the last modal! It'll fade out when you finish the dialog.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button {{action "prevModalDialog"}} class="btn btn-default btn-embossed">Back</button>
+      <button {{action "closeModalDialog"}} class="btn btn-primary btn-embossed">Finish</button>
     </div>
   {{/liquid-tether}}
 {{/if}}
@@ -203,91 +206,90 @@
 </div>
 
 {{#if showFirstFlytoDialog}}
+  {{liquid-wormhole class="modal-backdrop"}}
+
   {{#liquid-tether
-    to="flyto-dialog"
+    stack="flyto"
     index=1
+
     target="document.body"
     targetModifier="visible"
     attachment="top left"
     targetAttachment="top left"
     offset="-20px -20px"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
 
-      <div class="modal-body">
-        <p>Here's a modal!</p>
-      </div>
+    class="modal-content"}}
+    <div class="modal-header">
+      <h4 class="modal-title">Modal Header</h4>
+    </div>
 
-      <div class="modal-footer">
-        <button {{action "closeFlytoDialog"}} class="btn btn-default btn-embossed">Cancel</button>
-        <button {{action "nextFlytoDialog"}} class="btn btn-primary btn-embossed">Next</button>
-      </div>
+    <div class="modal-body">
+      <p>Here's a modal!</p>
+    </div>
+
+    <div class="modal-footer">
+      <button {{action "closeFlytoDialog"}} class="btn btn-default btn-embossed">Cancel</button>
+      <button {{action "nextFlytoDialog"}} class="btn btn-primary btn-embossed">Next</button>
     </div>
   {{/liquid-tether}}
 {{/if}}
 
 {{#if showSecondFlytoDialog}}
   {{#liquid-tether
-    to="flyto-dialog"
+    stack="flyto"
     index=2
+
     target="document.body"
     targetModifier="visible"
     attachment="top right"
     targetAttachment="top right"
     offset="-20px 40px"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Another Modal</h4>
-      </div>
 
-      <div class="modal-body">
-        <p>
-          This modal came in from the right instead of fading. The next modal
-          will also slide in from the right, while the previous modal will slide
-          in from the left, maintaing spacial context.
-        </p>
-      </div>
+    class="modal-content"}}
+    <div class="modal-header">
+      <h4 class="modal-title">Another Modal</h4>
+    </div>
 
-      <div class="modal-footer">
-        <button {{action "prevFlytoDialog"}} class="btn btn-default btn-embossed">Back</button>
-        <button {{action "nextFlytoDialog"}} class="btn btn-primary btn-embossed">Next</button>
-      </div>
+    <div class="modal-body">
+      <p>
+        This modal came in from the right instead of fading. The next modal
+        will also slide in from the right, while the previous modal will slide
+        in from the left, maintaing spacial context.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button {{action "prevFlytoDialog"}} class="btn btn-default btn-embossed">Back</button>
+      <button {{action "nextFlytoDialog"}} class="btn btn-primary btn-embossed">Next</button>
     </div>
   {{/liquid-tether}}
 {{/if}}
 
 {{#if showThirdFlytoDialog}}
   {{#liquid-tether
-    to="flyto-dialog"
+    stack="flyto"
     index=3
+
     target="document.body"
     targetModifier="visible"
     attachment="bottom center"
     targetAttachment="bottom center"
     offset="20px 0"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Another Modal</h4>
-      </div>
 
-      <div class="modal-body">
-        <p>
-          This is the last modal! It'll fade out when you finish the dialog.
-        </p>
-      </div>
+    class="modal-content"}}
+    <div class="modal-header">
+      <h4 class="modal-title">Another Modal</h4>
+    </div>
 
-      <div class="modal-footer">
-        <button {{action "prevFlytoDialog"}} class="btn btn-default btn-embossed">Back</button>
-        <button {{action "closeFlytoDialog"}} class="btn btn-primary btn-embossed">Finish</button>
-      </div>
+    <div class="modal-body">
+      <p>
+        This is the last modal! It'll fade out when you finish the dialog.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button {{action "prevFlytoDialog"}} class="btn btn-default btn-embossed">Back</button>
+      <button {{action "closeFlytoDialog"}} class="btn btn-primary btn-embossed">Finish</button>
     </div>
   {{/liquid-tether}}
 {{/if}}

@@ -1,22 +1,15 @@
 /* global ranTetherTransition, ranOverlayTransition, noTransitionsYet */
-import { startApp, destroyApp } from '../helpers/app-lifecycle';
+import moduleForAcceptance from '../helpers/module-for-acceptance';
 import { injectTransitionSpies } from '../helpers/integration';
 
-let app;
-
-module('Acceptance: Demos', {
-  setup: function() {
-    app = startApp();
+moduleForAcceptance('Acceptance | Demos', {
+  beforeEach() {
 
     // Conceptually, integration tests shouldn't be digging around in
     // the container. But animations are slippery, and it's easier to
     // just spy on them to make sure they're being run than to try to
     // observe their behavior more directly.
-    injectTransitionSpies(app);
-  },
-
-  teardown: function() {
-    destroyApp(app);
+    injectTransitionSpies(this.application);
   }
 });
 

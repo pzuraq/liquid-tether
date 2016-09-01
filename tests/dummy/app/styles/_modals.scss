@@ -32,6 +32,7 @@ $zindex-modal:                1050;
 // Container that the modal scrolls within
 .modal {
   display: block;
+  position: static;
   margin: 0;
   z-index: $zindex-modal-background;
 }
