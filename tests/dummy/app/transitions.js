@@ -1,34 +1,28 @@
-import { target, onOpenTether } from 'liquid-tether';
+import { onOpenTether } from 'liquid-tether';
 
 const options = { duration: 500, easing: [200, 22] };
 
 export default function() {
   this.transition(
     this.hasClass('hello-world'),
-    onOpenTether(),
-    this.use('tether', 'fade-left', { duration: 400, easing: [600, 22] })
+    this.use('fade-left', { duration: 400, easing: [600, 22] })
   );
 
   /* Modal Examples */
 
   this.transition(
-    this.hasClass('modal-content'),
-    this.toValue(({ index }) => !index),
+    this.matchSelector('#my-modal'),
+    this.toValue((toValue, fromValue) => toValue === null || fromValue === null),
     this.use('fade')
   );
 
   this.transition(
-    this.hasClass('modal-content'),
-    this.toValue(({ index: newIndex }, { index: oldIndex }) => newIndex > oldIndex),
+    this.matchSelector('#my-modal'),
+    this.toValue((toValue, fromValue) => toValue && fromValue && toValue.index > fromValue.index),
     this.use('to-left', options),
     this.reverse('to-right', options)
   );
 
-  this.transition(
-    this.hasClass('modal-content'),
-    this.toValue(({ index }) => index === 1),
-    this.use('fade')
-  );
 
   /* Flyto Example */
 
@@ -87,5 +81,10 @@ export default function() {
   this.transition(
     this.hasClass(/multiple-2/),
     this.use('tether', ['to-up', options])
+  );
+
+  this.transition(
+    this.hasClass('orange-box'),
+    this.use('to-left', { duration: 400, easing: [200, 16] })
   );
 }

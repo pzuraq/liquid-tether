@@ -1,31 +1,13 @@
 import Ember from 'ember';
 
-const { computed, observer } = Ember;
+const { computed } = Ember;
 
 export default Ember.Controller.extend({
-  queryParams: ['a'],
-  a: null,
-
-  passedAnchors: Ember.A(),
-
-  // Still terrible. TODO: Think of something better.
-  anchorParamDidChange: observer('a', function() {
-    const id = this.get('a');
-
-    if (id && id !== this.get('passedAnchors.lastObject')) {
-      this.set('locked', true);
-      Ember.run.next(() => {
-        Ember.$('body').scrollTop(Ember.$(`#${id}`).offset().top - 15);
-        this.set('locked', false);
-      });
-    }
-  }),
-
-  updateAnchor() {
-    if (!this.get('locked')) {
-      this.set('a', this.get('passedAnchors.lastObject') || null);
-    }
-  },
+  exampleConstraints: [{
+    to: 'scrollParent',
+    attachment: 'together',
+    pin: true
+  }],
 
   showFirstModalDialog: computed.equal('currentModalDialogStep', 1),
   showSecondModalDialog: computed.equal('currentModalDialogStep', 2),

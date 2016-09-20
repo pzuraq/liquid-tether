@@ -7,7 +7,7 @@ const { computed, get, observer, run } = Ember;
 const { camelize } = Ember.String;
 
 export default LiquidWormhole.extend({
-  layout: layout,
+  layout,
 
   classPrefix: 'liquid-tether',
   target: null,
@@ -19,12 +19,10 @@ export default LiquidWormhole.extend({
   constraints: null,
   optimizations: null,
 
-  _containerClass: 'liquid-tether-container',
-
   didInsertElement() {
-    this._tetherElement = this.element.firstChild;
-
     this._super.apply(this, arguments);
+
+    this._tetherElement = this.get('nodes')[0];
   },
 
   willAppendNodes(bodyElement) {
