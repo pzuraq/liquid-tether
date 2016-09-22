@@ -1,7 +1,7 @@
 <button {{action "toggleModal"}}>Toggle</button>
 
 {{#unless hideModal}}
-  {{#liquid-tether to="component-in-tether" target="document.body" attachment="middle center"}}
+  {{#liquid-tether target="document.body" attachment="middle center" class="component-in-tether"}}
     {{#test-component}}
       testing
     {{/test-component}}

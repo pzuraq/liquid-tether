@@ -1,33 +1,29 @@
-<div class="nav-container">
-  <div class="row">
-    <h1 class="nav-title col-xs-6 col-sm-12">
-      Liquid Tether
-    </h1>
-    <div class="col-xs-6 text-right visible-xs">
-      <a class="nav-button nav-svg {{if navOpen 'active'}}" {{action "toggleNav"}}>{{svg-icon.hamburger}}</a>
-    </div>
+<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+  <div class="navbar-header">
+    <button type="button" {{action "toggleNav"}} class="navbar-toggle fa fa-bars">
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <a class="navbar-brand" href="#">Liquid Tether</a>
   </div>
-</div>
-<div class="nav-menu {{if navOpen 'nav-open'}}">
-  {{link-to 'Introduction' 'index' class="nav-item"}}
-
-  {{link-to 'The Basics' 'basics' class="nav-item"}}
-  <div class="hidden-xs">
-    {{link-to 'Parameters' 'basics' (query-params a="parameters") class="nav-item sub-nav-item "}}
-    {{link-to 'Transitions' 'basics' (query-params a="transitions") class="nav-item sub-nav-item"}}
-    {{link-to 'DOM Structure and Styles' 'basics' (query-params a="dom-structure-and-styles") class="nav-item sub-nav-item"}}
-    {{link-to 'Ember Compatibility' 'basics' (query-params a="ember-compatibility") class="nav-item sub-nav-item"}}
-  </div>
-
-  {{link-to 'Examples' 'examples' class="nav-item"}}
-  <div class="hidden-xs">
-    {{link-to 'Hello World' 'examples' (query-params a="hello-world") class="nav-item sub-nav-item"}}
-    {{link-to 'Animation With Context' 'examples' (query-params a="animation-with-context") class="nav-item sub-nav-item"}}
-    {{link-to 'Routed Tethers' 'examples' (query-params a="routed-tethers") class="nav-item sub-nav-item"}}
-    {{link-to 'Moving Modals' 'examples' (query-params a="moving-modals") class="nav-item sub-nav-item"}}
-    {{link-to 'Liquid Wormhole' 'examples' (query-params a="liquid-wormhole") class="nav-item sub-nav-item"}}
-  </div>
-  <a class="nav-item nav-svg" href="https://github.com/pzuraq/liquid-tether">
-    GitHub {{svg-icon.github}}
-  </a>
-</div>
+  <div class="navbar-collapse {{unless navOpen 'collapse'}}">
+    <ul class="nav navbar-nav navbar-left">
+      {{#link-to 'index' class="nav-item" tagName="li"}}
+        <a>Introduction</a>
+      {{/link-to}}
+      {{#link-to 'basics' class="nav-item" tagName="li"}}
+        <a>The Basics</a>
+      {{/link-to}}
+      <li>
+        {{link-to 'Examples' 'examples' class="nav-item"}}
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right navbar-break">
+      <li>
+        <a class="nav-item" href="https://github.com/pzuraq/liquid-tether">
+          GitHub
+          <span class="fa fa-github"></span>
+        </a>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>

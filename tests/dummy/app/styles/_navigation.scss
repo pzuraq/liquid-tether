@@ -1,75 +1,43 @@
-.nav-container {
-  padding: 14px 15px;
-
-  .nav-button.active {
-    opacity: .4;
-  }
-}
-
-.main-nav {
-  background-color: $midnight-blue;
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 3;
-
-  @media screen and (max-width: 768px) {
-    border-bottom: solid 2px shade($midnight-blue, 10%);
-  }
-
-  @media screen and (min-width: 768px) {
-    top: 0;
-    right: auto;
-    bottom: 0;
-    width: 250px;
-    border-right: solid 10px tint($midnight-blue, 10%);
-  }
-
-  h1 {
-    font-size: 24px;
-    color: $clouds;
-    font-weight: 100;
-    margin: 0;
-  }
-
-  .nav-menu {
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-
-    &.nav-open {
-      display: block;
-    }
+.navbar {
+  .navbar-brand {
+    font-weight: 400;
   }
 
   .nav-item {
-    padding: 10px 15px;
+    font-weight: 400;
 
-    color: $clouds;
-    display: block;
-    font-weight: 100;
-
-    &:hover, &.active {
-      background-color: tint($midnight-blue, 5%);
-    }
-
-    &.sub-nav-item {
-      font-size: 0.8em;
-      padding-left: 40px;
+    &:first-child > a, &:last-child > a {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 
-  .nav-svg {
-    svg {
-      fill: white;
-      height: 32px;
-      width: 32px;
-      vertical-align: sub;
-      margin-left: 10px;
+  .navbar-nav.navbar-left:first-child {
+    margin: 0;
+  }
+
+  .navbar-toggle.fa {
+
+    @media (min-width: 768px) {
+      display: none;
     }
 
-    &:hover svg {
-      fill: darken(white, 10%);
+    &::before {
+      font-family: FontAwesome;
+    }
+  }
+
+  .fa.fa-github {
+    font-size: 2em;
+    margin: -0.5em 0;
+    vertical-align: sub;
+  }
+
+  .navbar-break {
+    @media (max-width: 767px) {
+        border-top: solid 2px #2f4154;
     }
   }
 }

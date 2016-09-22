@@ -7,9 +7,7 @@ const { computed, get, observer, run } = Ember;
 const { camelize } = Ember.String;
 
 export default LiquidWormhole.extend({
-  layout: layout,
-
-  to: 'liquid-tether',
+  layout,
 
   classPrefix: 'liquid-tether',
   target: null,
@@ -22,13 +20,21 @@ export default LiquidWormhole.extend({
   optimizations: null,
 
   didInsertElement() {
-    this._tetherElement = this.$('.liquid-tether')[0];
-
     this._super.apply(this, arguments);
+
+    this._tetherElement = this.get('nodes')[0];
+  },
+
+  willAppendNodes(bodyElement) {
+    this.addTether(bodyElement);
   },
 
   didAppendNodes() {
-    this.addTether();
+    this._tether.position();
+  },
+
+  willRemoveNodes() {
+    this._tether.position();
   },
 
   willDestroyElement() {
@@ -39,10 +45,28 @@ export default LiquidWormhole.extend({
     });
   },
 
-  addTether() {
-    if (get(this, '_tetherTarget')) {
-      this._tether = new Tether(this._tetherOptions());
-    }
+  addTether(bodyElement) {
+    const target = this.get('_tetherTarget');
+    const element = this._tetherElement;
+
+    const options = { element, target, bodyElement };
+
+    [ 'classPrefix',
+      'attachment',
+      'targetAttachment',
+      'offset',
+      'targetOffset',
+      'targetModifier',
+      'constraints',
+      'optimizations'
+    ].forEach((k) => {
+      const v = get(this, k);
+      if (!Ember.isNone(v)) {
+        options[camelize(k)] = v;
+      }
+    });
+
+    this._tether = new Tether(options);
   },
 
   removeTether() {
@@ -61,7 +85,7 @@ export default LiquidWormhole.extend({
     'targetModifier',
     'constraints',
     'optimizations',
-    'liquidTarget',
+    'to',
     function() {
       this.removeTether(this._tether);
       this.addTether();
@@ -77,29 +101,6 @@ export default LiquidWormhole.extend({
     }
     return target;
   }),
-
-  _tetherOptions() {
-    let options = {
-      element: this._tetherElement,
-      target: get(this, '_tetherTarget'),
-      moveRoot: false
-    };
-    [ 'classPrefix',
-      'attachment',
-      'targetAttachment',
-      'offset',
-      'targetOffset',
-      'targetModifier',
-      'constraints',
-      'optimizations'
-    ].forEach((k) => {
-      const v = get(this, k);
-      if (!Ember.isNone(v)) {
-        options[camelize(k)] = v;
-      }
-    });
-    return options;
-  },
 
   actions: {
     clickOverlay() {

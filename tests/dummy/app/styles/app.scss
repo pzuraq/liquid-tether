@@ -18,7 +18,7 @@ body {
   padding: 80px 20px 100px;
 
   @media screen and (min-width: 768px) {
-    padding: 0 20px 100px 270px;
+    padding: 0 20px 100px;
   }
 }
 
@@ -39,10 +39,10 @@ body {
 .fixed-to-bottom {
   position: fixed;
   bottom: 0;
-  padding: 20px 24px 20px 0;
+  padding: 20px 74px 20px 0;
 }
 
-.red-box, .blue-box, .green-box {
+.red-box, .blue-box, .green-box, .yellow-box, .orange-box {
   padding: 20px;
   color: white;
 }
@@ -57,4 +57,12 @@ body {
 
 .green-box {
   background-color: green;
+}
+
+.orange-box {
+  background-color: orange;
+}
+
+.yellow-box {
+  background-color: yellow;
 }

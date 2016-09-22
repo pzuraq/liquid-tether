@@ -1,15 +1,11 @@
-<h1>Examples</h1>
+# Examples
 
-{{#scroll-spier id="hello-world" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  Hello World
-{{/scroll-spier}}
+##  Hello World
 
-<p>
-  Below is the basic Hello World example seen on the front page. The template
-  code is embedded directly in the context of this page, hidden by an
-  <code>if</code> statement. Toggling that <code>if</code> inserts the element
-  into the DOM, which triggers the animation.
-</p>
+Below is the basic Hello World example seen on the front page. The template
+code is embedded directly in the context of this page, hidden by an
+<code>if</code> statement. Toggling that <code>if</code> inserts the element
+into the DOM, which triggers the animation.
 
 <div class="example-button-container">
   <button {{action 'toggleHello'}} id="hello-world-button" class="btn btn-primary btn-embossed">
@@ -18,13 +14,11 @@
 
   {{#if showHello}}
     {{#liquid-tether
-      to="hello-world"
       target="#hello-world-button"
       attachment="middle left"
       targetAttachment="middle right"
-      class="container123"
-      tetherClass="tether123"
-      overlayClass="overlay123"
+
+      class="hello-world"
     }}
       <div id="hello-world-popover" class="popover right">
         <div class="arrow"></div>
@@ -36,123 +30,135 @@
   {{/if}}
 </div>
 
-{{#example-pane}}
-  <div class="template">
-    {{code-snippet name="hello-world.hbs"}}
-  </div>
-  <div class="js">
-    {{code-snippet name="hello-world.js"}}
-  </div>
-  <div class="transitions">
-    {{code-snippet name="hello-world-transitions.js"}}
-  </div>
-{{/example-pane}}
+```
+{{#liquid-tether
+  target="#hello-world-button"
+  attachment="middle left"
 
-{{#scroll-spier id="animation-with-context" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  Animation With Context
-{{/scroll-spier}}
+  class="hello-world"
+}}
+  <div id="hello-world-popover" class="popover right">
+    <div class="arrow"></div>
+    <div class="popover-title">
+      Hello!
+    </div>
+  </div>
+{{/liquid-tether}}
+```
 
-<p>
-  This example shows different animations based on context. It uses the index
-  constraint shorthands to differentiate between transitioning to the first
-  modal, in between modals, and from the last modal. This way we can animate
-  without losing spacial context from the perspective of the user (e.g. if a
-  modal moves out toward the left side using <code>to-left</code>, the in
-  reverse the modal with move in from the left side using <code>to-right</code>)
-</p>
+```
+this.transition(
+  this.hasClass('hello-world'),
+  this.use('tether', 'fade-left', { duration: 400, easing: [600, 22] })
+);
+```
+
+## Test
+
+<div style="height: 200px; overflow: scroll;">
+  <div id="something" style="height: 2000px">
+    {{#liquid-tether
+      target="#something"
+      attachment="middle center"
+      constraints=exampleConstraints
+      class="blue-box"
+    }}
+      Testing123
+    {{/liquid-tether}}
+  </div>
+</div>
+
+## Animation With Context
+
+This example shows different animations based on context. It uses the index
+constraint shorthands to differentiate between transitioning to the first
+modal, in between modals, and from the last modal. This way we can animate
+without losing spacial context from the perspective of the user (e.g. if a
+modal moves out toward the left side using <code>to-left</code>, the in
+reverse the modal with move in from the left side using <code>to-right</code>)
 
 <div class="example-button-container">
   <button {{action "openModalDialog"}} id="animation-with-context-button" class="btn btn-primary btn-embossed">
     Open Dialog
   </button>
-</div>
 
-{{#if showFirstModalDialog}}
-  {{#liquid-tether
-    to="modal-dialog"
-    index=1
-    target="document.body"
-    targetModifier="visible"
-    attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"
-    on-overlay-click="closeModalDialog"}}
-    <div class="modal-content">
+  {{#if showFirstModalDialog}}
+    {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
+    {{#liquid-tether
+      stack="modal"
+      id="my-modal"
+      index=1
+      target="document.body"
+      targetModifier="visible"
+      attachment="middle center"
+      class="modal-content"
+    }}
       <div class="modal-header">
         <h4 class="modal-title">Modal Header</h4>
       </div>
-
       <div class="modal-body">
-        <p>Here's a modal!</p>
+        Here's a modal!
       </div>
-
       <div class="modal-footer">
         <button {{action "closeModalDialog"}} class="btn btn-default btn-embossed">Cancel</button>
         <button {{action "nextModalDialog"}} class="btn btn-primary btn-embossed">Next</button>
       </div>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+    {{/liquid-tether}}
+  {{/if}}
 
-{{#if showSecondModalDialog}}
-  {{#liquid-tether
-    to="modal-dialog"
-    index=2
-    target="document.body"
-    targetModifier="visible"
-    attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
+  {{#if showSecondModalDialog}}
+    {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
+    {{#liquid-tether
+      stack="modal"
+      id="my-modal"
+      index=2
+      target="document.body"
+      targetModifier="visible"
+      attachment="middle center"
+      class="modal-content"
+    }}
       <div class="modal-header">
         <h4 class="modal-title">Another Modal</h4>
       </div>
-
       <div class="modal-body">
-        <p>
-          This modal came in from the right instead of fading. The next modal
-          will also slide in from the right, while the previous modal will slide
-          in from the left, maintaing spacial context.
-        </p>
+        This modal came in from the right instead of fading. The next modal
+        will also slide in from the right, while the previous modal will slide
+        in from the left, maintaing spacial context.
       </div>
-
       <div class="modal-footer">
         <button {{action "prevModalDialog"}} class="btn btn-default btn-embossed">Back</button>
         <button {{action "nextModalDialog"}} class="btn btn-primary btn-embossed">Next</button>
       </div>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+    {{/liquid-tether}}
+  {{/if}}
 
-{{#if showThirdModalDialog}}
-  {{#liquid-tether
-    to="modal-dialog"
-    index=3
-    target="document.body"
-    targetModifier="visible"
-    attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
+  {{#if showThirdModalDialog}}
+    {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
+    {{#liquid-tether
+      stack="modal"
+      id="my-modal"
+      index=3
+      target="document.body"
+      targetModifier="visible"
+      attachment="middle center"
+      class="modal-content"
+    }}
       <div class="modal-header">
         <h4 class="modal-title">Another Modal</h4>
       </div>
-
       <div class="modal-body">
-        <p>
-          This is the last modal! It'll fade out when you finish the dialog.
-        </p>
+        This is the last modal! It'll fade out when you finish the dialog.
       </div>
-
       <div class="modal-footer">
         <button {{action "prevModalDialog"}} class="btn btn-default btn-embossed">Back</button>
         <button {{action "closeModalDialog"}} class="btn btn-primary btn-embossed">Finish</button>
       </div>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+    {{/liquid-tether}}
+  {{/if}}
+</div>
 
-{{#example-pane}}
+
+<!-- {{#example-pane}}
   <div class="template">
     {{code-snippet name="animation-with-context.hbs"}}
   </div>
@@ -164,56 +170,50 @@
   </div>
 {{/example-pane}}
 
-{{#scroll-spier id="routed-tethers" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  Routed Tethers
-{{/scroll-spier}}
+## Routed Tethers
 
-<p>
-  Oftentimes modals should appear in the context of a route. If that's the case
-  in your application, it's as simple as creating a route and template with just
-  a <code>liquid-tether</code>.
-</p>
+Oftentimes modals should appear in the context of a route. If that's the case
+in your application, it's as simple as creating a route and template with just
+a `liquid-tether`.
 
 <div class="example-button-container">
   {{#link-to "examples.step-one" class="btn btn-primary btn-embossed"}}
     Open Routed Modal
   {{/link-to}}
+
+  {{outlet}}
 </div>
 
-{{outlet}}
 
-{{#example-pane}}
+<!-- {{#example-pane}}
   <div class="template">
     {{code-snippet name="routed-modal.hbs"}}
   </div>
-{{/example-pane}}
+{{/example-pane}} -->
 
-{{#scroll-spier id="moving-modals" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  Moving Modals
-{{/scroll-spier}}
+## Moving Modals
 
-<p>
-  All of the standard Liquid Fire animations work with Liquid Tether out of the
-  box, meaning the <code>fly-to</code> animation can be used to animate tethers
-  around the page!
-</p>
+All of the standard Liquid Fire animations work with Liquid Tether out of the
+box, meaning the `fly-to` animation can be used to animate tethers
+around the page!
 
-<div class="example-button-container">
+<!-- <div class="example-button-container">
   <button {{action "openFlytoDialog"}} id="moving-modals" class="btn btn-primary btn-embossed">Open Moving Modal</button>
-</div>
 
-{{#if showFirstFlytoDialog}}
-  {{#liquid-tether
-    to="flyto-dialog"
-    index=1
-    target="document.body"
-    targetModifier="visible"
-    attachment="top left"
-    targetAttachment="top left"
-    offset="-20px -20px"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
+  {{#if showFirstFlytoDialog}}
+    {{liquid-wormhole class="modal-backdrop"}}
+
+    {{#liquid-tether
+      stack="flyto"
+      index=1
+
+      target="document.body"
+      targetModifier="visible"
+      attachment="top left"
+      targetAttachment="top left"
+      offset="-20px -20px"
+
+      class="modal-content"}}
       <div class="modal-header">
         <h4 class="modal-title">Modal Header</h4>
       </div>
@@ -226,22 +226,21 @@
         <button {{action "closeFlytoDialog"}} class="btn btn-default btn-embossed">Cancel</button>
         <button {{action "nextFlytoDialog"}} class="btn btn-primary btn-embossed">Next</button>
       </div>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+    {{/liquid-tether}}
+  {{/if}}
 
-{{#if showSecondFlytoDialog}}
-  {{#liquid-tether
-    to="flyto-dialog"
-    index=2
-    target="document.body"
-    targetModifier="visible"
-    attachment="top right"
-    targetAttachment="top right"
-    offset="-20px 40px"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
+  {{#if showSecondFlytoDialog}}
+    {{#liquid-tether
+      stack="flyto"
+      index=2
+
+      target="document.body"
+      targetModifier="visible"
+      attachment="top right"
+      targetAttachment="top right"
+      offset="-20px 40px"
+
+      class="modal-content"}}
       <div class="modal-header">
         <h4 class="modal-title">Another Modal</h4>
       </div>
@@ -258,22 +257,21 @@
         <button {{action "prevFlytoDialog"}} class="btn btn-default btn-embossed">Back</button>
         <button {{action "nextFlytoDialog"}} class="btn btn-primary btn-embossed">Next</button>
       </div>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+    {{/liquid-tether}}
+  {{/if}}
 
-{{#if showThirdFlytoDialog}}
-  {{#liquid-tether
-    to="flyto-dialog"
-    index=3
-    target="document.body"
-    targetModifier="visible"
-    attachment="bottom center"
-    targetAttachment="bottom center"
-    offset="20px 0"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
-    <div class="modal-content">
+  {{#if showThirdFlytoDialog}}
+    {{#liquid-tether
+      stack="flyto"
+      index=3
+
+      target="document.body"
+      targetModifier="visible"
+      attachment="bottom center"
+      targetAttachment="bottom center"
+      offset="20px 0"
+
+      class="modal-content"}}
       <div class="modal-header">
         <h4 class="modal-title">Another Modal</h4>
       </div>
@@ -288,11 +286,11 @@
         <button {{action "prevFlytoDialog"}} class="btn btn-default btn-embossed">Back</button>
         <button {{action "closeFlytoDialog"}} class="btn btn-primary btn-embossed">Finish</button>
       </div>
-    </div>
-  {{/liquid-tether}}
-{{/if}}
+    {{/liquid-tether}}
+  {{/if}}
+</div>
 
-{{#example-pane}}
+<!-- {{#example-pane}}
   <div class="template">
     {{code-snippet name="flyto-dialog.hbs"}}
   </div>
@@ -304,9 +302,8 @@
   </div>
 {{/example-pane}}
 
-{{#scroll-spier id="liquid-wormhole" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  Liquid Wormhole
-{{/scroll-spier}}
+## Liquid Wormhole
+
 
 <p>
   There are times when you may want to warp an element up to the body, but
@@ -330,12 +327,10 @@
 
 <div class="example-button-container">
   <button {{action "toggleFlyout"}} id="flyout" class="btn btn-primary btn-embossed">Open Flyout</button>
-</div>
 
-{{#if showFlyout}}
-  {{#liquid-wormhole to="flyout" index=1}}
-    <div class="modal-backdrop"></div>
-    <div class="flyout">
+  {{#if showFlyout}}
+    {{liquid-wormhole class=modal-backdrop}}
+    {{#liquid-wormhole class="flyout"}}
       <h1>Hey there!</h1>
       <h2>This is a flyout!</h2>
 
@@ -352,11 +347,11 @@
           Close
         </button>
       </div>
-    </div>
-  {{/liquid-wormhole}}
-{{/if}}
+    {{/liquid-wormhole}}
+  {{/if}}
+</div> -->
 
-{{#example-pane}}
+<!-- {{#example-pane}}
   <div class="template">
     {{code-snippet name="liquid-wormhole.hbs"}}
   </div>
@@ -366,4 +361,4 @@
   <div class="transitions">
     {{code-snippet name="liquid-wormhole-transitions.js"}}
   </div>
-{{/example-pane}}
+{{/example-pane}} -->
