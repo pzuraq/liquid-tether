@@ -5,47 +5,21 @@ function transitionMap(app) {
   return app.__container__.lookup('service:liquid-fire-transitions');
 }
 
-function transitionName(name) {
+function wormholeTransitionName(name) {
   return sinon.match(function(value) {
-    return value.animation ? value.animation.name === name : false;
-  }, 'expected transition ' + name);
-}
-
-function tetherTransitionName(name) {
-  return sinon.match(function(value) {
-    if (value.animation) {
-      return Array.isArray(value.animation.args[0]) ? value.animation.args[0][0] === name : value.animation.args[0] === name;
+    if (value.animation && value.animation.name === 'wormhole') {
+      return value.animation.args[0].use.name === name;
     }
-  }, 'expected transition ' + name);
-}
 
-function overlayTransitionName(name) {
-  return sinon.match(function(value) {
-    if (value.animation) {
-      return Array.isArray(value.animation.args[1]) ? value.animation.args[1][0] === name : value.animation.args[1] === name;
-    }
+    return false;
   }, 'expected transition ' + name);
 }
 
 Ember.Test.registerHelper(
-  'ranTransition',
+  'ranWormholeTransition',
   function(app, name) {
-    ok(transitionMap(app).transitionFor.returned(transitionName(name)), `expected transition ${name}`);
+    ok(transitionMap(app).transitionFor.returned(wormholeTransitionName(name)), `expected transition ${name}`);
   });
-
-Ember.Test.registerHelper(
-  'ranTetherTransition',
-  function(app, name) {
-    ok(transitionMap(app).transitionFor.returned(tetherTransitionName(name)), `expected transition ${name}`);
-  }
-);
-
-Ember.Test.registerHelper(
-  'ranOverlayTransition',
-  function(app, name) {
-    ok(transitionMap(app).transitionFor.returned(overlayTransitionName(name)), `expected transition ${name}`);
-  }
-);
 
 Ember.Test.registerHelper(
   'noTransitionsYet',

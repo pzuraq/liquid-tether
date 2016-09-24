@@ -4,19 +4,37 @@ a {
   cursor: pointer;
 }
 
+p {
+  font-size: 1em;
+}
+
 h1 {
   font-size: 2em;
-  font-weight: 100;
+  font-weight: normal;
+  margin-top: 0;
 }
 
 h2 {
   font-size: 1.5em;
-  font-weight: 100;
+  font-weight: normal;
   margin-top: 0;
 }
 
+h3 {
+  font-size: 1.25em;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+// Tab content
 pre, pre.hljs {
-  background-color: transparent;
-  padding: 0;
-  border: none;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  border-radius: $nav-border-radius;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  code {
+    white-space: pre;
+  }
 }

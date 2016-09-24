@@ -14,40 +14,6 @@
     <link rel="stylesheet" href="{{rootURL}}assets/dummy.css">
     <link rel="stylesheet" href="{{rootURL}}assets/test-support.css">
 
-    <style>
-      #ember-testing-container {
-        background: rgba(255, 0, 255, 0.1);
-        bottom: 0;
-        right: 0;
-        width: initial;
-        height: initial;
-        min-height: 800px;
-        overflow: auto;
-        z-index: 9999;
-        border: 10px solid lime;
-      }
-
-      .liquid-target-container,
-      .liquid-target {
-        position: static;
-      }
-
-      #ember-testing {
-        zoom: 100%;
-      }
-      .note {
-        font-size: 1.5rem;
-        margin: 5px auto;
-        background-color: cyan;
-        border: dotted 10px black;
-        padding: 10px 100px;
-        width: 80%;
-      }
-      strong {
-        color: white;
-      }
-    </style>
-
     {{content-for "head-footer"}}
     {{content-for "test-head-footer"}}
   </head>

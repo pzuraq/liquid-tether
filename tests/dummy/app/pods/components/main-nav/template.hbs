@@ -3,19 +3,19 @@
     <button type="button" {{action "toggleNav"}} class="navbar-toggle fa fa-bars">
       <span class="sr-only">Toggle navigation</span>
     </button>
-    <a class="navbar-brand" href="#">Liquid Tether</a>
+    <span class="navbar-brand">Liquid Tether</span>
   </div>
   <div class="navbar-collapse {{unless navOpen 'collapse'}}">
     <ul class="nav navbar-nav navbar-left">
       {{#link-to 'index' class="nav-item" tagName="li"}}
         <a>Introduction</a>
       {{/link-to}}
-      {{#link-to 'basics' class="nav-item" tagName="li"}}
-        <a>The Basics</a>
+      {{#link-to 'docs' class="nav-item" tagName="li"}}
+        <a>Docs</a>
       {{/link-to}}
-      <li>
-        {{link-to 'Examples' 'examples' class="nav-item"}}
-      </li>
+      {{#link-to 'upgrading' class="nav-item" tagName="li"}}
+        <a>Upgrading</a>
+      {{/link-to}}
     </ul>
     <ul class="nav navbar-nav navbar-right navbar-break">
       <li>

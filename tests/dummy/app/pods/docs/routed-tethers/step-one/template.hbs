@@ -1,6 +1,7 @@
+{{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
 {{#liquid-tether
-  stack="modal"
-  index=2
+  stack="modal-dialog"
+  value=1
 
   target="document.body"
   targetModifier="visible"
@@ -20,8 +21,8 @@
     </div>
 
     <div class="modal-footer">
-      {{#link-to "examples.step-one" class="btn btn-default btn-embossed" activeClass=null}}Prev{{/link-to}}
-      {{#link-to "examples" class="btn btn-primary btn-embossed" activeClass=null}}Ok{{/link-to}}
+      {{#link-to "docs.routed-tethers" class="btn btn-default btn-embossed" activeClass=null}}Cancel{{/link-to}}
+      {{#link-to "docs.routed-tethers.step-two" class="btn btn-primary btn-embossed" activeClass=null}}Next{{/link-to}}
     </div>
   </div>
 {{/liquid-tether}}
