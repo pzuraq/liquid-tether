@@ -3,15 +3,17 @@
 // --------------------------------------------------
 
 .popover {
-  background-color: white;
+  background-color: $belize-hole;
+  color: white;
   border: none;
-  border-left: solid 1px mix($brand-primary, white, 13%);
-  border-right: solid 1px mix($brand-primary, white, 13%);
+  border-left: solid 1px mix($wet-asphalt, $belize-hole, 20%);
+  border-right: solid 1px mix($wet-asphalt, $belize-hole, 20%);
+  border-bottom: solid 2px mix($wet-asphalt, $belize-hole, 20%);
   padding: 0;
   border-radius: 3px;
   display: block;
   position: relative;
-  @include box-shadow(0px 2px rgba(0,0,0,0.15));
+  @include box-shadow(0px 2px rgba(0,0,0,0.25));
 
   .arrow {
     width: 18px;
@@ -21,32 +23,37 @@
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 
-    background-color: mix($brand-primary, white, 1%);
+    background-color: $belize-hole;
+    color: white;
   }
 
   &.right .arrow {
     border: none;
     left: -9px;
     margin-top: -9px;
-    @include box-shadow(2px 2px rgba(0,0,0,0.15));
+    @include box-shadow(2px 2px rgba(0,0,0,0.25));
   }
   &.left .arrow {
     border: none;
     right: -9px;
     margin-top: -9px;
-    @include box-shadow(2px 2px rgba(0,0,0,0.15));
+    @include box-shadow(2px 2px rgba(0,0,0,0.25));
   }
-  &.bottom .arrow {
-    border: none;
-    margin-right: -9px;
-    top: -9px;
-    @include box-shadow(2px 2px rgba(0,0,0,0.15));
+  &.bottom {
+    margin-top: 0;
+    top: 15px;
+    .arrow {
+      border: none;
+      margin-right: -9px;
+      top: -9px;
+      @include box-shadow(2px 2px rgba(0,0,0,0.25));
+    }
   }
   &.top .arrow {
     border: none;
     bottom: -9px;
     margin-left: -9px;
-    @include box-shadow(2px 2px rgba(0,0,0,0.15));
+    @include box-shadow(2px 2px rgba(0,0,0,0.25));
   }
   .arrow {
     border-width: 9px;
@@ -60,27 +67,41 @@
 // Popover Title
 .popover-title {
   position: relative;
-  background-color: mix($brand-primary, white, 1%);
-  color: $text-color;
+  background-color: $belize-hole;
+  color: white;
   font-size: $component-font-size-base;
   line-height: 1.5;
   font-weight: 100;
   font-size: 1.2em;
   padding: 10px 20px 11px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border-radius: 3px;
   white-space: nowrap;
+  border-bottom: none;
 }
 
 // Popover Content
 .popover-content {
   font-weight: 100;
   position: relative;
-  background-color: mix($brand-primary, white, 1%);
-  padding: 9px 20px 9px;
+  background-color: $belize-hole;
+  color: white;
+  padding: 0px 20px 9px;
+  text-align: right;
 
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-radius: 3px;
+
+  a {
+    display: inline-block;
+    color: white;
+    text-decoration: underline;
+
+    margin-left: 5px;
+    font-size: 14px;
+
+    &:hover {
+      color: cloud;
+    }
+  }
 
   p {
     font-size: ceil($component-font-size-base * 0.933); // ~14px

@@ -1,4 +1,4 @@
-/* global ranTetherTransition, ranOverlayTransition, noTransitionsYet */
+/* global ranWormholeTransition, noTransitionsYet */
 import moduleForAcceptance from '../helpers/module-for-acceptance';
 import { injectTransitionSpies } from '../helpers/integration';
 
@@ -13,82 +13,66 @@ moduleForAcceptance('Acceptance | Demos', {
   }
 });
 
-test('target container exists and is empty on load', function() {
-  visit('/examples');
-
-  andThen(() => {
-    noTransitionsYet();
-    equal(find('.liquid-target-container').length, 1, 'it exists');
-    equal(find('.liquid-target-container > .liquid-target').length, 0, 'it\'s empty');
-  });
-});
-
 test('target container is cleaned when empty', function() {
-  visit('/examples');
+  visit('/docs');
   click('#hello-world-button');
   click('#hello-world-button');
 
   andThen(() => {
-    equal(find('.liquid-target-container > .liquid-target').length, 0, 'it\'s empty');
+    equal(find('.default-liquid-destination .liquid-destination-stack').length, 0, 'it\'s empty');
   });
 });
 
 test('basic liquid-tether works correctly', function() {
-  visit('/examples');
+  visit('/docs');
   noTransitionsYet();
 
   click('#hello-world-button');
   andThen(() => {
-    equal(find('.liquid-target-container .liquid-tether').length, 1, 'it exists');
-    ranTetherTransition('fade-left');
+    equal(find('.default-liquid-destination .liquid-wormhole-element').length, 1, 'it exists');
+    ranWormholeTransition('fade-down');
   });
 });
 
-test('tethers can determine context', function() {
-  visit('/examples');
+test('tethers can determine context with stacks', function() {
+  visit('/docs/stacks');
 
   click('#animation-with-context-button');
-  andThen(() => ranTetherTransition('fade'));
-  andThen(() => ranOverlayTransition('fade'));
+  andThen(() => ranWormholeTransition('fade'));
 
   click('button:contains(Next)');
-  andThen(() => ranTetherTransition('to-left'));
+  andThen(() => ranWormholeTransition('to-left'));
 
   click('button:contains(Back)');
-  andThen(() => ranTetherTransition('to-right'));
+  andThen(() => ranWormholeTransition('to-right'));
 
   click('button:contains(Cancel)');
-  andThen(() => ranTetherTransition('fade'));
-  andThen(() => ranOverlayTransition('fade'));
+  andThen(() => ranWormholeTransition('fade'));
 });
 
-test('routed tethers can determine context', function() {
-  visit('/examples/step-one');
-  andThen(() => ranTetherTransition('fade'));
-  andThen(() => ranOverlayTransition('fade'));
+test('routed tethers can determine context with stacks', function() {
+  visit('/docs/routed-tethers/step-one');
+  andThen(() => ranWormholeTransition('fade'));
 
-  visit('/examples/step-two');
-  andThen(() => ranTetherTransition('to-left'));
+  visit('/docs/routed-tethers/step-two');
+  andThen(() => ranWormholeTransition('to-left'));
 
-  visit('/examples/step-one');
-  andThen(() => ranTetherTransition('to-right'));
+  visit('/docs/routed-tethers/step-one');
+  andThen(() => ranWormholeTransition('to-right'));
 
-  visit('/examples');
-  andThen(() => ranTetherTransition('fade'));
-  andThen(() => ranOverlayTransition('fade'));
+  visit('/docs');
+  andThen(() => ranWormholeTransition('fade'));
 });
 
 test('clickable overlay responds and has correct class', function() {
-  visit('/examples');
+  visit('/docs/stacks');
 
   click('#animation-with-context-button');
-  andThen(() => ranTetherTransition('fade'));
-  andThen(() => ranOverlayTransition('fade'));
+  andThen(() => ranWormholeTransition('fade'));
   andThen(() => {
-    equal(find('.liquid-tether-overlay.clickable').length, 1, 'clickable overlay exists');
+    equal(find('.modal-backdrop').length, 1, 'overlay exists');
   });
 
-  click('.liquid-tether-overlay.clickable');
-  andThen(() => ranTetherTransition('fade'));
-  andThen(() => ranOverlayTransition('fade'));
+  click('.modal-backdrop');
+  andThen(() => ranWormholeTransition('fade'));
 });

@@ -1,21 +1,36 @@
 .navbar {
-  .navbar-brand {
-    font-weight: 400;
+  @media screen and (max-width: 768px) {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
-  .nav-item {
-    font-weight: 400;
+  .navbar-brand {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 100;
 
-    &:first-child > a, &:last-child > a {
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
+    &:hover {
+      color: white;
     }
   }
 
-  .navbar-nav.navbar-left:first-child {
-    margin: 0;
+  .navbar-nav.navbar-left {
+    li > a {
+      font-weight: 400;
+    }
+
+    &:first-child {
+      margin: 0;
+
+      li:first-child > a {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
   }
 
   .navbar-toggle.fa {

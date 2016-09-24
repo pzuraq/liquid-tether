@@ -14,9 +14,7 @@
   about the peculiarities of positioning elements with CSS - It Just Works.
 </p>
 
-{{#scroll-spier id="parameters" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  Parameters
-{{/scroll-spier}}
+## Parameters
 
 <p>
   Every Liquid Tether <strong>requires</strong> the following attributes:
@@ -66,9 +64,7 @@
   <li><strong>optimizations</strong></li>
 </ul>
 
-{{#scroll-spier id="transitions" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  Transitions
-{{/scroll-spier}}
+## Transitions
 
 <p>
   Liquid Tether introduces the <code>target</code> constraint for matching
@@ -76,7 +72,7 @@
 </p>
 
 <div class="tab-content">
-  {{code-snippet name="target-signature.js"}}
+  <!-- {{code-snippet name="target-signature.js"}} -->
 </div>
 
 <p>
@@ -89,7 +85,7 @@
 </p>
 
 <div class="tab-content">
-  {{code-snippet name="open-tether-example.js"}}
+  <!-- {{code-snippet name="open-tether-example.js"}} -->
 </div>
 
 <p>
@@ -103,8 +99,8 @@
 </p>
 
 <div class="tab-content">
-  {{code-snippet name="value-matching-example.hbs"}}
-  {{code-snippet name="value-matching-example.js"}}
+  <!-- {{code-snippet name="value-matching-example.hbs"}} -->
+  <!-- {{code-snippet name="value-matching-example.js"}} -->
 </div>
 
 <p>
@@ -112,7 +108,7 @@
 </p>
 
 <div class="tab-content">
-  {{code-snippet name="tether-transition-signature.js"}}
+  <!-- {{code-snippet name="tether-transition-signature.js"}} -->
 </div>
 
 <p>
@@ -120,7 +116,7 @@
 </p>
 
 <div class="tab-content">
-  {{code-snippet name="tether-transition-code.js"}}
+  <!-- {{code-snippet name="tether-transition-code.js"}} -->
 </div>
 
 <p>
@@ -131,28 +127,24 @@
   to apply (if any) to the background overlay.
 </p>
 
-{{#scroll-spier id="dom-structure-and-styles" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  DOM Structure and Styles
-{{/scroll-spier}}
+## DOM Structure and Styles
 
 <p>
   Liquid Tether creates the following DOM structure:
 </p>
 
 <div class="tab-content">
-  {{code-snippet name="tether-dom-structure.hbs"}}
+  <!-- {{code-snippet name="tether-dom-structure.hbs"}} -->
 </div>
 
 <p>
   You can use the <code>overlayClass</code> and <code>tetherClass</code>
   properties to apply a class directly to either the overlay or the tethered
-  element. You can also apply a class directly to the liquid-target that
+  element. You can also apply a class directly to the liquid-destination that
   contains your tethered element using the <code>targetClass</code> property.
 </p>
 
-{{#scroll-spier id="ember-compatibility" on-pass="addPassedAnchor" on-unpass="removePassedAnchor"}}
-  Ember Compatibility
-{{/scroll-spier}}
+## Ember Compatibility
 
 <p>
   Liquid Tether is tested on all versions of Ember >= 1.13. Long term support will

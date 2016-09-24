@@ -13,28 +13,18 @@
   {{#liquid-tether
     target=".red-box"
     attachment="top left"
+    targetAttachment="bottom left"
     class="blue-box"
   }}
     Middle Tether
-
-    <button {{action "showInnerTether"}}>Show</button>
-
-    {{#if showingInner}}
-      {{#liquid-tether
-        target=".blue-box"
-        attachment="top left"
-        class="orange-box"
-      }}
-          Inner Tether
-      {{/liquid-tether}}
-    {{/if}}
   {{/liquid-tether}}
 {{/liquid-tether}}
 
-<!-- {{#liquid-tether
+{{#liquid-tether
   target=".blue-box"
-  attachment="top right"
+  attachment="top left"
+  targetAttachment="bottom left"
   class="yellow-box"
 }}
   Other Tether
-{{/liquid-tether}} -->
+{{/liquid-tether}}

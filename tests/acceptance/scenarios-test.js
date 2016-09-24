@@ -1,4 +1,3 @@
-/* global ranTetherTransition */
 import moduleForAcceptance from '../helpers/module-for-acceptance';
 import { injectTransitionSpies } from '../helpers/integration';
 
@@ -13,16 +12,16 @@ moduleForAcceptance('Acceptance | Scenarios', {
   }
 });
 
-test('components are not destroyed until animation has finished', function() {
+test('components are not destroyed until animation has finished', function(assert) {
   visit('/scenarios/component-in-tether');
 
   andThen(() => {
     find('button:contains(Toggle)').click();
-    equal(find('.velocity-animating').text().trim(), 'testing', 'component markup still exists');
+    assert.equal(find('.liquid-wormhole-element').text().trim(), 'testing', 'component markup still exists');
   });
 });
 
-test('nested tethers work properly', function() {
+test('nested tethers work properly', function(assert) {
   visit('/scenarios/nested-tethers');
 
   click('button');
@@ -31,49 +30,44 @@ test('nested tethers work properly', function() {
     const redbox = find('.red-box');
     const greenbox = find('.green-box');
     const bluebox = find('.blue-box');
+    const yellowbox = find('.yellow-box');
 
     const redboxOffset = redbox.offset();
     const greenboxOffset = greenbox.offset();
     const blueboxOffset = bluebox.offset();
+    const yellowboxOffset = yellowbox.offset();
 
     const greenboxHeight = greenbox.outerHeight();
     const redboxHeight = redbox.outerHeight();
-    const redboxWidth = redbox.outerWidth();
+    const blueboxHeight = bluebox.outerHeight();
 
-    ok(withinTolerance(greenboxOffset.top + greenboxHeight, redboxOffset.top), 'redbox vertical pos within tolerance');
-    ok(withinTolerance(greenboxOffset.left, redboxOffset.left), 'redbox horizontal pos within tolerance');
+    assert.ok(withinTolerance(greenboxOffset.top + greenboxHeight, redboxOffset.top), 'redbox vertical pos within tolerance');
+    assert.ok(withinTolerance(greenboxOffset.left, redboxOffset.left), 'redbox horizontal pos within tolerance');
 
-    ok(withinTolerance(redboxOffset.top + redboxHeight, blueboxOffset.top), 'bluebox vertical pos within tolerance');
-    ok(withinTolerance(redboxOffset.left + redboxWidth, blueboxOffset.left), 'bluebox horizontal pos within tolerance');
+    assert.ok(withinTolerance(redboxOffset.top + redboxHeight, blueboxOffset.top), 'bluebox vertical pos within tolerance');
+    assert.ok(withinTolerance(redboxOffset.left, blueboxOffset.left), 'bluebox horizontal pos within tolerance');
+
+    assert.ok(withinTolerance(blueboxOffset.top + blueboxHeight, yellowboxOffset.top), 'yellowbox vertical pos within tolerance');
+    assert.ok(withinTolerance(blueboxOffset.left, yellowboxOffset.left), 'yellowbox horizontal pos within tolerance');
   });
 });
 
-test('target only shows one tether at a time', function() {
+test('stacked tethers only shows one tether at a time', function(assert) {
   visit('/scenarios/multiple-tethers');
 
   andThen(() => {
-    equal(find('.liquid-target-container').text().trim(), '456');
+    assert.equal(find('.default-liquid-destination').text().trim(), '456');
   });
 });
 
-test('container has correct class if targets are present', function() {
-  ok(find('.liquid-target-container.has-targets').length === 0, 'No targets class');
+test('destination container has correct class if wormholes are present', function(assert) {
+  assert.ok(find('.default-liquid-destination.has-wormholes').length === 0, 'No wormholes class');
 
   visit('/scenarios/multiple-tethers');
 
   andThen(() => {
-    ok(find('.liquid-target-container.has-targets').length > 0, 'Has targets class');
+    assert.ok(find('.default-liquid-destination.has-wormholes').length > 0, 'Has wormholes class');
   });
-});
-
-test('multiple targets can use the same animation via regex', function() {
-  visit('/scenarios/multiple-targets-same-animation');
-
-  andThen(() => ranTetherTransition('fade'));
-  click('.second-tether');
-  andThen(() => ranTetherTransition('to-up'));
-  click('.third-tether');
-  andThen(() => ranTetherTransition('fade'));
 });
 
 
