@@ -1,3 +1,7 @@
+Liquid Tether is built on [Liquid Fire](http://ember-animation.github.io/liquid-fire/)
+and [Tether.js](http://tether.io/). It's recommended that you first read the docs
+for these libraries so you understand their basic concepts.
+
 Liquid Tether v2 allows you to animate your components using the standard
 Liquid Fire DSL. Just add a `liquid-tether` component to your app, give it a
 class, and add animations in your `transitions.js` file.
