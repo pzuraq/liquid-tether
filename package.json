@@ -1,6 +1,6 @@
 {
   "name": "liquid-tether",
-  "version": "2.0.0-beta.2",
+  "version": "2.0.0",
   "description": "Modals made easy",
   "directories": {
     "doc": "doc",
@@ -49,7 +49,7 @@
   "dependencies": {
     "broccoli-funnel": "^0.2.8",
     "broccoli-merge-trees": "^0.2.3",
-    "liquid-wormhole": "v2.0.0-beta.2",
+    "liquid-wormhole": "v2.0.0",
     "tether": "pzuraq/tether#adds-option-to-specify-body-element",
     "ember-cli-htmlbars": "^1.0.3",
     "ember-cli-babel": "^5.1.6"
