@@ -48,6 +48,7 @@ export default LiquidWormhole.extend({
 
   addTether(bodyElement) {
     const target = this.get('_tetherTarget');
+
     const element = this._tetherElement;
 
     const options = { element, target, bodyElement };
@@ -78,11 +79,15 @@ export default LiquidWormhole.extend({
 
   _tetherTarget: computed('target', function() {
     let target = get(this, 'target');
+
     if (target && target.element) {
-      target = target.element;
+      return target.element;
     } else if (target === 'document.body') {
-      target = document.body;
+      return document.body;
     }
+
+    Ember.assert(`Tether target "${target}" does not exist in the document`, document.querySelector(target) !== null);
+
     return target;
   }),
 
