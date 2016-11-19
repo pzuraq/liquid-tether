@@ -21,11 +21,7 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName",
-    "ok",
-    "equal",
-    "module",
-    "test"
+    "currentRouteName"
   ],
   "node": false,
   "browser": false,

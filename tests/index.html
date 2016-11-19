@@ -14,6 +14,21 @@
     <link rel="stylesheet" href="{{rootURL}}assets/dummy.css">
     <link rel="stylesheet" href="{{rootURL}}assets/test-support.css">
 
+    <style>
+      #ember-testing-container {
+        width: 100%;
+        border: none;
+      }
+
+      #ember-testing {
+        transform: none;
+        transform-origin: initial;
+        width: initial;
+        height: initial;
+      }
+    </style>
+
+
     {{content-for "head-footer"}}
     {{content-for "test-head-footer"}}
   </head>
@@ -21,7 +36,7 @@
     {{content-for "body"}}
     {{content-for "test-body"}}
 
-    <script src="testem.js" integrity=""></script>
+    <script src="/testem.js" integrity=""></script>
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/test-support.js"></script>
     <script src="{{rootURL}}assets/dummy.js"></script>
