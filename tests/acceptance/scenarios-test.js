@@ -1,6 +1,8 @@
 import moduleForAcceptance from '../helpers/module-for-acceptance';
 import { injectTransitionSpies } from '../helpers/integration';
 
+import { test } from 'ember-qunit';
+
 moduleForAcceptance('Acceptance | Scenarios', {
   beforeEach() {
 

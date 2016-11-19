@@ -17,36 +17,20 @@ function wormholeTransitionName(name) {
 
 Ember.Test.registerHelper(
   'ranWormholeTransition',
-  function(app, name) {
-    ok(transitionMap(app).transitionFor.returned(wormholeTransitionName(name)), `expected transition ${name}`);
+  function(app, assert, name) {
+    assert.ok(transitionMap(app).transitionFor.returned(wormholeTransitionName(name)), `expected transition ${name}`);
   });
 
 Ember.Test.registerHelper(
   'noTransitionsYet',
-  function(app) {
+  function(app, assert) {
     var tmap = transitionMap(app);
     var ranTransitions = Ember.A(tmap.transitionFor.returnValues);
-    ok(!ranTransitions.any((transition) => transition.animation !== tmap.defaultAction()), 'expected no transitions');
+    assert.ok(!ranTransitions.any((transition) => transition.animation !== tmap.defaultAction()), 'expected no transitions');
   }
 );
 
 export function injectTransitionSpies(app) {
   var tmap = transitionMap(app);
   sinon.spy(tmap, 'transitionFor');
-}
-
-
-export function classFound(name) {
-  equal(find('.'+name).length, 1, 'found ' + name);
-}
-
-export function clickWithoutWaiting(selector, text) {
-  // The runloop ensures that all the synchronous action happens, but
-  // we don't wait around for async stuff. This is used to test
-  // animation interruptions, for example.
-  Ember.run(() => {
-    find(selector).filter(function() {
-      return $(this).text() === text;
-    }).click();
-  });
 }
