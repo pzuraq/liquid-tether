@@ -34,7 +34,7 @@
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-cli-markdown-compiler": "pzuraq/ember-cli-markdown-compiler#example-site-fixes",
-    "liquid-fire": "0.26.4",
+    "liquid-fire": "0.26.5",
     "phantomjs": "^2.0.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
@@ -49,7 +49,7 @@
     "broccoli-funnel": "^0.2.8",
     "broccoli-merge-trees": "^0.2.3",
     "liquid-wormhole": "^2.0.2",
-    "tether": "pzuraq/tether#adds-option-to-specify-body-element",
+    "tether": "^1.4.0",
     "ember-cli-htmlbars": "^1.0.10",
     "ember-cli-babel": "^5.1.7"
   },

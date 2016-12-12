@@ -3027,13 +3027,13 @@ linkify-it@~1.2.0:
   dependencies:
     uc.micro "^1.0.1"
 
-liquid-fire@0.26.4:
-  version "0.26.4"
-  resolved "https://registry.yarnpkg.com/liquid-fire/-/liquid-fire-0.26.4.tgz#cc7dca96704eaeeddaf383e6944a32bacb5673c6"
+liquid-fire@0.26.5:
+  version "0.26.5"
+  resolved "https://registry.yarnpkg.com/liquid-fire/-/liquid-fire-0.26.5.tgz#858abb61c3477c4b1c497b9c26e2f3d1dcd4bc83"
   dependencies:
     broccoli-funnel "^1.0.1"
     broccoli-merge-trees "^1.0.0"
-    ember-cli-babel "^5.1.6"
+    ember-cli-babel "^5.1.7"
     ember-cli-htmlbars "^1.0.10"
     ember-cli-version-checker "^1.1.6"
     ember-getowner-polyfill "^1.0.0"
@@ -3041,7 +3041,7 @@ liquid-fire@0.26.4:
     match-media "^0.2.0"
     velocity-animate ">= 0.11.8"
 
-liquid-wormhole@^2.0.0:
+liquid-wormhole@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/liquid-wormhole/-/liquid-wormhole-2.0.2.tgz#1fa77b2879ea0370fc35fe3aa0f279bc3431a721"
   dependencies:
@@ -4981,9 +4981,9 @@ testem@^1.8.1:
     tap-parser "^1.1.3"
     xmldom "^0.1.19"
 
-tether@pzuraq/tether#adds-option-to-specify-body-element:
+tether@^1.4.0:
   version "1.4.0"
-  resolved "https://codeload.github.com/pzuraq/tether/tar.gz/d5b32427b6fc3d45e5f08ba74cfcb4afb32d16e7"
+  resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
 
 text-table@~0.2.0:
   version "0.2.0"
