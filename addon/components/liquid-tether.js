@@ -86,7 +86,7 @@ export default LiquidWormhole.extend({
       return document.body;
     }
 
-    Ember.assert(`Tether target "${target}" does not exist in the document`, document.querySelector(target) !== null);
+    Ember.assert(`Tether target "${target}" does not exist in the document`, target instanceof Element || document.querySelector(target) !== null);
 
     return target;
   }),
