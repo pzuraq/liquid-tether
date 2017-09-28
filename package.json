@@ -34,7 +34,7 @@
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-cli-markdown-compiler": "pzuraq/ember-cli-markdown-compiler#example-site-fixes",
-    "liquid-fire": "0.26.5",
+    "liquid-fire": "0.28.0",
     "phantomjs": "^2.0.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
