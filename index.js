@@ -46,7 +46,7 @@ module.exports = {
   },
 
   included: function(app) {
-    this._super.included(app);
+    this._super.included.apply(this, app) 
     this.import('vendor/tether/tether.js');
   }
 };
