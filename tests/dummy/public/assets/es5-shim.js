@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*!
  * https://github.com/es-shims/es5-shim
  * @license es5-shim Copyright 2009-2015 by contributors, MIT License

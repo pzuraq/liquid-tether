@@ -45,8 +45,7 @@
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
     "liquid-fire": "0.28.0",
-    "loader.js": "^4.2.3",
-    "phantomjs": "^2.0.0"
+    "loader.js": "^4.2.3"
   },
   "keywords": [
     "ember-addon"
