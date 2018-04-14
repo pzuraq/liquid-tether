@@ -1,80 +1,82 @@
-/* global ranWormholeTransition, noTransitionsYet */
-import moduleForAcceptance from '../helpers/module-for-acceptance';
-import { injectTransitionSpies } from '../helpers/integration';
+import { module, test } from 'qunit';
 
-import { test } from 'ember-qunit';
+import { findAll,click, visit } from 'ember-native-dom-helpers';
 
-moduleForAcceptance('Acceptance | Demos', {
-  beforeEach() {
+import { injectTransitionSpies, ranWormholeTransition, noTransitionsYet } from '../helpers/integration';
+import { startApp, destroyApp } from '../helpers/app-lifecycle';
+
+let app;
+
+module('Acceptance | Demos', function(hooks) {
+  hooks.beforeEach(function() {
+    app = startApp();
 
     // Conceptually, integration tests shouldn't be digging around in
     // the container. But animations are slippery, and it's easier to
     // just spy on them to make sure they're being run than to try to
     // observe their behavior more directly.
-    injectTransitionSpies(this.application);
-  }
-});
-
-test('target container is cleaned when empty', function(assert) {
-  visit('/docs');
-  click('#hello-world-button');
-  click('#hello-world-button');
-
-  andThen(() => {
-    assert.equal(find('.default-liquid-destination .liquid-destination-stack').length, 0, 'it\'s empty');
-  });
-});
-
-test('basic liquid-tether works correctly', function(assert) {
-  visit('/docs');
-  noTransitionsYet(assert);
-
-  click('#hello-world-button');
-  andThen(() => {
-    assert.equal(find('.default-liquid-destination .liquid-wormhole-element').length, 1, 'it exists');
-    ranWormholeTransition(assert, 'fade-down');
-  });
-});
-
-test('tethers can determine context with stacks', function(assert) {
-  visit('/docs/stacks');
-
-  click('#animation-with-context-button');
-  andThen(() => ranWormholeTransition(assert, 'fade'));
-
-  click('button:contains(Next)');
-  andThen(() => ranWormholeTransition(assert, 'to-left'));
-
-  click('button:contains(Back)');
-  andThen(() => ranWormholeTransition(assert, 'to-right'));
-
-  click('button:contains(Cancel)');
-  andThen(() => ranWormholeTransition(assert, 'fade'));
-});
-
-test('routed tethers can determine context with stacks', function(assert) {
-  visit('/docs/routed-tethers/step-one');
-  andThen(() => ranWormholeTransition(assert, 'fade'));
-
-  visit('/docs/routed-tethers/step-two');
-  andThen(() => ranWormholeTransition(assert, 'to-left'));
-
-  visit('/docs/routed-tethers/step-one');
-  andThen(() => ranWormholeTransition(assert, 'to-right'));
-
-  visit('/docs');
-  andThen(() => ranWormholeTransition(assert, 'fade'));
-});
-
-test('clickable overlay responds and has correct class', function(assert) {
-  visit('/docs/stacks');
-
-  click('#animation-with-context-button');
-  andThen(() => ranWormholeTransition(assert, 'fade'));
-  andThen(() => {
-    assert.equal(find('.modal-backdrop').length, 1, 'overlay exists');
+    injectTransitionSpies(app);
   });
 
-  click('.modal-backdrop');
-  andThen(() => ranWormholeTransition(assert, 'fade'));
+  hooks.afterEach(function() {
+    destroyApp(app);
+  });
+
+  test('target container is cleaned when empty', async function(assert) {
+    await visit('/docs');
+    await click('#hello-world-button');
+    await click('#hello-world-button');
+
+    assert.equal(findAll('.default-liquid-destination .liquid-destination-stack').length, 0, 'it\'s empty');
+  });
+
+  test('basic liquid-tether works correctly', async function(assert) {
+    await visit('/docs');
+    noTransitionsYet(app, assert);
+
+    await click('#hello-world-button');
+    assert.equal(findAll('.default-liquid-destination .liquid-wormhole-element').length, 1, 'it exists');
+    ranWormholeTransition(app, assert, 'fade-down');
+  });
+
+  test('tethers can determine context with stacks', async function(assert) {
+    await visit('/docs/stacks');
+
+    await click('#animation-with-context-button');
+    ranWormholeTransition(app, assert, 'fade');
+
+    await click('[data-test-next]');
+    ranWormholeTransition(app, assert, 'to-left');
+
+    await click('[data-test-back]');
+    ranWormholeTransition(app, assert, 'to-right');
+
+    await click('[data-test-cancel]');
+    ranWormholeTransition(app, assert, 'fade');
+  });
+
+  test('routed tethers can determine context with stacks', async function(assert) {
+    await visit('/docs/routed-tethers/step-one');
+    ranWormholeTransition(app, assert, 'fade');
+
+    await visit('/docs/routed-tethers/step-two');
+    ranWormholeTransition(app, assert, 'to-left');
+
+    await visit('/docs/routed-tethers/step-one');
+    ranWormholeTransition(app, assert, 'to-right');
+
+    await visit('/docs');
+    ranWormholeTransition(app, assert, 'fade');
+  });
+
+  test('clickable overlay responds and has correct class', async function(assert) {
+    await visit('/docs/stacks');
+
+    await click('#animation-with-context-button');
+    ranWormholeTransition(app, assert, 'fade');
+    assert.equal(findAll('.modal-backdrop').length, 1, 'overlay exists');
+
+    await click('.modal-backdrop');
+    ranWormholeTransition(app, assert, 'fade');
+  });
 });

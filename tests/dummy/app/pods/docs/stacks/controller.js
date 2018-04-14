@@ -1,21 +1,23 @@
-import Ember from 'ember';
+import { equal, gte } from '@ember/object/computed';
+import { run, scheduleOnce } from '@ember/runloop';
+import Controller from '@ember/controller';
 
-const { computed } = Ember;
+export default Controller.extend({
 
-export default Ember.Controller.extend({
+  // eslint-disable-next-line
   exampleConstraints: [{
     to: 'scrollParent',
     attachment: 'together',
     pin: true
   }],
 
-  showFirstModalDialog: computed.equal('currentModalDialogStep', 1),
-  showSecondModalDialog: computed.equal('currentModalDialogStep', 2),
-  showThirdModalDialog: computed.equal('currentModalDialogStep', 3),
+  showFirstModalDialog: equal('currentModalDialogStep', 1),
+  showSecondModalDialog: equal('currentModalDialogStep', 2),
+  showThirdModalDialog: equal('currentModalDialogStep', 3),
 
-  showFirstFlytoDialog: computed.gte('currentFlytoDialogStep', 1),
-  showSecondFlytoDialog: computed.gte('currentFlytoDialogStep', 2),
-  showThirdFlytoDialog: computed.gte('currentFlytoDialogStep', 3),
+  showFirstFlytoDialog: gte('currentFlytoDialogStep', 1),
+  showSecondFlytoDialog: gte('currentFlytoDialogStep', 2),
+  showThirdFlytoDialog: gte('currentFlytoDialogStep', 3),
 
   actions: {
     toggleHello() {
@@ -59,16 +61,16 @@ export default Ember.Controller.extend({
     },
 
     addPassedAnchor(anchor) {
-      Ember.run(() => {
+      run(() => {
         this.get('passedAnchors').pushObject(anchor);
-        Ember.run.scheduleOnce('afterRender', this, 'updateAnchor');
+        scheduleOnce('afterRender', this, 'updateAnchor');
       });
     },
 
     removePassedAnchor(anchor) {
-      Ember.run(() => {
+      run(() => {
         this.get('passedAnchors').removeObject(anchor);
-        Ember.run.scheduleOnce('afterRender', this, 'updateAnchor');
+        scheduleOnce('afterRender', this, 'updateAnchor');
       });
     }
   }

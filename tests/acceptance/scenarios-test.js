@@ -1,78 +1,70 @@
-import moduleForAcceptance from '../helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+
 import { injectTransitionSpies } from '../helpers/integration';
 
-import { test } from 'ember-qunit';
+import { startApp, destroyApp } from '../helpers/app-lifecycle';
+import { find, findAll, click, visit } from 'ember-native-dom-helpers';
 
-moduleForAcceptance('Acceptance | Scenarios', {
-  beforeEach() {
+let app;
+
+module('Acceptance | Scenarios', function(hooks) {
+  hooks.beforeEach(function() {
+    app = startApp();
 
     // Conceptually, integration tests shouldn't be digging around in
     // the container. But animations are slippery, and it's easier to
     // just spy on them to make sure they're being run than to try to
     // observe their behavior more directly.
-    injectTransitionSpies(this.application);
+    injectTransitionSpies(app);
+  });
+
+  hooks.afterEach(function() {
+    destroyApp(app);
+  });
+
+  test('components are not destroyed until animation has finished', async function(assert) {
+    await visit('/scenarios/component-in-tether');
+
+    find('[data-test-toggle]').click();
+    assert.equal(find('.liquid-wormhole-element').textContent.trim(), 'testing', 'component markup still exists');
+  });
+
+  test('nested tethers work properly', async function(assert) {
+    await visit('/scenarios/nested-tethers');
+
+    await click('button');
+
+    const redbox = find('.red-box').getBoundingClientRect();
+    const greenbox = find('.green-box').getBoundingClientRect();
+    const bluebox = find('.blue-box').getBoundingClientRect();
+    const yellowbox = find('.yellow-box').getBoundingClientRect();
+
+    assert.ok(withinTolerance(greenbox.top + greenbox.height, redbox.top), 'redbox vertical pos within tolerance');
+    assert.ok(withinTolerance(greenbox.left, redbox.left), 'redbox horizontal pos within tolerance');
+
+    assert.ok(withinTolerance(redbox.top + redbox.height, bluebox.top), 'bluebox vertical pos within tolerance');
+    assert.ok(withinTolerance(redbox.left, bluebox.left), 'bluebox horizontal pos within tolerance');
+
+    assert.ok(withinTolerance(bluebox.top + bluebox.height, yellowbox.top), 'yellowbox vertical pos within tolerance');
+    assert.ok(withinTolerance(bluebox.left, yellowbox.left), 'yellowbox horizontal pos within tolerance');
+  });
+
+  test('stacked tethers only shows one tether at a time', async function(assert) {
+    await visit('/scenarios/multiple-tethers');
+
+    assert.equal(find('.default-liquid-destination').textContent.trim(), '456');
+  });
+
+  test('destination container has correct class if wormholes are present', async function(assert) {
+    assert.ok(findAll('.default-liquid-destination.has-wormholes').length === 0, 'No wormholes class');
+
+    await visit('/scenarios/multiple-tethers');
+
+    assert.ok(findAll('.default-liquid-destination.has-wormholes').length > 0, 'Has wormholes class');
+  });
+
+
+  function withinTolerance(offset1, offset2) {
+    return Math.abs(offset1 - offset2) <= 3;
   }
 });
-
-test('components are not destroyed until animation has finished', function(assert) {
-  visit('/scenarios/component-in-tether');
-
-  andThen(() => {
-    find('button:contains(Toggle)').click();
-    assert.equal(find('.liquid-wormhole-element').text().trim(), 'testing', 'component markup still exists');
-  });
-});
-
-test('nested tethers work properly', function(assert) {
-  visit('/scenarios/nested-tethers');
-
-  click('button');
-
-  andThen(() => {
-    const redbox = find('.red-box');
-    const greenbox = find('.green-box');
-    const bluebox = find('.blue-box');
-    const yellowbox = find('.yellow-box');
-
-    const redboxOffset = redbox.offset();
-    const greenboxOffset = greenbox.offset();
-    const blueboxOffset = bluebox.offset();
-    const yellowboxOffset = yellowbox.offset();
-
-    const greenboxHeight = greenbox.outerHeight();
-    const redboxHeight = redbox.outerHeight();
-    const blueboxHeight = bluebox.outerHeight();
-
-    assert.ok(withinTolerance(greenboxOffset.top + greenboxHeight, redboxOffset.top), 'redbox vertical pos within tolerance');
-    assert.ok(withinTolerance(greenboxOffset.left, redboxOffset.left), 'redbox horizontal pos within tolerance');
-
-    assert.ok(withinTolerance(redboxOffset.top + redboxHeight, blueboxOffset.top), 'bluebox vertical pos within tolerance');
-    assert.ok(withinTolerance(redboxOffset.left, blueboxOffset.left), 'bluebox horizontal pos within tolerance');
-
-    assert.ok(withinTolerance(blueboxOffset.top + blueboxHeight, yellowboxOffset.top), 'yellowbox vertical pos within tolerance');
-    assert.ok(withinTolerance(blueboxOffset.left, yellowboxOffset.left), 'yellowbox horizontal pos within tolerance');
-  });
-});
-
-test('stacked tethers only shows one tether at a time', function(assert) {
-  visit('/scenarios/multiple-tethers');
-
-  andThen(() => {
-    assert.equal(find('.default-liquid-destination').text().trim(), '456');
-  });
-});
-
-test('destination container has correct class if wormholes are present', function(assert) {
-  assert.ok(find('.default-liquid-destination.has-wormholes').length === 0, 'No wormholes class');
-
-  visit('/scenarios/multiple-tethers');
-
-  andThen(() => {
-    assert.ok(find('.default-liquid-destination.has-wormholes').length > 0, 'Has wormholes class');
-  });
-});
-
-
-function withinTolerance(offset1, offset2) {
-  return Math.abs(offset1 - offset2) <= 3;
-}

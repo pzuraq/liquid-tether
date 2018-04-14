@@ -1,9 +1,10 @@
-import Ember from 'ember';
+/* globals Tether */
+import { assert } from '@ember/debug';
+import { isNone } from '@ember/utils';
+import { camelize } from '@ember/string';
+import { get, computed } from '@ember/object';
+import { run } from '@ember/runloop';
 import LiquidWormhole from 'liquid-wormhole/components/liquid-wormhole';
-
-const { computed, get, run } = Ember;
-
-const { camelize } = Ember.String;
 
 export default LiquidWormhole.extend({
   classPrefix: 'liquid-tether',
@@ -63,7 +64,7 @@ export default LiquidWormhole.extend({
       'optimizations'
     ].forEach((k) => {
       const v = get(this, k);
-      if (!Ember.isNone(v)) {
+      if (!isNone(v)) {
         options[camelize(k)] = v;
       }
     });
@@ -86,7 +87,7 @@ export default LiquidWormhole.extend({
       return document.body;
     }
 
-    Ember.assert(`Tether target "${target}" does not exist in the document`, target instanceof Element || document.querySelector(target) !== null);
+    assert(`Tether target "${target}" does not exist in the document`, target instanceof Element || document.querySelector(target) !== null);
 
     return target;
   }),
@@ -94,6 +95,7 @@ export default LiquidWormhole.extend({
   actions: {
     clickOverlay() {
       if (this.get('on-overlay-click')) {
+        // eslint-disable-next-line
         this.sendAction('on-overlay-click');
       }
     }

@@ -1,4 +1,10 @@
-import { isAnimating, finish, timeSpent, animate, stop } from 'liquid-fire';
+import {
+  isAnimating,
+  finish,
+  timeSpent,
+  animate,
+  stop
+} from 'liquid-fire';
 
 export default function fade(dimension, direction, opts, offset=20) {
   const oldParams = { opacity: 0 },

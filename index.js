@@ -1,4 +1,3 @@
-/*jshint node: true */
 'use strict';
 
 var path = require('path');
@@ -46,7 +45,7 @@ module.exports = {
   },
 
   included: function(app) {
-    this._super.included.apply(this, app) 
+    this._super.included.apply(this, app)
     this.import('vendor/tether/tether.js');
   }
 };
