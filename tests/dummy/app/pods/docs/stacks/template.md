@@ -30,8 +30,20 @@ the `matchSelector` helper from liquid-fire.
         Here's a modal!
       </div>
       <div class="modal-footer">
-        <button {{action "closeModalDialog"}} class="btn btn-default btn-embossed">Cancel</button>
-        <button {{action "nextModalDialog"}} class="btn btn-primary btn-embossed">Next</button>
+        <button
+          {{action "closeModalDialog"}}
+          class="btn btn-default btn-embossed"
+          data-test-cancel
+        >
+          Cancel
+        </button>
+        <button
+          {{action "nextModalDialog"}}
+          class="btn btn-primary btn-embossed"
+          data-test-next
+        >
+          Next
+        </button>
       </div>
     {{/liquid-tether}}
   {{/if}}
@@ -54,8 +66,20 @@ the `matchSelector` helper from liquid-fire.
         in from the left, maintaing spacial context.
       </div>
       <div class="modal-footer">
-        <button {{action "prevModalDialog"}} class="btn btn-default btn-embossed">Back</button>
-        <button {{action "nextModalDialog"}} class="btn btn-primary btn-embossed">Next</button>
+        <button
+          {{action "prevModalDialog"}}
+          class="btn btn-default btn-embossed"
+          data-test-back
+        >
+          Back
+        </button>
+        <button
+          {{action "nextModalDialog"}}
+          class="btn btn-primary btn-embossed"
+          data-test-next
+        >
+          Next
+        </button>
       </div>
     {{/liquid-tether}}
   {{/if}}
@@ -76,8 +100,20 @@ the `matchSelector` helper from liquid-fire.
         This is the last modal! It'll fade out when you finish the dialog.
       </div>
       <div class="modal-footer">
-        <button {{action "prevModalDialog"}} class="btn btn-default btn-embossed">Back</button>
-        <button {{action "closeModalDialog"}} class="btn btn-primary btn-embossed">Finish</button>
+        <button
+          {{action "prevModalDialog"}}
+          class="btn btn-default btn-embossed"
+          data-test-back
+        >
+          Back
+        </button>
+        <button
+          {{action "closeModalDialog"}}
+          class="btn btn-primary btn-embossed"
+          data-test-finish
+        >
+          Finish
+        </button>
       </div>
     {{/liquid-tether}}
   {{/if}}

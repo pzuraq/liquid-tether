@@ -37,6 +37,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-native-dom-helpers": "^0.6.2",
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.0.0",
     "ember-source-channel-url": "^1.0.1",
@@ -53,9 +54,9 @@
   "dependencies": {
     "broccoli-funnel": "^1.1.0",
     "broccoli-merge-trees": "^1.2.4",
-    "ember-cli-babel": "^6.6.0",
-    "ember-cli-htmlbars": "^1.0.10",
-    "liquid-wormhole": "^2.0.2",
+    "ember-cli-babel": "^6.12.0",
+    "ember-cli-htmlbars": "^2.0.3",
+    "liquid-wormhole": "^2.1.4",
     "tether": "^1.4.0"
   },
   "ember-addon": {

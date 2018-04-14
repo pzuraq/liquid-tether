@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'nav',
   classNames: ['main-nav'],
 
   click(event) {
-    var $target = Ember.$(event.target);
+    var $target = $(event.target);
     var $c = this.$();
 
     if ($target !== $c) {

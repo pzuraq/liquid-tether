@@ -1,4 +1,5 @@
-export default Ember.Controller.extend({
+import Controller from '@ember/controller';
+export default Controller.extend({
   showFirstModalDialog: gte('currentModalDialogStep', 1),
   showSecondModalDialog: gte('currentModalDialogStep', 2),
   showThirdModalDialog: gte('currentModalDialogStep', 3),
