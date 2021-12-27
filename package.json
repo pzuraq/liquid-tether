@@ -2,8 +2,12 @@
   "name": "liquid-tether",
   "version": "2.0.7",
   "description": "Modals made easy",
-  "author": "Christopher Garrett <cmg@pzuraq.co>",
+  "keywords": [
+    "ember-addon"
+  ],
   "repository": "https://github.com/pzuraq/liquid-tether",
+  "license": "MIT",
+  "author": "Christopher Garrett <cmg@pzuraq.co>",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -73,15 +77,14 @@
     "sass": "^1.45.1",
     "webpack": "^5.65.0"
   },
-  "keywords": [
-    "ember-addon"
-  ],
-  "license": "MIT",
-  "ember": {
-    "edition": "octane"
+  "peerDependencies": {
+    "liquid-fire": "^0.33.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
+  },
+  "ember": {
+    "edition": "octane"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
