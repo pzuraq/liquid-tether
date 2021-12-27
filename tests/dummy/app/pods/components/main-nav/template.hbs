@@ -15,21 +15,21 @@
   </div>
   <div class='navbar-collapse {{unless this.navOpen 'collapse'}}'>
     <ul class='nav navbar-nav navbar-left'>
-      {{#link-to 'index' class='nav-item' tagName='li'}}
+      <LinkTo @route="index" class="nav-item" @tagName="li">
         <a>
           Introduction
         </a>
-      {{/link-to}}
-      {{#link-to 'docs' class='nav-item' tagName='li'}}
+      </LinkTo>
+      <LinkTo @route="docs" class="nav-item" @tagName="li">
         <a>
           Docs
         </a>
-      {{/link-to}}
-      {{#link-to 'upgrading' class='nav-item' tagName='li'}}
+      </LinkTo>
+      <LinkTo @route="upgrading" class="nav-item" @tagName="li">
         <a>
           Upgrading
         </a>
-      {{/link-to}}
+      </LinkTo>
     </ul>
     <ul class='nav navbar-nav navbar-right navbar-break'>
       <li>

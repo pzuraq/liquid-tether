@@ -2,7 +2,7 @@
   <button class="btn btn-primary btn-embossed" type="button" {{action "openFlytoDialog"}}>Open Moving Modal</button>
 </div>
 
-{{#if showFirstFlytoDialog}}
+{{#if this.showFirstFlytoDialog}}
   <LiquidTether @to="flyto-dialog" @target="document.body" @targetModifier="visible" @attachment="top left" @targetAttachment="top left" @offset="-20px -20px" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
@@ -21,7 +21,7 @@
   </LiquidTether>
 {{/if}}
 
-{{#if showSecondFlytoDialog}}
+{{#if this.showSecondFlytoDialog}}
   <LiquidTether @to="flyto-dialog" @target="document.body" @targetModifier="visible" @attachment="top right" @targetAttachment="top right" @offset="-20px 40px" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
@@ -44,7 +44,7 @@
   </LiquidTether>
 {{/if}}
 
-{{#if showThirdFlytoDialog}}
+{{#if this.showThirdFlytoDialog}}
   <LiquidTether @to="flyto-dialog" @target="document.body" @targetModifier="visible" @attachment="bottom center" @targetAttachment="bottom center" @offset="20px 0" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">

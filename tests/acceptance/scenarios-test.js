@@ -4,7 +4,7 @@ import { injectTransitionSpies } from '../helpers/integration';
 
 import { setupApplicationTest } from 'ember-qunit';
 import { find, findAll, click, visit } from '@ember/test-helpers';
-import $ from 'jquery'
+import $ from 'jquery';
 
 let app;
 

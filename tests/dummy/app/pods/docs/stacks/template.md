@@ -13,7 +13,7 @@ the `matchSelector` helper from liquid-fire.
   <button {{action "openModalDialog"}} id="animation-with-context-button" class="btn btn-primary btn-embossed">
     Open Dialog
   </button>
-  {{#if showFirstModalDialog}}
+  {{#if this.showFirstModalDialog}}
     {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
     {{#liquid-tether
       stack="modal-dialog"
@@ -47,7 +47,7 @@ the `matchSelector` helper from liquid-fire.
       </div>
     {{/liquid-tether}}
   {{/if}}
-  {{#if showSecondModalDialog}}
+  {{#if this.showSecondModalDialog}}
     {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
     {{#liquid-tether
       stack="modal-dialog"
@@ -83,7 +83,7 @@ the `matchSelector` helper from liquid-fire.
       </div>
     {{/liquid-tether}}
   {{/if}}
-  {{#if showThirdModalDialog}}
+  {{#if this.showThirdModalDialog}}
     {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
     {{#liquid-tether
       stack="modal-dialog"
@@ -124,7 +124,7 @@ the `matchSelector` helper from liquid-fire.
   Open Dialog
 </button>
 
-{{#if showFirstModalDialog}}
+{{#if this.showFirstModalDialog}}
   {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
   {{#liquid-tether
     stack="modal-dialog"
@@ -140,7 +140,7 @@ the `matchSelector` helper from liquid-fire.
   {{/liquid-tether}}
 {{/if}}
 
-{{#if showSecondModalDialog}}
+{{#if this.showSecondModalDialog}}
   {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
   {{#liquid-tether
     stack="modal-dialog"
@@ -156,7 +156,7 @@ the `matchSelector` helper from liquid-fire.
   {{/liquid-tether}}
 {{/if}}
 
-{{#if showThirdModalDialog}}
+{{#if this.showThirdModalDialog}}
   {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
   {{#liquid-tether
     stack="modal-dialog"

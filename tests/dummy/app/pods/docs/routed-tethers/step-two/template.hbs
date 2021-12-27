@@ -1,4 +1,4 @@
-{{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
+<LiquidWormhole @stack="modal-backdrop" @class="modal-backdrop" />
 <LiquidTether @stack="modal-dialog" @value={{2}} @target="document.body" @targetModifier="visible" @attachment="middle center" @class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
@@ -13,8 +13,8 @@
     </div>
 
     <div class="modal-footer">
-      {{#link-to "docs.routed-tethers.step-one" class="btn btn-default btn-embossed" activeClass=null}}Prev{{/link-to}}
-      {{#link-to "docs.routed-tethers" class="btn btn-primary btn-embossed" activeClass=null}}Ok{{/link-to}}
+      <LinkTo @route="docs.routed-tethers.step-one" class="btn btn-default btn-embossed" @activeClass={{null}}>Prev</LinkTo>
+      <LinkTo @route="docs.routed-tethers" class="btn btn-primary btn-embossed" @activeClass={{null}}>Ok</LinkTo>
     </div>
   </div>
 </LiquidTether>

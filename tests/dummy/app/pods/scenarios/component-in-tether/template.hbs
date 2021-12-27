@@ -1,6 +1,6 @@
 <button data-test-toggle type="button" {{action "toggleModal"}}>Toggle</button>
 
-{{#unless hideModal}}
+{{#unless this.hideModal}}
   <LiquidTether @target="document.body" @attachment="middle center" @class="component-in-tether">
     <TestComponent>
       testing

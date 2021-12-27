@@ -4,7 +4,7 @@
   </button>
 </div>
 
-{{#if showFirstModalDialog}}
+{{#if this.showFirstModalDialog}}
   <LiquidTether @to="modal-dialog" @target="document.body" @targetModifier="visible" @attachment="middle center" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
@@ -23,7 +23,7 @@
   </LiquidTether>
 {{/if}}
 
-{{#if showSecondModalDialog}}
+{{#if this.showSecondModalDialog}}
   <LiquidTether @to="modal-dialog" @target="document.body" @targetModifier="visible" @attachment="middle center" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
@@ -46,7 +46,7 @@
   </LiquidTether>
 {{/if}}
 
-{{#if showThirdModalDialog}}
+{{#if this.showThirdModalDialog}}
   <LiquidTether @to="modal-dialog" @target="document.body" @targetModifier="visible" @attachment="middle center" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">

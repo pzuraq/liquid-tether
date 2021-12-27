@@ -2,7 +2,7 @@
   <button class="btn btn-primary btn-embossed" type="button" {{action "toggleFlyout"}}>Open Flyout</button>
 </div>
 
-{{#if showFlyout}}
+{{#if this.showFlyout}}
   <LiquidWormhole @to="flyout">
     <div class="modal-backdrop"></div>
     <div class="flyout">

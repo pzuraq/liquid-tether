@@ -1,7 +1,7 @@
 <!-- docs.hbs -->
 
 <div class="example-button-container">
-  {{#link-to "docs.modal"}}Open Routed Modal{{/link-to}}
+  <LinkTo @route="docs.modal">Open Routed Modal</LinkTo>
 </div>
 
 <!-- modal.hbs -->
@@ -20,8 +20,12 @@
     </div>
 
     <div class="modal-footer">
-      {{#link-to "docs"}}Cancel{{/link-to}}
-      {{#link-to "docs"}}Ok{{/link-to}}
+      <LinkTo @route="docs">
+        Cancel
+      </LinkTo>
+      <LinkTo @route="docs">
+        Ok
+      </LinkTo>
     </div>
   </div>
 </LiquidTether>
