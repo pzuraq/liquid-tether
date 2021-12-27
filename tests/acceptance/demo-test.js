@@ -33,7 +33,7 @@ module('Acceptance | Demos', function (hooks) {
     await click('#hello-world-button');
     await click('#hello-world-button');
 
-    assert.equal(
+    assert.strictEqual(
       findAll('.default-liquid-destination .liquid-destination-stack').length,
       0,
       "it's empty"
@@ -41,11 +41,13 @@ module('Acceptance | Demos', function (hooks) {
   });
 
   test('basic liquid-tether works correctly', async function (assert) {
+    assert.expect(3);
+
     await visit('/docs');
     noTransitionsYet(app, assert);
 
     await click('#hello-world-button');
-    assert.equal(
+    assert.strictEqual(
       findAll('.default-liquid-destination .liquid-wormhole-element').length,
       1,
       'it exists'
@@ -54,6 +56,8 @@ module('Acceptance | Demos', function (hooks) {
   });
 
   test('tethers can determine context with stacks', async function (assert) {
+    assert.expect(4);
+
     await visit('/docs/stacks');
 
     await click('#animation-with-context-button');
@@ -70,6 +74,8 @@ module('Acceptance | Demos', function (hooks) {
   });
 
   test('routed tethers can determine context with stacks', async function (assert) {
+    assert.expect(4);
+
     await visit('/docs/routed-tethers/step-one');
     ranWormholeTransition(app, assert, 'fade');
 
@@ -84,11 +90,13 @@ module('Acceptance | Demos', function (hooks) {
   });
 
   test('clickable overlay responds and has correct class', async function (assert) {
+    assert.expect(2);
+
     await visit('/docs/stacks');
 
     await click('#animation-with-context-button');
     ranWormholeTransition(app, assert, 'fade');
-    assert.equal(findAll('.modal-backdrop').length, 1, 'overlay exists');
+    assert.strictEqual(findAll('.modal-backdrop').length, 1, 'overlay exists');
 
     await click('.modal-backdrop');
     ranWormholeTransition(app, assert, 'fade');

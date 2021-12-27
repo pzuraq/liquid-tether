@@ -98,7 +98,8 @@ export default LiquidWormhole.extend({
 
   actions: {
     clickOverlay() {
-      if (this.get('on-overlay-click')) {
+      // eslint-disable-next-line ember/no-get
+      if (get(this, 'on-overlay-click')) {
         // eslint-disable-next-line
         this.sendAction('on-overlay-click');
       }

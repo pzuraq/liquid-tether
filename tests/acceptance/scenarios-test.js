@@ -29,7 +29,7 @@ module('Acceptance | Scenarios', function (hooks) {
     await visit('/scenarios/component-in-tether');
 
     find('[data-test-toggle]').click();
-    assert.equal(
+    assert.strictEqual(
       find('.liquid-wormhole-element').textContent.trim(),
       'testing',
       'component markup still exists'
@@ -77,7 +77,10 @@ module('Acceptance | Scenarios', function (hooks) {
   test('stacked tethers only shows one tether at a time', async function (assert) {
     await visit('/scenarios/multiple-tethers');
 
-    assert.equal(find('.default-liquid-destination').textContent.trim(), '456');
+    assert.strictEqual(
+      find('.default-liquid-destination').textContent.trim(),
+      '456'
+    );
   });
 
   test('destination container has correct class if wormholes are present', async function (assert) {
