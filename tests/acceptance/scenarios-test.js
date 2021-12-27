@@ -2,14 +2,17 @@ import { module, test } from 'qunit';
 
 import { injectTransitionSpies } from '../helpers/integration';
 
-import { startApp, destroyApp } from '../helpers/app-lifecycle';
+import { setupApplicationTest } from 'ember-qunit';
 import { find, findAll, click, visit } from '@ember/test-helpers';
+import $ from 'jquery'
 
 let app;
 
 module('Acceptance | Scenarios', function (hooks) {
+  setupApplicationTest(hooks);
+
   hooks.beforeEach(function () {
-    app = startApp();
+    app = this.owner;
 
     // Conceptually, integration tests shouldn't be digging around in
     // the container. But animations are slippery, and it's easier to
@@ -19,7 +22,7 @@ module('Acceptance | Scenarios', function (hooks) {
   });
 
   hooks.afterEach(function () {
-    destroyApp(app);
+    $('.liquid-target-container').remove();
   });
 
   test('components are not destroyed until animation has finished', async function (assert) {
