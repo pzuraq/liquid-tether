@@ -7,7 +7,7 @@ export default Component.extend({
 
   click(event) {
     var $target = $(event.target);
-    var $c = this.$();
+    var $c = $(this.element);
 
     if ($target !== $c) {
       if ($target.closest($c.find('a.nav-item')).length) {

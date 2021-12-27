@@ -15,21 +15,21 @@
   </div>
   <div class='navbar-collapse {{unless this.navOpen 'collapse'}}'>
     <ul class='nav navbar-nav navbar-left'>
-      <LinkTo @route="index" class="nav-item" @tagName="li">
-        <a>
+      <li>
+        <LinkTo @route='index' class='nav-item'>
           Introduction
-        </a>
-      </LinkTo>
-      <LinkTo @route="docs" class="nav-item" @tagName="li">
-        <a>
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='docs' class='nav-item'>
           Docs
-        </a>
-      </LinkTo>
-      <LinkTo @route="upgrading" class="nav-item" @tagName="li">
-        <a>
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='upgrading' class='nav-item'>
           Upgrading
-        </a>
-      </LinkTo>
+        </LinkTo>
+      </li>
     </ul>
     <ul class='nav navbar-nav navbar-right navbar-break'>
       <li>

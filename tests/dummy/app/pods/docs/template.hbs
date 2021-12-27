@@ -1,17 +1,45 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-3">
-    <ul class="nav nav-pills nav-stacked">
-      <LinkTo @route="docs.index" @tagName="li"><a>The Basics</a></LinkTo>
-      <LinkTo @route="docs.parameters" @tagName="li"><a>Parameters</a></LinkTo>
-      <LinkTo @route="docs.stacks" @tagName="li"><a>Stacks</a></LinkTo>
-      <LinkTo @route="docs.routed-tethers" @tagName="li"><a>Routed Tethers</a></LinkTo>
-      <LinkTo @route="docs.dynamic-targets" @tagName="li"><a>Dynamic Targets</a></LinkTo>
-      <LinkTo @route="docs.destinations" @tagName="li"><a>Custom Destinations</a></LinkTo>
-      <LinkTo @route="docs.components" @tagName="li"><a>Sending Components</a></LinkTo>
+<div class='row'>
+  <div class='col-xs-12 col-sm-3'>
+    <ul class='nav nav-pills nav-stacked'>
+      <li>
+        <LinkTo @route='docs.index'>
+          The Basics
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='docs.parameters'>
+          Parameters
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='docs.stacks'>
+          Stacks
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='docs.routed-tethers'>
+          Routed Tethers
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='docs.dynamic-targets'>
+          Dynamic Targets
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='docs.destinations'>
+          Custom Destinations
+        </LinkTo>
+      </li>
+      <li>
+      <LinkTo @route='docs.components'>
+          Sending Components
+      </LinkTo>
+      </li>
     </ul>
   </div>
 
-  <div class="col-xs-12 col-sm-9">
+  <div class='col-xs-12 col-sm-9'>
     {{outlet}}
   </div>
 </div>
