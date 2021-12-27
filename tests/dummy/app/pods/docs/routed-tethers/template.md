@@ -11,9 +11,9 @@ a `liquid-tether`.
 </div>
 
 ```
-<LinkTo @route="docs.routed-tethers.step-one">
+{{#link-to "docs.routed-tethers.step-one"}}
   Open Routed Tether
-</LinkTo>
+{{/link-to}}
 
 {{outlet}}
 ```
