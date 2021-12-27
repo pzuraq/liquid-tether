@@ -6,13 +6,7 @@
 
 <!-- modal.hbs -->
 
-{{#liquid-tether
-  to="modal-dialog"
-  target="document.body"
-  targetModifier="visible"
-  attachment="middle center"
-  tetherClass="modal-dialog"
-  overlayClass="modal-backdrop"}}
+<LiquidTether @to="modal-dialog" @target="document.body" @targetModifier="visible" @attachment="middle center" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title">Modal Header</h4>
@@ -30,4 +24,4 @@
       {{#link-to "docs"}}Ok{{/link-to}}
     </div>
   </div>
-{{/liquid-tether}}
+</LiquidTether>

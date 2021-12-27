@@ -1,9 +1,9 @@
 <div class="example-button-container">
-  <button {{action "toggleFlyout"}} class="btn btn-primary btn-embossed">Open Flyout</button>
+  <button class="btn btn-primary btn-embossed" type="button" {{action "toggleFlyout"}}>Open Flyout</button>
 </div>
 
 {{#if showFlyout}}
-  {{#liquid-wormhole to="flyout"}}
+  <LiquidWormhole @to="flyout">
     <div class="modal-backdrop"></div>
     <div class="flyout">
       <h1>Hey there!</h1>
@@ -18,10 +18,10 @@
         This div is easily fixed to the bottom of the screen, no need to worry about
         the target container messing with your positioning!
 
-        <button {{action 'toggleFlyout'}} class="btn btn-primary btn-embossed btn-block">
+        <button class="btn btn-primary btn-embossed btn-block" type="button" {{action 'toggleFlyout'}}>
           Close
         </button>
       </div>
     </div>
-  {{/liquid-wormhole}}
+  </LiquidWormhole>
 {{/if}}

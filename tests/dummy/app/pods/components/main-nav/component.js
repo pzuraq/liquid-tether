@@ -19,6 +19,6 @@ export default Component.extend({
   actions: {
     toggleNav() {
       this.toggleProperty('navOpen');
-    }
-  }
+    },
+  },
 });

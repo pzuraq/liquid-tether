@@ -1,17 +1,9 @@
 <div class="example-button-container">
-  <button {{action "openFlytoDialog"}} class="btn btn-primary btn-embossed">Open Moving Modal</button>
+  <button class="btn btn-primary btn-embossed" type="button" {{action "openFlytoDialog"}}>Open Moving Modal</button>
 </div>
 
 {{#if showFirstFlytoDialog}}
-  {{#liquid-tether
-    to="flyto-dialog"
-    target="document.body"
-    targetModifier="visible"
-    attachment="top left"
-    targetAttachment="top left"
-    offset="-20px -20px"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
+  <LiquidTether @to="flyto-dialog" @target="document.body" @targetModifier="visible" @attachment="top left" @targetAttachment="top left" @offset="-20px -20px" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Modal Header</h4>
@@ -22,23 +14,15 @@
       </div>
 
       <div class="modal-footer">
-        <button {{action "closeFlytoDialog"}} class="btn btn-default btn-embossed">Cancel</button>
-        <button {{action "nextFlytoDialog"}} class="btn btn-primary btn-embossed">Next</button>
+        <button class="btn btn-default btn-embossed" type="button" {{action "closeFlytoDialog"}}>Cancel</button>
+        <button class="btn btn-primary btn-embossed" type="button" {{action "nextFlytoDialog"}}>Next</button>
       </div>
     </div>
-  {{/liquid-tether}}
+  </LiquidTether>
 {{/if}}
 
 {{#if showSecondFlytoDialog}}
-  {{#liquid-tether
-    to="flyto-dialog"
-    target="document.body"
-    targetModifier="visible"
-    attachment="top right"
-    targetAttachment="top right"
-    offset="-20px 40px"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
+  <LiquidTether @to="flyto-dialog" @target="document.body" @targetModifier="visible" @attachment="top right" @targetAttachment="top right" @offset="-20px 40px" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Another Modal</h4>
@@ -53,23 +37,15 @@
       </div>
 
       <div class="modal-footer">
-        <button {{action "prevFlytoDialog"}} class="btn btn-default btn-embossed">Back</button>
-        <button {{action "nextFlytoDialog"}} class="btn btn-primary btn-embossed">Next</button>
+        <button class="btn btn-default btn-embossed" type="button" {{action "prevFlytoDialog"}}>Back</button>
+        <button class="btn btn-primary btn-embossed" type="button" {{action "nextFlytoDialog"}}>Next</button>
       </div>
     </div>
-  {{/liquid-tether}}
+  </LiquidTether>
 {{/if}}
 
 {{#if showThirdFlytoDialog}}
-  {{#liquid-tether
-    to="flyto-dialog"
-    target="document.body"
-    targetModifier="visible"
-    attachment="bottom center"
-    targetAttachment="bottom center"
-    offset="20px 0"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
+  <LiquidTether @to="flyto-dialog" @target="document.body" @targetModifier="visible" @attachment="bottom center" @targetAttachment="bottom center" @offset="20px 0" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Another Modal</h4>
@@ -82,9 +58,9 @@
       </div>
 
       <div class="modal-footer">
-        <button {{action "prevFlytoDialog"}} class="btn btn-default btn-embossed">Back</button>
-        <button {{action "closeFlytoDialog"}} class="btn btn-primary btn-embossed">Finish</button>
+        <button class="btn btn-default btn-embossed" type="button" {{action "prevFlytoDialog"}}>Back</button>
+        <button class="btn btn-primary btn-embossed" type="button" {{action "closeFlytoDialog"}}>Finish</button>
       </div>
     </div>
-  {{/liquid-tether}}
+  </LiquidTether>
 {{/if}}

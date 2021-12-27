@@ -4,6 +4,6 @@ export default Controller.extend({
   actions: {
     toggleHello() {
       this.toggleProperty('showHello');
-    }
-  }
+    },
+  },
 });

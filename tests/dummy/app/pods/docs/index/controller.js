@@ -3,13 +3,13 @@ import { run, scheduleOnce } from '@ember/runloop';
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-
   // eslint-disable-next-line
   exampleConstraints: [{
-    to: 'scrollParent',
-    attachment: 'together',
-    pin: true
-  }],
+      to: 'scrollParent',
+      attachment: 'together',
+      pin: true,
+    },
+  ],
 
   showFirstModalDialog: equal('currentModalDialogStep', 1),
   showSecondModalDialog: equal('currentModalDialogStep', 2),
@@ -62,16 +62,16 @@ export default Controller.extend({
 
     addPassedAnchor(anchor) {
       run(() => {
-        this.get('passedAnchors').pushObject(anchor);
+        this.passedAnchors.pushObject(anchor);
         scheduleOnce('afterRender', this, 'updateAnchor');
       });
     },
 
     removePassedAnchor(anchor) {
       run(() => {
-        this.get('passedAnchors').removeObject(anchor);
+        this.passedAnchors.removeObject(anchor);
         scheduleOnce('afterRender', this, 'updateAnchor');
       });
-    }
-  }
+    },
+  },
 });

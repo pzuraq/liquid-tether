@@ -18,9 +18,10 @@ export default LiquidWormhole.extend({
   optimizations: null,
 
   didInsertElement() {
+    this._super(...arguments);
     this._super.apply(this, arguments);
 
-    this._tetherElement = this.get('nodes')[0];
+    this._tetherElement = this.nodes[0];
   },
 
   willAppendNodes(bodyElement) {
@@ -40,6 +41,7 @@ export default LiquidWormhole.extend({
   },
 
   willDestroyElement() {
+    this._super(...arguments);
     this._super.apply(this, arguments);
 
     run.schedule('render', () => {
@@ -48,20 +50,21 @@ export default LiquidWormhole.extend({
   },
 
   addTether(bodyElement) {
-    const target = this.get('_tetherTarget');
+    const target = this._tetherTarget;
 
     const element = this._tetherElement;
 
     const options = { element, target, bodyElement };
 
-    [ 'classPrefix',
+    [
+      'classPrefix',
       'attachment',
       'targetAttachment',
       'offset',
       'targetOffset',
       'targetModifier',
       'constraints',
-      'optimizations'
+      'optimizations',
     ].forEach((k) => {
       const v = get(this, k);
       if (!isNone(v)) {
@@ -78,8 +81,8 @@ export default LiquidWormhole.extend({
     }
   },
 
-  _tetherTarget: computed('target', function() {
-    let target = get(this, 'target');
+  _tetherTarget: computed('target', function () {
+    let target = this.target;
 
     if (target && target.element) {
       return target.element;
@@ -87,7 +90,10 @@ export default LiquidWormhole.extend({
       return document.body;
     }
 
-    assert(`Tether target "${target}" does not exist in the document`, target instanceof Element || document.querySelector(target) !== null);
+    assert(
+      `Tether target "${target}" does not exist in the document`,
+      target instanceof Element || document.querySelector(target) !== null
+    );
 
     return target;
   }),
@@ -98,6 +104,6 @@ export default LiquidWormhole.extend({
         // eslint-disable-next-line
         this.sendAction('on-overlay-click');
       }
-    }
-  }
+    },
+  },
 });

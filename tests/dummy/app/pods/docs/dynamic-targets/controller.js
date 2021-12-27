@@ -6,30 +6,33 @@ export default Controller.extend({
 
   // eslint-disable-next-line
   steps: [{
-    target: '#feature1',
-    text: 'Here\'s a feature!'
-  }, {
-    target: '#feature2',
-    text: 'Another feature!'
-  }, {
-    target: '#feature3',
-    text: 'Last feature!'
-  }],
+      target: '#feature1',
+      text: "Here's a feature!",
+    },
+    {
+      target: '#feature2',
+      text: 'Another feature!',
+    },
+    {
+      target: '#feature3',
+      text: 'Last feature!',
+    },
+  ],
 
-  currentStep: computed('stepNumber', {
+  currentStep: computed('stepNumber', 'steps', {
     get() {
-      return this.get('steps')[this.get('stepNumber')];
-    }
+      return this.steps[this.stepNumber];
+    },
   }),
 
   actions: {
     prevStep() {
-      const stepNumber = this.get('stepNumber') - 1;
+      const stepNumber = this.stepNumber - 1;
       this.set('stepNumber', stepNumber === -1 ? 2 : stepNumber);
     },
 
     nextStep() {
-      this.set('stepNumber', (this.get('stepNumber') + 1) % 3);
-    }
-  }
+      this.set('stepNumber', (this.stepNumber + 1) % 3);
+    },
+  },
 });

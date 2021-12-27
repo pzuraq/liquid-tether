@@ -1,13 +1,5 @@
 {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
-{{#liquid-tether
-  stack="modal-dialog"
-  value=2
-
-  target="document.body"
-  targetModifier="visible"
-  attachment="middle center"
-
-  class="modal-dialog"}}
+<LiquidTether @stack="modal-dialog" @value={{2}} @target="document.body" @targetModifier="visible" @attachment="middle center" @class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title">Modal Header</h4>
@@ -25,4 +17,4 @@
       {{#link-to "docs.routed-tethers" class="btn btn-primary btn-embossed" activeClass=null}}Ok{{/link-to}}
     </div>
   </div>
-{{/liquid-tether}}
+</LiquidTether>

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'dummy',
     podModulePrefix: 'dummy/pods',
@@ -10,8 +10,12 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
+      },
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false,
+      },
     },
 
     contentSecurityPolicy: {
@@ -21,13 +25,13 @@ module.exports = function(environment) {
       'connect-src': "'self'",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com",
-      'media-src': "'self'"
+      'media-src': "'self'",
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
 
   if (environment === 'development') {
@@ -51,7 +55,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/liquid-tether'
+    ENV.rootURL = '/liquid-tether';
   }
 
   return ENV;

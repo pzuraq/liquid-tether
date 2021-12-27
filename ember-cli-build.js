@@ -2,20 +2,20 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
-module.exports = function() {
-  var app = new EmberAddon({
+module.exports = function (defaults) {
+  let app = new EmberAddon(defaults, {
     snippetPaths: ['tests/dummy/snippets'],
     snippetSearchPaths: ['app', 'tests/dummy/app', 'addon'],
     sassOptions: {
       includePaths: [
         'node_modules/bootstrap-sass/assets/stylesheets',
-        'node_modules/flat-ui-sass/vendor/assets/stylesheets'
+        'vendor/flat-ui-sass/vendor/assets/stylesheets',
       ],
-      extension: 'scss'
-    }
+      extension: 'scss',
+    },
   });
 
-  app.import('vendor/sinon.js', { type: 'test'});
+  app.import('vendor/sinon.js', { type: 'test' });
   /*
     This build file specifies the options for the dummy test app of this
     addon, located in `/tests/dummy`
@@ -23,5 +23,12 @@ module.exports = function() {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  return app.toTree();
+  const { maybeEmbroider } = require('@embroider/test-setup');
+  return maybeEmbroider(app, {
+    skipBabel: [
+      {
+        package: 'qunit',
+      },
+    ],
+  });
 };

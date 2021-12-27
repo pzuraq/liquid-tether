@@ -2,29 +2,14 @@
   Target
 </div>
 
-{{#liquid-tether
-  target=".green-box"
-  attachment="top left"
-  targetAttachment="bottom left"
-  class="red-box"
-}}
+<LiquidTether @target=".green-box" @attachment="top left" @targetAttachment="bottom left" @class="red-box">
   Outer Tether
 
-  {{#liquid-tether
-    target=".red-box"
-    attachment="top left"
-    targetAttachment="bottom left"
-    class="blue-box"
-  }}
+  <LiquidTether @target=".red-box" @attachment="top left" @targetAttachment="bottom left" @class="blue-box">
     Middle Tether
-  {{/liquid-tether}}
-{{/liquid-tether}}
+  </LiquidTether>
+</LiquidTether>
 
-{{#liquid-tether
-  target=".blue-box"
-  attachment="top left"
-  targetAttachment="bottom left"
-  class="yellow-box"
-}}
+<LiquidTether @target=".blue-box" @attachment="top left" @targetAttachment="bottom left" @class="yellow-box">
   Other Tether
-{{/liquid-tether}}
+</LiquidTether>
