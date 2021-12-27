@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import { injectTransitionSpies } from '../helpers/integration';
 
 import { startApp, destroyApp } from '../helpers/app-lifecycle';
-import { find, findAll, click, visit } from 'ember-native-dom-helpers';
+import { find, findAll, click, visit } from '@ember/test-helpers';
 
 let app;
 

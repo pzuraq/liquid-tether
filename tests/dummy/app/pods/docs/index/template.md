@@ -20,7 +20,7 @@ If you want to warp elements somewhere else, consider
   <button {{action 'toggleHello'}} id="hello-world-button" class="btn btn-primary btn-embossed">
     Give it a shot!
   </button>
-  {{#if showHello}}
+  {{#if this.showHello}}
     {{#liquid-tether
       target="#hello-world-button"
       attachment="middle left"
@@ -41,7 +41,7 @@ If you want to warp elements somewhere else, consider
   Give it a shot!
 </button>
 
-{{#if showHello}}
+{{#if this.showHello}}
   {{#liquid-tether
     target="#hello-world-button"
     attachment="middle left"

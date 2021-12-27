@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 
-import { findAll, click, visit } from 'ember-native-dom-helpers';
+import { findAll, click, visit } from '@ember/test-helpers';
 
 import {
   injectTransitionSpies,

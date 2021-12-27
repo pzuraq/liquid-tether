@@ -3,7 +3,7 @@ import { assert } from '@ember/debug';
 import { isNone } from '@ember/utils';
 import { camelize } from '@ember/string';
 import { get, computed } from '@ember/object';
-import { run } from '@ember/runloop';
+import { schedule } from '@ember/runloop';
 import LiquidWormhole from 'liquid-wormhole/components/liquid-wormhole';
 
 export default LiquidWormhole.extend({
@@ -19,7 +19,6 @@ export default LiquidWormhole.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    this._super.apply(this, arguments);
 
     this._tetherElement = this.nodes[0];
   },
@@ -42,9 +41,8 @@ export default LiquidWormhole.extend({
 
   willDestroyElement() {
     this._super(...arguments);
-    this._super.apply(this, arguments);
 
-    run.schedule('render', () => {
+    schedule('render', () => {
       this.removeTether();
     });
   },
