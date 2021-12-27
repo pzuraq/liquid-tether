@@ -90,7 +90,7 @@ module('Acceptance | Demos', function (hooks) {
   });
 
   test('clickable overlay responds and has correct class', async function (assert) {
-    assert.expect(2);
+    assert.expect(3);
 
     await visit('/docs/stacks');
 
