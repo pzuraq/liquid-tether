@@ -48,7 +48,7 @@
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-github-pages": "^0.2.2",
     "ember-cli-inject-live-reload": "^2.1.0",
-    "ember-cli-markdown-compiler": "rwwagner90/ember-cli-markdown-compiler#e0d286c740d3885657787e72ec64d1ba61fb3018",
+    "ember-cli-markdown-compiler": "rwwagner90/ember-cli-markdown-compiler#d892c12c3349b677486eb1d1ce2199a1e4379009",
     "ember-cli-sass": "^10.0.1",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
