@@ -31,13 +31,13 @@
     "broccoli-merge-trees": "^4.2.0",
     "ember-cli-babel": "^7.26.8",
     "ember-cli-htmlbars": "^6.0.1",
-    "liquid-wormhole": "pzuraq/liquid-wormhole#0604500e66e3a94274895797d78747b77ff21023",
+    "liquid-wormhole": "pzuraq/liquid-wormhole#8cfb67b7fbf158f1e9187bbc2c47c10ee32b5a28",
     "tether": "^1.4.7"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
-    "@embroider/test-setup": "^0.49.0",
+    "@embroider/test-setup": "^1.0.0",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "babel-eslint": "^10.1.0",
@@ -48,7 +48,7 @@
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-github-pages": "^0.2.2",
     "ember-cli-inject-live-reload": "^2.1.0",
-    "ember-cli-markdown-compiler": "rwwagner90/ember-cli-markdown-compiler#d892c12c3349b677486eb1d1ce2199a1e4379009",
+    "ember-cli-markdown-compiler": "rwwagner90/ember-cli-markdown-compiler#930f9605920b90cb0ddd447750394f68b4ef72dd",
     "ember-cli-sass": "^10.0.1",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
@@ -68,17 +68,17 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-qunit": "^7.2.0",
-    "liquid-fire": "^0.33.0",
+    "liquid-fire": "^0.34.0",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "qunit": "^2.17.2",
     "qunit-dom": "^2.0.0",
-    "sass": "^1.45.1",
-    "webpack": "^5.65.0"
+    "sass": "^1.49.0",
+    "webpack": "^5.67.0"
   },
   "peerDependencies": {
-    "liquid-fire": "^0.33.0"
+    "liquid-fire": "^0.34.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
