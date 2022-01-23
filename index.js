@@ -5,9 +5,9 @@ var mergeTrees = require('broccoli-merge-trees');
 var Funnel = require('broccoli-funnel');
 
 module.exports = {
-  name: 'liquid-tether',
+  name: require('./package').name,
 
-  init: function() {
+  init() {
     if (this._super.init) {
       this._super.init.apply(this, arguments);
     }
@@ -35,17 +35,17 @@ module.exports = {
     }
   },
 
-  treeForVendor: function(tree) {
+  treeForVendor(tree) {
     var tetherPath = path.dirname(require.resolve('tether'));
     var tetherTree = new Funnel(this.treeGenerator(tetherPath), {
       srcDir: '/',
-      destDir: 'tether'
+      destDir: 'tether',
     });
     return mergeTrees([tree, tetherTree]);
   },
 
-  included: function(app) {
-    this._super.included.apply(this, app)
+  included(app) {
+    this._super.included.apply(this, app);
     this.import('vendor/tether/tether.js');
-  }
+  },
 };

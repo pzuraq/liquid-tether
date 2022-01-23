@@ -5,7 +5,7 @@ If you'd rather send a component than use a block template, you can set the
   <button {{action 'toggleHello'}} id="hello-world-button" class="btn btn-primary btn-embossed">
     Press Me
   </button>
-  {{#if showHello}}
+  {{#if this.showHello}}
     {{liquid-tether
       send="hello-component"
       target="#hello-world-button"
@@ -21,7 +21,7 @@ If you'd rather send a component than use a block template, you can set the
   Press Me
 </button>
 
-{{#if showHello}}
+{{#if this.showHello}}
   {{liquid-tether
     send="hello-component"
     target="#hello-world-button"

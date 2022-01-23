@@ -10,10 +10,12 @@ easy-to-use toolkit for both positioning & animating UI elements.
 Interactive documentation can be found
 [here](http://pzuraq.github.io/liquid-tether/).
 
-## Ember Compatibility
+Compatibility
+------------------------------------------------------------------------------
 
-Liquid Tether is tested on all versions of Ember >= 1.13. Long term support will
-continue for 1.13 and up for as long Ember core support continues.
+* Ember.js v3.24 or above
+* Ember CLI v3.24 or above
+* Node.js v12 or above
 
 ## Installation
 

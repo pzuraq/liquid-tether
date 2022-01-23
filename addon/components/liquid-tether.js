@@ -3,7 +3,7 @@ import { assert } from '@ember/debug';
 import { isNone } from '@ember/utils';
 import { camelize } from '@ember/string';
 import { get, computed } from '@ember/object';
-import { run } from '@ember/runloop';
+import { schedule } from '@ember/runloop';
 import LiquidWormhole from 'liquid-wormhole/components/liquid-wormhole';
 
 export default LiquidWormhole.extend({
@@ -18,9 +18,9 @@ export default LiquidWormhole.extend({
   optimizations: null,
 
   didInsertElement() {
-    this._super.apply(this, arguments);
+    this._super(...arguments);
 
-    this._tetherElement = this.get('nodes')[0];
+    this._tetherElement = this.nodes[0];
   },
 
   willAppendNodes(bodyElement) {
@@ -40,28 +40,29 @@ export default LiquidWormhole.extend({
   },
 
   willDestroyElement() {
-    this._super.apply(this, arguments);
+    this._super(...arguments);
 
-    run.schedule('render', () => {
+    schedule('render', () => {
       this.removeTether();
     });
   },
 
   addTether(bodyElement) {
-    const target = this.get('_tetherTarget');
+    const target = this._tetherTarget;
 
     const element = this._tetherElement;
 
     const options = { element, target, bodyElement };
 
-    [ 'classPrefix',
+    [
+      'classPrefix',
       'attachment',
       'targetAttachment',
       'offset',
       'targetOffset',
       'targetModifier',
       'constraints',
-      'optimizations'
+      'optimizations',
     ].forEach((k) => {
       const v = get(this, k);
       if (!isNone(v)) {
@@ -78,8 +79,8 @@ export default LiquidWormhole.extend({
     }
   },
 
-  _tetherTarget: computed('target', function() {
-    let target = get(this, 'target');
+  _tetherTarget: computed('target', function () {
+    let target = this.target;
 
     if (target && target.element) {
       return target.element;
@@ -87,17 +88,21 @@ export default LiquidWormhole.extend({
       return document.body;
     }
 
-    assert(`Tether target "${target}" does not exist in the document`, target instanceof Element || document.querySelector(target) !== null);
+    assert(
+      `Tether target "${target}" does not exist in the document`,
+      target instanceof Element || document.querySelector(target) !== null
+    );
 
     return target;
   }),
 
   actions: {
     clickOverlay() {
-      if (this.get('on-overlay-click')) {
+      // eslint-disable-next-line ember/no-get
+      if (get(this, 'on-overlay-click')) {
         // eslint-disable-next-line
         this.sendAction('on-overlay-click');
       }
-    }
-  }
+    },
+  },
 });
