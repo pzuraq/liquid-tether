@@ -29,7 +29,7 @@
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-markdown-compiler": "pzuraq/ember-cli-markdown-compiler#example-site-fixes",
     "ember-cli-qunit": "^4.1.1",
-    "ember-cli-sass": "^5.6.0",
+    "ember-cli-sass": "^11.0.1",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
