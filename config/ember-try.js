@@ -9,7 +9,7 @@ module.exports = function() {
     getChannelURL('canary'),
   ]).then((urls) => {
     return {
-      useYarn: true,
+      packageManager: 'pnpm',
       scenarios: [
         {
           name: 'default',
