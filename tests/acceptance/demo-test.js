@@ -32,7 +32,6 @@ module('Acceptance | Demos', function (hooks) {
 
   test('target container is cleaned when empty', async function (assert) {
     await visit('/docs');
-    debugger;
     await click('#hello-world-button');
     await click('#hello-world-button');
 
