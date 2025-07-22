@@ -7,7 +7,7 @@
   <button {{action 'toggleHello'}} id="hello-world-button" class="btn btn-primary btn-embossed">
     Try Me
   </button>
-  {{#if showHello}}
+  {{#if this.showHello}}
     {{#liquid-tether
       target="#hello-world-button"
       attachment="top center"

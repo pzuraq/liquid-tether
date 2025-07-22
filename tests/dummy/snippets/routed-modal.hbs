@@ -1,7 +1,7 @@
 <!-- docs.hbs -->
 
 <div class="example-button-container">
-  {{#link-to "docs.modal"}}Open Routed Modal{{/link-to}}
+  {{#link-to route="docs.modal"}}Open Routed Modal{{/link-to}}
 </div>
 
 <!-- modal.hbs -->
@@ -12,7 +12,8 @@
   targetModifier="visible"
   attachment="middle center"
   tetherClass="modal-dialog"
-  overlayClass="modal-backdrop"}}
+  overlayClass="modal-backdrop"
+}}
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title">Modal Header</h4>
@@ -26,8 +27,8 @@
     </div>
 
     <div class="modal-footer">
-      {{#link-to "docs"}}Cancel{{/link-to}}
-      {{#link-to "docs"}}Ok{{/link-to}}
+      {{#link-to route="docs"}}Cancel{{/link-to}}
+      {{#link-to route="docs"}}Ok{{/link-to}}
     </div>
   </div>
 {{/liquid-tether}}

@@ -14,13 +14,13 @@ document flow. When choosing and building your animations, it's helpful to
 think as though you are animating the entire window frame at once.
 
 If you want to warp elements somewhere else, consider
-{{#link-to "docs.destinations"}}creating a custom liquid-destination{{/link-to}}
+{{#link-to route="docs.destinations"}}creating a custom liquid-destination{{/link-to}}
 
 <div class="example-button-container">
   <button {{action 'toggleHello'}} id="hello-world-button" class="btn btn-primary btn-embossed">
     Give it a shot!
   </button>
-  {{#if showHello}}
+  {{#if this.showHello}}
     {{#liquid-tether
       target="#hello-world-button"
       attachment="middle left"
@@ -41,7 +41,7 @@ If you want to warp elements somewhere else, consider
   Give it a shot!
 </button>
 
-{{#if showHello}}
+{{#if this.showHello}}
   {{#liquid-tether
     target="#hello-world-button"
     attachment="middle left"

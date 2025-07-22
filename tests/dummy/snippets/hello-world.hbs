@@ -1,8 +1,12 @@
-<button {{action 'toggleHello'}} id="hello-world" class="btn btn-primary btn-embossed">
+<button
+  {{action "toggleHello"}}
+  id="hello-world"
+  class="btn btn-primary btn-embossed"
+>
   Hello, World!
 </button>
 
-{{#if showHello}}
+{{#if this.showHello}}
   {{#liquid-tether
     to="hello-world"
     target="#hello-world"

@@ -2,12 +2,11 @@
 {{#liquid-tether
   stack="modal-dialog"
   value=1
-
   target="document.body"
   targetModifier="visible"
   attachment="middle center"
-
-  class="modal-dialog"}}
+  class="modal-dialog"
+}}
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title">Modal Header</h4>
@@ -21,8 +20,16 @@
     </div>
 
     <div class="modal-footer">
-      {{#link-to "docs.routed-tethers" class="btn btn-default btn-embossed" activeClass=null}}Cancel{{/link-to}}
-      {{#link-to "docs.routed-tethers.step-two" class="btn btn-primary btn-embossed" activeClass=null}}Next{{/link-to}}
+      {{#link-to
+        route="docs.routed-tethers"
+        class="btn btn-default btn-embossed"
+        activeClass=null
+      }}Cancel{{/link-to}}
+      {{#link-to
+        route="docs.routed-tethers.step-two"
+        class="btn btn-primary btn-embossed"
+        activeClass=null
+      }}Next{{/link-to}}
     </div>
   </div>
 {{/liquid-tether}}
