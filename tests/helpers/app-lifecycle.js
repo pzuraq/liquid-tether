@@ -1,15 +1,14 @@
 import $ from 'jquery';
 import { run } from '@ember/runloop';
-import { merge } from '@ember/polyfills';
 import Application from '../../app';
 import config from '../../config/environment';
 
 export default startApp;
 
 export function startApp(attrs) {
-  let attributes = merge({}, config.APP);
+  let attributes = { ...config.APP };
   attributes.autoboot = true;
-  attributes = merge(attributes, attrs); // use defaults, but you can override;
+  attributes = { ...attributes, ...attrs }; // use defaults, but you can override;
 
   return run(() => {
     let application = Application.create(attributes);
