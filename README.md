@@ -1,14 +1,19 @@
-# liquid-tether
+[![Build Status](https://travis-ci.org/pzuraq/liquid-tether.svg?branch=master)](https://travis-ci.org/pzuraq/liquid-tether)
 
-[Short description of the addon.]
+# Liquid Tether
 
+Liquid Tether combines the ideas behind
+[Ember Tether](https://github.com/yapplabs/ember-tether.git) with the power of
+[Liquid Fire](http://ef4.github.io/liquid-fire/) to provide an accessible,
+easy-to-use toolkit for both positioning & animating UI elements.
 
-## Compatibility
+Interactive documentation can be found
+[here](http://pzuraq.github.io/liquid-tether/).
 
-* Ember.js v4.4 or above
-* Ember CLI v4.4 or above
-* Node.js v14 or above
+## Ember Compatibility
 
+Liquid Tether is tested on all versions of Ember >= 1.13. Long term support will
+continue for 1.13 and up for as long Ember core support continues.
 
 ## Installation
 
@@ -16,17 +21,14 @@
 ember install liquid-tether
 ```
 
-
-## Usage
-
-[Longer description of how to use the addon in apps.]
-
-
 ## Contributing
 
-See the [Contributing](CONTRIBUTING.md) guide for details.
+Fork the repository, make your changes on a branch, and submit a pull request.
 
+## Acknowledgments
 
-## License
-
-This project is licensed under the [MIT License](LICENSE.md).
+Credits to [@ef4](https://github.com/ef4),
+[@chrislopresto](https://github.com/chrislopresto),
+[@lukemelia](https://github.com/lukemelia), and
+[@zackbloom](https://github.com/zackbloom) for their help in making
+this library possible!
