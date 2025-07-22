@@ -29,7 +29,7 @@
     "ember-source": "^4.0.0"
   },
   "engines": {
-    "node": "14.* || 16.* || >= 18"
+    "node": "18.* || >= 20"
   },
   "author": "Christopher Garrett <cmg@pzuraq.co>",
   "license": "MIT",
