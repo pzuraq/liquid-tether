@@ -34,6 +34,7 @@
   "author": "Christopher Garrett <cmg@pzuraq.co>",
   "license": "MIT",
   "devDependencies": {
+    "@ember/jquery": "^2.0.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/string": "^3.0.1",
     "@ember/test-helpers": "^2.9.3",
@@ -96,12 +97,12 @@
     "prettier": "^2.8.7",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
+    "sass": "^1.89.2",
     "stylelint": "^15.4.0",
     "stylelint-config-standard": "^32.0.0",
     "stylelint-prettier": "^3.0.0",
     "typescript": "^5.8.3",
-    "webpack": "^5.78.0",
-    "sass": "^1.89.2"
+    "webpack": "^5.78.0"
   },
   "keywords": [
     "ember-addon"
