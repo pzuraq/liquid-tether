@@ -25,7 +25,7 @@ importers:
         version: 5.3.0
       liquid-wormhole:
         specifier: ^3.0.1
-        version: 3.0.1(@babel/core@7.28.0)(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2))(liquid-fire@0.37.1(@babel/core@7.28.0)(velocity-animate@1.5.2))
+        version: 3.0.1(@babel/core@7.28.0)(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2))(liquid-fire@0.34.0(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2)))
       tether:
         specifier: ^1.4.0
         version: 1.4.7
@@ -205,8 +205,8 @@ importers:
         specifier: ^7.3.4
         version: 7.3.4(eslint@8.57.1)
       liquid-fire:
-        specifier: 0.37.1
-        version: 0.37.1(@babel/core@7.28.0)(velocity-animate@1.5.2)
+        specifier: ^0.34.0
+        version: 0.34.0(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2))
       loader.js:
         specifier: ^4.7.0
         version: 4.7.0
@@ -2244,6 +2244,9 @@ packages:
     resolution: {integrity: sha512-NXfi+Vas24n3Ivo21GvENTI55qxKu7OwKRnCLWXld8MiLiQKQlWIq28eoARaFj0lTUFwUa4jKZeA7fW9PiWQeg==}
     engines: {node: 8.* || >= 10.*}
 
+  broccoli-string-replace@0.1.2:
+    resolution: {integrity: sha512-QHESTrrrPlKuXQNWsvXawSQbV2g34wCZ5oKgd6bntdOuN8VHxbg1BCBHqVY5HxXJhWelimgGxj3vI7ECkyij8g==}
+
   broccoli-terser-sourcemap@4.1.1:
     resolution: {integrity: sha512-8sbpRf0/+XeszBJQM7vph2UNj4Kal0lCI/yubcrBIzb2NvYj5gjTHJABXOdxx5mKNmlCMu2hx2kvOtMpQsxrfg==}
     engines: {node: ^10.12.0 || 12.* || >= 14}
@@ -3137,9 +3140,6 @@ packages:
   ember-modifier-manager-polyfill@1.2.0:
     resolution: {integrity: sha512-bnaKF1LLKMkBNeDoetvIJ4vhwRPKIIumWr6dbVuW6W6p4QV8ZiO+GdF8J7mxDNlog9CeL9Z/7wam4YS86G8BYA==}
     engines: {node: 6.* || 8.* || >= 10.*}
-
-  ember-modifier@4.2.2:
-    resolution: {integrity: sha512-pPYBAGyczX0hedGWQFQOEiL9s45KS9efKxJxUQkMLjQyh+1Uef1mcmAGsdw2KmvNupITkE/nXxmVO1kZ9tt3ag==}
 
   ember-native-dom-helpers@0.6.3:
     resolution: {integrity: sha512-eQTHSV4OBS5YmGLvjgCcit79akG98YVRrcNq/rOVntPX1oq0LQqlPiXtDvDcqSdDur8GyUz6jY1Jy8Y6DLFiSw==}
@@ -4529,10 +4529,11 @@ packages:
   linkify-it@4.0.1:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
 
-  liquid-fire@0.37.1:
-    resolution: {integrity: sha512-ULu4OlcqSB1iJp+/NPPqJCi8XgiMDHuhjKLsazsQTb4xB15FI2HFV/DCfzvFxfUtoaeKlnmxsrUATBmPww0Kgg==}
+  liquid-fire@0.34.0:
+    resolution: {integrity: sha512-IppYBxIUhv00+Hi2Lno9kG4pcBUHVJD2ROQA7o9r0bLuLDfXTG94C8m6dwfYlswQBGdJAuN6a9ItLxftj8DgSw==}
+    engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
-      velocity-animate: ^1.5.2
+      ember-source: '>= 3.8.0'
 
   liquid-wormhole@3.0.1:
     resolution: {integrity: sha512-DBnUTuvekd1zC9xQMm7/IY1g6UmfhRYgZOVKhCwIMdeDsS82Bk7pz/Qhr/Bg4ulV3xSqzcET7LRa7D3BKztoMA==}
@@ -4730,6 +4731,9 @@ packages:
   marked@0.3.5:
     resolution: {integrity: sha512-C2ZEiUZxg7zxh9t8C3q6yW4WucWN+OYkiAV/M5GxvfwYrKxlDcuZ74dHmoRoI+R80Oa/FtHl1w8GT13epnbi+Q==}
     hasBin: true
+
+  match-media@0.2.0:
+    resolution: {integrity: sha512-EoLj8yVf95UNcZMbNJBlAA3E6XLzgMI6ZbnL90WnL2YCzOO4Nza1Ol6TH9ElbuUcDWxN7KxgVM2vYI6P5JqvKg==}
 
   matcher-collection@1.1.2:
     resolution: {integrity: sha512-YQ/teqaOIIfUHedRam08PB3NK7Mjct6BvzRnJmpGDm8uFXpNr1sbY4yuflI5JcEs6COpYA0FpRQhSDBf1tT95g==}
@@ -9735,6 +9739,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  broccoli-string-replace@0.1.2:
+    dependencies:
+      broccoli-persistent-filter: 1.4.6
+      minimatch: 3.1.2
+    transitivePeerDependencies:
+      - supports-color
+
   broccoli-terser-sourcemap@4.1.1:
     dependencies:
       async-promise-queue: 1.0.5
@@ -10863,16 +10874,6 @@ snapshots:
       ember-cli-babel: 7.26.11
       ember-cli-version-checker: 2.2.0
       ember-compatibility-helpers: 1.2.7(@babel/core@7.28.0)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-
-  ember-modifier@4.2.2(@babel/core@7.28.0):
-    dependencies:
-      '@embroider/addon-shim': 1.10.0
-      decorator-transforms: 2.3.0(@babel/core@7.28.0)
-      ember-cli-normalize-entity-name: 1.0.0
-      ember-cli-string-utils: 1.1.0
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -12625,18 +12626,24 @@ snapshots:
     dependencies:
       uc.micro: 1.0.6
 
-  liquid-fire@0.37.1(@babel/core@7.28.0)(velocity-animate@1.5.2):
+  liquid-fire@0.34.0(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2)):
     dependencies:
-      '@embroider/addon-shim': 1.10.0
       '@embroider/macros': 1.18.0
-      ember-modifier: 4.2.2(@babel/core@7.28.0)
+      broccoli-funnel: 3.0.8
+      broccoli-merge-trees: 4.2.0
+      broccoli-stew: 3.0.0
+      broccoli-string-replace: 0.1.2
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 6.3.0
+      ember-cli-version-checker: 5.1.2
+      ember-source: 4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2)
+      match-media: 0.2.0
       velocity-animate: 1.5.2
     transitivePeerDependencies:
-      - '@babel/core'
       - '@glint/template'
       - supports-color
 
-  liquid-wormhole@3.0.1(@babel/core@7.28.0)(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2))(liquid-fire@0.37.1(@babel/core@7.28.0)(velocity-animate@1.5.2)):
+  liquid-wormhole@3.0.1(@babel/core@7.28.0)(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2))(liquid-fire@0.34.0(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2))):
     dependencies:
       '@ember/jquery': 2.0.0
       '@ember/render-modifiers': 2.1.0(@babel/core@7.28.0)(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2))
@@ -12646,7 +12653,7 @@ snapshots:
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
       ember-decorators: 6.1.1
-      liquid-fire: 0.37.1(@babel/core@7.28.0)(velocity-animate@1.5.2)
+      liquid-fire: 0.34.0(ember-source@4.12.4(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.100.2))
       perf-primitives: https://codeload.github.com/RobbieTheWagner/perf-primitives/tar.gz/a6a26f11497ca27be3763a88a5f20744e424756b
     transitivePeerDependencies:
       - '@babel/core'
@@ -12840,6 +12847,8 @@ snapshots:
       uc.micro: 1.0.6
 
   marked@0.3.5: {}
+
+  match-media@0.2.0: {}
 
   matcher-collection@1.1.2:
     dependencies:
