@@ -1,14 +1,18 @@
 import { module, test } from 'qunit';
 
-import { findAll,click, visit } from 'ember-native-dom-helpers';
+import { findAll, click, visit } from '@ember/test-helpers';
 
-import { injectTransitionSpies, ranWormholeTransition, noTransitionsYet } from '../helpers/integration';
+import {
+  injectTransitionSpies,
+  ranWormholeTransition,
+  noTransitionsYet,
+} from '../helpers/integration';
 import { startApp, destroyApp } from '../helpers/app-lifecycle';
 
 let app;
 
-module('Acceptance | Demos', function(hooks) {
-  hooks.beforeEach(function() {
+module('Acceptance | Demos', function (hooks) {
+  hooks.beforeEach(function () {
     app = startApp();
 
     // Conceptually, integration tests shouldn't be digging around in
@@ -18,28 +22,36 @@ module('Acceptance | Demos', function(hooks) {
     injectTransitionSpies(app);
   });
 
-  hooks.afterEach(function() {
+  hooks.afterEach(function () {
     destroyApp(app);
   });
 
-  test('target container is cleaned when empty', async function(assert) {
+  test('target container is cleaned when empty', async function (assert) {
     await visit('/docs');
     await click('#hello-world-button');
     await click('#hello-world-button');
 
-    assert.equal(findAll('.default-liquid-destination .liquid-destination-stack').length, 0, 'it\'s empty');
+    assert.equal(
+      findAll('.default-liquid-destination .liquid-destination-stack').length,
+      0,
+      "it's empty"
+    );
   });
 
-  test('basic liquid-tether works correctly', async function(assert) {
+  test('basic liquid-tether works correctly', async function (assert) {
     await visit('/docs');
     noTransitionsYet(app, assert);
 
     await click('#hello-world-button');
-    assert.equal(findAll('.default-liquid-destination .liquid-wormhole-element').length, 1, 'it exists');
+    assert.equal(
+      findAll('.default-liquid-destination .liquid-wormhole-element').length,
+      1,
+      'it exists'
+    );
     ranWormholeTransition(app, assert, 'fade-down');
   });
 
-  test('tethers can determine context with stacks', async function(assert) {
+  test('tethers can determine context with stacks', async function (assert) {
     await visit('/docs/stacks');
 
     await click('#animation-with-context-button');
@@ -55,7 +67,7 @@ module('Acceptance | Demos', function(hooks) {
     ranWormholeTransition(app, assert, 'fade');
   });
 
-  test('routed tethers can determine context with stacks', async function(assert) {
+  test('routed tethers can determine context with stacks', async function (assert) {
     await visit('/docs/routed-tethers/step-one');
     ranWormholeTransition(app, assert, 'fade');
 
@@ -69,7 +81,7 @@ module('Acceptance | Demos', function(hooks) {
     ranWormholeTransition(app, assert, 'fade');
   });
 
-  test('clickable overlay responds and has correct class', async function(assert) {
+  test('clickable overlay responds and has correct class', async function (assert) {
     await visit('/docs/stacks');
 
     await click('#animation-with-context-button');
