@@ -1,7 +1,0 @@
-{
-  "name": "liquid-tether",
-  "dependencies": {
-    "bootstrap-sass": "~3.3.5",
-    "flat-ui-sass": "~2.1.3"
-  }
-}
