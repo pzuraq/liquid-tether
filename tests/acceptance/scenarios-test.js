@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-
+import { setupApplicationTest } from '../helpers/index';
 import { injectTransitionSpies } from '../helpers/integration';
 
 import { startApp, destroyApp } from '../helpers/app-lifecycle';
@@ -8,6 +8,8 @@ import { find, findAll, click, visit } from '@ember/test-helpers';
 let app;
 
 module('Acceptance | Scenarios', function (hooks) {
+  setupApplicationTest(hooks);
+
   hooks.beforeEach(function () {
     app = startApp();
 

@@ -2,6 +2,8 @@ import { module, test } from 'qunit';
 
 import { findAll, click, visit } from '@ember/test-helpers';
 
+import { setupApplicationTest } from '../helpers/index';
+
 import {
   injectTransitionSpies,
   ranWormholeTransition,
@@ -12,6 +14,8 @@ import { startApp, destroyApp } from '../helpers/app-lifecycle';
 let app;
 
 module('Acceptance | Demos', function (hooks) {
+  setupApplicationTest(hooks);
+
   hooks.beforeEach(function () {
     app = startApp();
 
