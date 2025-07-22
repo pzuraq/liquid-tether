@@ -73,7 +73,7 @@
     "ember-cli-github-pages": "0.1.2",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-markdown-compiler": "pzuraq/ember-cli-markdown-compiler#example-site-fixes",
-    "ember-cli-sass": "^5.6.0",
+    "ember-cli-sass": "^11.0.1",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-load-initializers": "^2.1.2",
@@ -100,7 +100,8 @@
     "stylelint-config-standard": "^32.0.0",
     "stylelint-prettier": "^3.0.0",
     "typescript": "^5.8.3",
-    "webpack": "^5.78.0"
+    "webpack": "^5.78.0",
+    "sass": "^1.89.2"
   },
   "keywords": [
     "ember-addon"
