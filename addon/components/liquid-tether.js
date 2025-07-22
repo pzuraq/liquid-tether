@@ -20,7 +20,7 @@ export default LiquidWormhole.extend({
   didInsertElement() {
     this._super.apply(this, arguments);
 
-    this._tetherElement = this.get('nodes')[0];
+    this._tetherElement = this.nodes[0];
   },
 
   willAppendNodes(bodyElement) {
@@ -48,7 +48,7 @@ export default LiquidWormhole.extend({
   },
 
   addTether(bodyElement) {
-    const target = this.get('_tetherTarget');
+    const target = this._tetherTarget;
 
     const element = this._tetherElement;
 
@@ -79,7 +79,7 @@ export default LiquidWormhole.extend({
   },
 
   _tetherTarget: computed('target', function() {
-    let target = get(this, 'target');
+    let target = this.target;
 
     if (target && target.element) {
       return target.element;
@@ -94,7 +94,7 @@ export default LiquidWormhole.extend({
 
   actions: {
     clickOverlay() {
-      if (this.get('on-overlay-click')) {
+      if (this['on-overlay-click']) {
         // eslint-disable-next-line
         this.sendAction('on-overlay-click');
       }

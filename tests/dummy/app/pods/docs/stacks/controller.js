@@ -62,14 +62,14 @@ export default Controller.extend({
 
     addPassedAnchor(anchor) {
       run(() => {
-        this.get('passedAnchors').pushObject(anchor);
+        this.passedAnchors.pushObject(anchor);
         scheduleOnce('afterRender', this, 'updateAnchor');
       });
     },
 
     removePassedAnchor(anchor) {
       run(() => {
-        this.get('passedAnchors').removeObject(anchor);
+        this.passedAnchors.removeObject(anchor);
         scheduleOnce('afterRender', this, 'updateAnchor');
       });
     }

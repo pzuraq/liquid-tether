@@ -18,18 +18,18 @@ export default Controller.extend({
 
   currentStep: computed('stepNumber', {
     get() {
-      return this.get('steps')[this.get('stepNumber')];
+      return this.steps[this.stepNumber];
     }
   }),
 
   actions: {
     prevStep() {
-      const stepNumber = this.get('stepNumber') - 1;
+      const stepNumber = this.stepNumber - 1;
       this.set('stepNumber', stepNumber === -1 ? 2 : stepNumber);
     },
 
     nextStep() {
-      this.set('stepNumber', (this.get('stepNumber') + 1) % 3);
+      this.set('stepNumber', (this.stepNumber + 1) % 3);
     }
   }
 });
