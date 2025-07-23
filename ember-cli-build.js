@@ -16,8 +16,6 @@ module.exports = function (defaults) {
     },
   });
 
-  app.import('vendor/sinon.js', { type: 'test' });
-
   /*
     This build file specifies the options for the dummy test app of this
     addon, located in `/tests/dummy`

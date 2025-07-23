@@ -1,4 +1,4 @@
-/* global sinon */
+import sinon from 'sinon';
 import { A } from '@ember/array';
 
 function transitionMap(app) {

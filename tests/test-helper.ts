@@ -5,10 +5,13 @@ import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
 import { start } from 'ember-qunit';
 import { loadTests } from 'ember-qunit/test-loader';
+import setupSinon from 'ember-sinon-qunit';
 
 setApplication(Application.create(config.APP));
 
 setup(QUnit.assert);
+
+setupSinon();
 
 loadTests();
 start();
