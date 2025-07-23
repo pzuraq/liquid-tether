@@ -3,6 +3,7 @@ import { module, test } from 'qunit';
 import { findAll, click, visit } from '@ember/test-helpers';
 
 import { setupApplicationTest } from '../helpers/index';
+import { setupTransitionTest } from '../helpers/integration';
 
 import {
   injectTransitionSpies,
@@ -15,6 +16,7 @@ let app;
 
 module('Acceptance | Demos', function (hooks) {
   setupApplicationTest(hooks);
+  setupTransitionTest(hooks);
 
   hooks.beforeEach(function () {
     app = startApp();
@@ -23,7 +25,7 @@ module('Acceptance | Demos', function (hooks) {
     // the container. But animations are slippery, and it's easier to
     // just spy on them to make sure they're being run than to try to
     // observe their behavior more directly.
-    injectTransitionSpies(app);
+    // injectTransitionSpies(app);
   });
 
   hooks.afterEach(function () {
@@ -52,6 +54,7 @@ module('Acceptance | Demos', function (hooks) {
       1,
       'it exists'
     );
+    assert.ranTransition('fadeDown');
     ranWormholeTransition(app, assert, 'fade-down');
   });
 

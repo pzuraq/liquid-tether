@@ -17,7 +17,7 @@ module('Acceptance | Scenarios', function (hooks) {
     // the container. But animations are slippery, and it's easier to
     // just spy on them to make sure they're being run than to try to
     // observe their behavior more directly.
-    injectTransitionSpies(app);
+    // injectTransitionSpies(app);
   });
 
   hooks.afterEach(function () {
