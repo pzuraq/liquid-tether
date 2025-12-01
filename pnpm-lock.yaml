@@ -70,8 +70,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       ember-cli-markdown-compiler:
-        specifier: rwwagner90/ember-cli-markdown-compiler#930f9605920b90cb0ddd447750394f68b4ef72dd
-        version: git+https://git@github.com:rwwagner90/ember-cli-markdown-compiler.git#930f9605920b90cb0ddd447750394f68b4ef72dd
+        specifier: RobbieTheWagner/ember-cli-markdown-compiler#930f9605920b90cb0ddd447750394f68b4ef72dd
+        version: https://codeload.github.com/RobbieTheWagner/ember-cli-markdown-compiler/tar.gz/930f9605920b90cb0ddd447750394f68b4ef72dd
       ember-cli-sass:
         specifier: ^10.0.1
         version: 10.0.1
@@ -2683,8 +2683,8 @@ packages:
     resolution: {integrity: sha512-QkLGcYv1WRK35g4MWu/uIeJ5Suk2eJXKtZ+8s+qE7C9INmpCPyPxzaqZABquYzcWNzIdw6kYwz3NWAFdKYFxwg==}
     engines: {node: ^4.5 || 6.* || >= 7.*}
 
-  ember-cli-markdown-compiler@git+https://git@github.com:rwwagner90/ember-cli-markdown-compiler.git#930f9605920b90cb0ddd447750394f68b4ef72dd:
-    resolution: {commit: 930f9605920b90cb0ddd447750394f68b4ef72dd, repo: git@github.com:rwwagner90/ember-cli-markdown-compiler.git, type: git}
+  ember-cli-markdown-compiler@https://codeload.github.com/RobbieTheWagner/ember-cli-markdown-compiler/tar.gz/930f9605920b90cb0ddd447750394f68b4ef72dd:
+    resolution: {tarball: https://codeload.github.com/RobbieTheWagner/ember-cli-markdown-compiler/tar.gz/930f9605920b90cb0ddd447750394f68b4ef72dd}
     version: 1.0.0
     engines: {node: 12.* || 14.* || >= 16}
 
@@ -9673,7 +9673,7 @@ snapshots:
 
   ember-cli-lodash-subset@2.0.1: {}
 
-  ember-cli-markdown-compiler@git+https://git@github.com:rwwagner90/ember-cli-markdown-compiler.git#930f9605920b90cb0ddd447750394f68b4ef72dd:
+  ember-cli-markdown-compiler@https://codeload.github.com/RobbieTheWagner/ember-cli-markdown-compiler/tar.gz/930f9605920b90cb0ddd447750394f68b4ef72dd:
     dependencies:
       broccoli-filter: 1.3.0
       ember-cli-babel: 7.26.11
