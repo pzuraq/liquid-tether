@@ -147,6 +147,9 @@ importers:
       sass:
         specifier: ^1.49.0
         version: 1.94.2
+      velocity-animate:
+        specifier: ^1.5.2
+        version: 1.5.2
       webpack:
         specifier: ^5.67.0
         version: 5.103.0

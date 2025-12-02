@@ -74,10 +74,12 @@
     "qunit": "^2.17.2",
     "qunit-dom": "^2.0.0",
     "sass": "^1.49.0",
+    "velocity-animate": "^1.5.2",
     "webpack": "^5.67.0"
   },
   "peerDependencies": {
-    "liquid-fire": "^0.37.1"
+    "liquid-fire": "^0.37.1",
+    "velocity-animate": "^1.5.2"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
