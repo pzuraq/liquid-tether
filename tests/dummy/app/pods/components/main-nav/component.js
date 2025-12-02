@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Component from '@ember/component';
 
 export default Component.extend({
@@ -6,13 +5,10 @@ export default Component.extend({
   classNames: ['main-nav'],
 
   click(event) {
-    var $target = $(event.target);
-    var $c = $(this.element);
+    const container = this.element;
 
-    if ($target !== $c) {
-      if ($target.closest($c.find('a.nav-item')).length) {
-        this.set('navOpen', false);
-      }
+    if (event.target !== container && event.target.closest('a.nav-item')) {
+      this.set('navOpen', false);
     }
   },
 

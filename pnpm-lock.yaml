@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@ember/jquery':
-        specifier: ^2.0.0
-        version: 2.0.0
       broccoli-funnel:
         specifier: ^3.0.8
         version: 3.0.8
@@ -24,8 +21,8 @@ importers:
         specifier: ^6.0.1
         version: 6.3.0
       liquid-wormhole:
-        specifier: ^4.0.0
-        version: 4.0.0(@babel/core@7.28.5)(ember-source@3.28.12(@babel/core@7.28.5))(liquid-fire@0.34.0(ember-source@3.28.12(@babel/core@7.28.5)))
+        specifier: ^5.0.0
+        version: 5.0.0(@babel/core@7.28.5)(ember-source@3.28.12(@babel/core@7.28.5))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0)
       tether:
         specifier: ^1.4.7
         version: 1.4.7
@@ -130,8 +127,8 @@ importers:
         specifier: ^7.2.0
         version: 7.3.4(eslint@7.32.0)
       liquid-fire:
-        specifier: ^0.34.0
-        version: 0.34.0(ember-source@3.28.12(@babel/core@7.28.5))
+        specifier: ^0.37.1
+        version: 0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2)
       loader.js:
         specifier: ^4.7.0
         version: 4.7.0
@@ -750,28 +747,12 @@ packages:
   '@ember-data/rfc395-data@0.0.4':
     resolution: {integrity: sha512-tGRdvgC9/QMQSuSuJV45xoyhI0Pzjm7A9o/MVVA3HakXIImJbbzx/k/6dO9CUEQXIyS2y0fW6C1XaYOG7rY0FQ==}
 
-  '@ember-decorators/component@6.1.1':
-    resolution: {integrity: sha512-Cj8tY/c0MC/rsipqsiWLh3YVN72DK92edPYamD/HzvftwzC6oDwawWk8RmStiBnG9PG/vntAt41l3S7HSSA+1Q==}
-    engines: {node: '>= 8.*'}
-
-  '@ember-decorators/object@6.1.1':
-    resolution: {integrity: sha512-cb4CNR9sRoA31J3FCOFLDuR9ztM4wO9w1WlS4JeNRS7Z69SlB/XSXB/vplA3i9OOaXEy/zKWbu5ndZrHz0gvLw==}
-    engines: {node: '>= 8.*'}
-
-  '@ember-decorators/utils@6.1.1':
-    resolution: {integrity: sha512-0KqnoeoLKb6AyoSU65TRF5T85wmS4uDn06oARddwNPxxf/lt5jQlh41uX3W7V/fWL9tPu8x1L1Vvpc80MN1+YA==}
-    engines: {node: '>= 8.*'}
-
   '@ember-template-lint/todo-utils@10.0.0':
     resolution: {integrity: sha512-US8VKnetBOl8KfKz+rXGsosz6rIETNwSz2F2frM8hIoJfF/d6ME1Iz1K7tPYZEE6SoKqZFlBs5XZPSmzRnabjA==}
     engines: {node: 10.* || 12.* || >= 14}
 
   '@ember/edition-utils@1.2.0':
     resolution: {integrity: sha512-VmVq/8saCaPdesQmftPqbFtxJWrzxNGSQ+e8x8LLe3Hjm36pJ04Q8LeORGZkAeOhldoUX9seLGmSaHeXkIqoog==}
-
-  '@ember/jquery@2.0.0':
-    resolution: {integrity: sha512-f8+WNqzXBNxl96jo0IwJBO5QCi0bnUlba9I7WbZcGhgnzszC76INJkw6l8UepZ1PMGG1H1wYpoIGoBBp5ZVmFA==}
-    engines: {node: 12.* || 14.* || >= 16}
 
   '@ember/optional-features@2.3.0':
     resolution: {integrity: sha512-+M8CkPledQEaDbfIlwlq6Phgpm5jdT3a6WVDJk7b/zadw5xAJkuQKVK7DgR0SFgHGiWlyn6a8AU5p2mCA706RA==}
@@ -796,6 +777,10 @@ packages:
   '@ember/test-waiters@3.1.0':
     resolution: {integrity: sha512-bb9h95ktG2wKY9+ja1sdsFBdOms2lB19VWs8wmNpzgHv1NCetonBoV5jHBV4DHt0uS1tg9z66cZqhUVlYs96KQ==}
     engines: {node: 10.* || 12.* || >= 14.*}
+
+  '@embroider/addon-shim@1.10.2':
+    resolution: {integrity: sha512-EfI9cJ5/3QSUJtwm7x1MXrx3TEa2p7RNgSHefy7fvGm8/DP1xUFL25nST1NaHbHcqR1UhMlrTtv5iUIDoVzeQQ==}
+    engines: {node: 12.* || 14.* || >= 16}
 
   '@embroider/macros@1.19.5':
     resolution: {integrity: sha512-zwpe7J9jyh8YPLzblk8WR3AQf6m+Ln/8Prlz9/DEwHD1m7GjJog1TIT0Sjv8guEj/hXCGntbNOzfE2Vj1T0Uug==}
@@ -1861,9 +1846,6 @@ packages:
     resolution: {integrity: sha512-NXfi+Vas24n3Ivo21GvENTI55qxKu7OwKRnCLWXld8MiLiQKQlWIq28eoARaFj0lTUFwUa4jKZeA7fW9PiWQeg==}
     engines: {node: 8.* || >= 10.*}
 
-  broccoli-string-replace@0.1.2:
-    resolution: {integrity: sha512-QHESTrrrPlKuXQNWsvXawSQbV2g34wCZ5oKgd6bntdOuN8VHxbg1BCBHqVY5HxXJhWelimgGxj3vI7ECkyij8g==}
-
   broccoli-terser-sourcemap@4.1.1:
     resolution: {integrity: sha512-8sbpRf0/+XeszBJQM7vph2UNj4Kal0lCI/yubcrBIzb2NvYj5gjTHJABXOdxx5mKNmlCMu2hx2kvOtMpQsxrfg==}
     engines: {node: ^10.12.0 || 12.* || >= 14}
@@ -2131,6 +2113,9 @@ packages:
   commander@7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
+
+  common-ancestor-path@1.0.1:
+    resolution: {integrity: sha512-L3sHRo1pXXEqX8VU28kfgUY+YGsk09hPqZiZmLacNib6XNTCM8ubYeT7ryXQw8asB1sKgcU5lkB7ONug08aB8w==}
 
   common-tags@1.8.2:
     resolution: {integrity: sha512-gk/Z852D2Wtb//0I+kRFNKKE9dIIVirjoqPoA1wJU+XePVXZfGeBpk45+A1rKO4Q43prqWBNY/MiIeRLbPWUaA==}
@@ -2505,6 +2490,9 @@ packages:
     resolution: {integrity: sha512-BzRPQuY1ip+qDonAOz42gRm/pg9F768C+npV/4JOsxRC2sq+Rlk+Q4ZCAsOhnIaMrgarILY+RMUIvMmmX1qAEA==}
     engines: {node: '>=4'}
 
+  decorator-transforms@2.3.0:
+    resolution: {integrity: sha512-jo8c1ss9yFPudHuYYcrJ9jpkDZIoi+lOGvt+Uyp9B+dz32i50icRMx9Bfa8hEt7TnX1FyKWKkjV+cUdT/ep2kA==}
+
   deep-extend@0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
     engines: {node: '>=4.0.0'}
@@ -2749,10 +2737,6 @@ packages:
     resolution: {integrity: sha512-BtkjulweiXo9c3yVWrtexw2dTmBrvavD/xixNC6TKOBdrixUwU+6nuOO9dufDWsMxoid7MvtmDpzc9+mE8PdaA==}
     engines: {node: 10.* || >= 12.*}
 
-  ember-decorators@6.1.1:
-    resolution: {integrity: sha512-63vZPntPn1aqMyeNRLoYjJD+8A8obd+c2iZkJflswpDRNVIsp2m7aQdSCtPt4G0U/TEq2251g+N10maHX3rnJQ==}
-    engines: {node: '>= 8.*'}
-
   ember-destroyable-polyfill@2.0.3:
     resolution: {integrity: sha512-TovtNqCumzyAiW0/OisSkkVK93xnVF4NRU6+FN0ubpfwEOpRrmM2RqDwXI6YAChCgSHON1cz0DfQStpA1Gjuuw==}
     engines: {node: 10.* || >= 12}
@@ -2772,6 +2756,9 @@ packages:
   ember-modifier-manager-polyfill@1.2.0:
     resolution: {integrity: sha512-bnaKF1LLKMkBNeDoetvIJ4vhwRPKIIumWr6dbVuW6W6p4QV8ZiO+GdF8J7mxDNlog9CeL9Z/7wam4YS86G8BYA==}
     engines: {node: 6.* || 8.* || >= 10.*}
+
+  ember-modifier@4.2.2:
+    resolution: {integrity: sha512-pPYBAGyczX0hedGWQFQOEiL9s45KS9efKxJxUQkMLjQyh+1Uef1mcmAGsdw2KmvNupITkE/nXxmVO1kZ9tt3ag==}
 
   ember-page-title@7.0.0:
     resolution: {integrity: sha512-oq6+HYbeVD/BnxIO5AkP4gWlsatdgW2HFO10F8+XQiJZrwa7cC7Wm54JNGqQkavkDQTgNSiy1Fe2NILJ14MmAg==}
@@ -4100,18 +4087,18 @@ packages:
   linkify-it@3.0.3:
     resolution: {integrity: sha512-ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==}
 
-  liquid-fire@0.34.0:
-    resolution: {integrity: sha512-IppYBxIUhv00+Hi2Lno9kG4pcBUHVJD2ROQA7o9r0bLuLDfXTG94C8m6dwfYlswQBGdJAuN6a9ItLxftj8DgSw==}
-    engines: {node: 12.* || 14.* || >= 16}
+  liquid-fire@0.37.1:
+    resolution: {integrity: sha512-ULu4OlcqSB1iJp+/NPPqJCi8XgiMDHuhjKLsazsQTb4xB15FI2HFV/DCfzvFxfUtoaeKlnmxsrUATBmPww0Kgg==}
     peerDependencies:
-      ember-source: '>= 3.8.0'
+      velocity-animate: ^1.5.2
 
-  liquid-wormhole@4.0.0:
-    resolution: {integrity: sha512-8ietaO9n6vbWSQpCXPVLy+R7f3qq73+irKVZHahgt2fADsvRvfwQqT27pqyBQJ/7FLBYRpbPYI73VkUXosK5iw==}
+  liquid-wormhole@5.0.0:
+    resolution: {integrity: sha512-kOjU1nLJZi7VtvDOhtxjKMI+jeSmIbBrdmZxviBAQ3F5RCqZ4q0UkhyvCcAqDhD0bi6c57ATU8z7yjiJn3P65A==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^4.0.0
-      liquid-fire: ^0.34.0
+      liquid-fire: ^0.37.1
+      velocity-animate: ^1.5.2
 
   livereload-js@3.4.1:
     resolution: {integrity: sha512-5MP0uUeVCec89ZbNOT/i97Mc+q3SxXmiUGhRFOTmhrGPn//uWVQdCvcLJDy64MSBR5MidFdOR7B9viumoavy6g==}
@@ -4306,9 +4293,6 @@ packages:
     resolution: {integrity: sha512-tMsdNBgOsrUophCAFQl0XPe6Zqk/uy9gnue+jIIKhykO51hxyu6uNx7zBPy0+y/WKYVZZMspV9YeXLNdKk+iYw==}
     engines: {node: '>=0.10.0'}
     hasBin: true
-
-  match-media@0.2.0:
-    resolution: {integrity: sha512-EoLj8yVf95UNcZMbNJBlAA3E6XLzgMI6ZbnL90WnL2YCzOO4Nza1Ol6TH9ElbuUcDWxN7KxgVM2vYI6P5JqvKg==}
 
   matcher-collection@1.1.2:
     resolution: {integrity: sha512-YQ/teqaOIIfUHedRam08PB3NK7Mjct6BvzRnJmpGDm8uFXpNr1sbY4yuflI5JcEs6COpYA0FpRQhSDBf1tT95g==}
@@ -4858,11 +4842,6 @@ packages:
   pbkdf2@3.1.5:
     resolution: {integrity: sha512-Q3CG/cYvCO1ye4QKkuH7EXxs3VC/rI1/trd+qX2+PolbaKG0H+bgcZzrTt96mMyRtejk+JMCiLUn3y29W8qmFQ==}
     engines: {node: '>= 0.10'}
-
-  perf-primitives@https://codeload.github.com/RobbieTheWagner/perf-primitives/tar.gz/a6a26f11497ca27be3763a88a5f20744e424756b:
-    resolution: {tarball: https://codeload.github.com/RobbieTheWagner/perf-primitives/tar.gz/a6a26f11497ca27be3763a88a5f20744e424756b}
-    version: 0.0.6
-    engines: {node: 10.* || >= 12}
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -7087,26 +7066,6 @@ snapshots:
 
   '@ember-data/rfc395-data@0.0.4': {}
 
-  '@ember-decorators/component@6.1.1':
-    dependencies:
-      '@ember-decorators/utils': 6.1.1
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
-
-  '@ember-decorators/object@6.1.1':
-    dependencies:
-      '@ember-decorators/utils': 6.1.1
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
-
-  '@ember-decorators/utils@6.1.1':
-    dependencies:
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
-
   '@ember-template-lint/todo-utils@10.0.0':
     dependencies:
       '@types/eslint': 7.29.0
@@ -7115,16 +7074,6 @@ snapshots:
       tslib: 2.8.1
 
   '@ember/edition-utils@1.2.0': {}
-
-  '@ember/jquery@2.0.0':
-    dependencies:
-      broccoli-funnel: 3.0.8
-      broccoli-merge-trees: 4.2.0
-      ember-cli-babel: 7.26.11
-      jquery: 3.7.1
-      resolve: 1.22.11
-    transitivePeerDependencies:
-      - supports-color
 
   '@ember/optional-features@2.3.0':
     dependencies:
@@ -7169,6 +7118,15 @@ snapshots:
       calculate-cache-key-for-tree: 2.0.0
       ember-cli-babel: 7.26.11
       ember-cli-version-checker: 5.1.2
+      semver: 7.7.3
+    transitivePeerDependencies:
+      - supports-color
+
+  '@embroider/addon-shim@1.10.2':
+    dependencies:
+      '@embroider/shared-internals': 3.0.1
+      broccoli-funnel: 3.0.8
+      common-ancestor-path: 1.0.1
       semver: 7.7.3
     transitivePeerDependencies:
       - supports-color
@@ -8728,13 +8686,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  broccoli-string-replace@0.1.2:
-    dependencies:
-      broccoli-persistent-filter: 1.4.6
-      minimatch: 3.1.2
-    transitivePeerDependencies:
-      - supports-color
-
   broccoli-terser-sourcemap@4.1.1:
     dependencies:
       async-promise-queue: 1.0.5
@@ -9110,6 +9061,8 @@ snapshots:
 
   commander@7.2.0: {}
 
+  common-ancestor-path@1.0.1: {}
+
   common-tags@1.8.2: {}
 
   commondir@1.0.1: {}
@@ -9352,6 +9305,13 @@ snapshots:
   decompress-response@3.3.0:
     dependencies:
       mimic-response: 1.0.1
+
+  decorator-transforms@2.3.0(@babel/core@7.28.5):
+    dependencies:
+      '@babel/plugin-syntax-decorators': 7.27.1(@babel/core@7.28.5)
+      babel-import-util: 3.0.1
+    transitivePeerDependencies:
+      - '@babel/core'
 
   deep-extend@0.6.0: {}
 
@@ -9952,14 +9912,6 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-decorators@6.1.1:
-    dependencies:
-      '@ember-decorators/component': 6.1.1
-      '@ember-decorators/object': 6.1.1
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
-
   ember-destroyable-polyfill@2.0.3(@babel/core@7.28.5):
     dependencies:
       ember-cli-babel: 7.26.11
@@ -9986,6 +9938,16 @@ snapshots:
       ember-cli-babel: 7.26.11
       ember-cli-version-checker: 2.2.0
       ember-compatibility-helpers: 1.2.7(@babel/core@7.28.5)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+
+  ember-modifier@4.2.2(@babel/core@7.28.5):
+    dependencies:
+      '@embroider/addon-shim': 1.10.2
+      decorator-transforms: 2.3.0(@babel/core@7.28.5)
+      ember-cli-normalize-entity-name: 1.0.0
+      ember-cli-string-utils: 1.1.0
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -11723,41 +11685,35 @@ snapshots:
     dependencies:
       uc.micro: 1.0.6
 
-  liquid-fire@0.34.0(ember-source@3.28.12(@babel/core@7.28.5)):
+  liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2):
     dependencies:
+      '@embroider/addon-shim': 1.10.2
       '@embroider/macros': 1.19.5
-      broccoli-funnel: 3.0.8
-      broccoli-merge-trees: 4.2.0
-      broccoli-stew: 3.0.0
-      broccoli-string-replace: 0.1.2
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.3.0
-      ember-cli-version-checker: 5.1.2
-      ember-source: 3.28.12(@babel/core@7.28.5)
-      match-media: 0.2.0
+      ember-modifier: 4.2.2(@babel/core@7.28.5)
       velocity-animate: 1.5.2
     transitivePeerDependencies:
+      - '@babel/core'
       - '@glint/template'
       - supports-color
 
-  liquid-wormhole@4.0.0(@babel/core@7.28.5)(ember-source@3.28.12(@babel/core@7.28.5))(liquid-fire@0.34.0(ember-source@3.28.12(@babel/core@7.28.5))):
+  liquid-wormhole@5.0.0(@babel/core@7.28.5)(ember-source@3.28.12(@babel/core@7.28.5))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0):
     dependencies:
-      '@ember/jquery': 2.0.0
       '@ember/render-modifiers': 3.0.0(ember-source@3.28.12(@babel/core@7.28.5))
       '@embroider/util': 1.13.4(ember-source@3.28.12(@babel/core@7.28.5))
       '@glimmer/component': 1.1.2(@babel/core@7.28.5)
       '@glimmer/tracking': 1.1.2
+      ember-auto-import: 2.12.0(webpack@5.103.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
-      ember-decorators: 6.1.1
       ember-source: 3.28.12(@babel/core@7.28.5)
-      liquid-fire: 0.34.0(ember-source@3.28.12(@babel/core@7.28.5))
-      perf-primitives: https://codeload.github.com/RobbieTheWagner/perf-primitives/tar.gz/a6a26f11497ca27be3763a88a5f20744e424756b
+      liquid-fire: 0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2)
+      velocity-animate: 1.5.2
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/environment-ember-loose'
       - '@glint/template'
       - supports-color
+      - webpack
 
   livereload-js@3.4.1: {}
 
@@ -11965,8 +11921,6 @@ snapshots:
       uc.micro: 1.0.6
 
   marked@0.4.0: {}
-
-  match-media@0.2.0: {}
 
   matcher-collection@1.1.2:
     dependencies:
@@ -12542,12 +12496,6 @@ snapshots:
       safe-buffer: 5.2.1
       sha.js: 2.4.12
       to-buffer: 1.2.2
-
-  perf-primitives@https://codeload.github.com/RobbieTheWagner/perf-primitives/tar.gz/a6a26f11497ca27be3763a88a5f20744e424756b:
-    dependencies:
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
 
   picocolors@1.1.1: {}
 

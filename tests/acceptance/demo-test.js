@@ -1,13 +1,12 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import { findAll, click, visit } from '@ember/test-helpers';
+import { findAll, click, visit, waitUntil } from '@ember/test-helpers';
 
 import {
   injectTransitionSpies,
   ranWormholeTransition,
   noTransitionsYet,
 } from '../helpers/integration';
-import $ from 'jquery';
 
 let app;
 
@@ -25,13 +24,32 @@ module('Acceptance | Demos', function (hooks) {
   });
 
   hooks.afterEach(function () {
-    $('.liquid-target-container').remove();
+    document.querySelector('.liquid-target-container')?.remove();
   });
 
   test('target container is cleaned when empty', async function (assert) {
     await visit('/docs');
     await click('#hello-world-button');
+
+    await waitUntil(
+      () =>
+        findAll('.default-liquid-destination .liquid-destination-stack')
+          .length === 1
+    );
+
+    assert.strictEqual(
+      findAll('.default-liquid-destination .liquid-destination-stack').length,
+      1,
+      "it's not empty"
+    );
+
     await click('#hello-world-button');
+
+    await waitUntil(
+      () =>
+        findAll('.default-liquid-destination .liquid-destination-stack')
+          .length === 0
+    );
 
     assert.strictEqual(
       findAll('.default-liquid-destination .liquid-destination-stack').length,
@@ -47,6 +65,12 @@ module('Acceptance | Demos', function (hooks) {
     noTransitionsYet(app, assert);
 
     await click('#hello-world-button');
+    await waitUntil(
+      () =>
+        findAll('.default-liquid-destination .liquid-wormhole-element')
+          .length === 1
+    );
+
     assert.strictEqual(
       findAll('.default-liquid-destination .liquid-wormhole-element').length,
       1,
@@ -96,6 +120,7 @@ module('Acceptance | Demos', function (hooks) {
 
     await click('#animation-with-context-button');
     ranWormholeTransition(app, assert, 'fade');
+    await waitUntil(() => findAll('.modal-backdrop').length === 1);
     assert.strictEqual(findAll('.modal-backdrop').length, 1, 'overlay exists');
 
     await click('.modal-backdrop');

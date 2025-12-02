@@ -4,7 +4,6 @@ import { injectTransitionSpies } from '../helpers/integration';
 
 import { setupApplicationTest } from 'ember-qunit';
 import { find, findAll, click, visit } from '@ember/test-helpers';
-import $ from 'jquery';
 
 let app;
 
@@ -22,7 +21,7 @@ module('Acceptance | Scenarios', function (hooks) {
   });
 
   hooks.afterEach(function () {
-    $('.liquid-target-container').remove();
+    document.querySelector('.liquid-target-container')?.remove();
   });
 
   test('components are not destroyed until animation has finished', async function (assert) {

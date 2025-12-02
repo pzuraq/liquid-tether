@@ -24,7 +24,6 @@ module.exports = {
     'ember/no-classic-classes': 'off',
     'ember/no-classic-components': 'off',
     'ember/no-component-lifecycle-hooks': 'off',
-    'ember/no-jquery': 'warn',
     'ember/require-tagless-components': 'off',
   },
   overrides: [

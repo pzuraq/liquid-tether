@@ -51,8 +51,9 @@
     <script src="{{rootURL}}assets/test-loader.js"></script>
 
     <script>
-      jQuery(document).ready(function() {
-        document.getElementById('ember-testing-container').style.position = 'static';
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('ember-testing-container').style.position =
+          'static';
       });
     </script>
 
