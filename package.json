@@ -30,7 +30,7 @@
     "broccoli-merge-trees": "^4.2.0",
     "ember-cli-babel": "^7.26.8",
     "ember-cli-htmlbars": "^6.0.1",
-    "liquid-wormhole": "^5.0.0",
+    "liquid-wormhole": "^5.0.2",
     "tether": "^1.4.7"
   },
   "devDependencies": {

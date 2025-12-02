@@ -21,8 +21,8 @@ importers:
         specifier: ^6.0.1
         version: 6.3.0
       liquid-wormhole:
-        specifier: ^5.0.0
-        version: 5.0.0(@babel/core@7.28.5)(ember-source@3.28.12(@babel/core@7.28.5))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0)
+        specifier: ^5.0.2
+        version: 5.0.2(@babel/core@7.28.5)(ember-source@3.28.12(@babel/core@7.28.5))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0)
       tether:
         specifier: ^1.4.7
         version: 1.4.7
@@ -4095,8 +4095,8 @@ packages:
     peerDependencies:
       velocity-animate: ^1.5.2
 
-  liquid-wormhole@5.0.0:
-    resolution: {integrity: sha512-kOjU1nLJZi7VtvDOhtxjKMI+jeSmIbBrdmZxviBAQ3F5RCqZ4q0UkhyvCcAqDhD0bi6c57ATU8z7yjiJn3P65A==}
+  liquid-wormhole@5.0.2:
+    resolution: {integrity: sha512-/ys98Dx2KhKWM+XC0e2TC1GoirDVwgEmHpxC8Qn0cVFenznNhbnc99GFN3RKD6h5VvERfP0fVIYXqn92s7E2KQ==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       ember-source: ^4.0.0
@@ -11699,7 +11699,7 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  liquid-wormhole@5.0.0(@babel/core@7.28.5)(ember-source@3.28.12(@babel/core@7.28.5))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0):
+  liquid-wormhole@5.0.2(@babel/core@7.28.5)(ember-source@3.28.12(@babel/core@7.28.5))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0):
     dependencies:
       '@ember/render-modifiers': 3.0.0(ember-source@3.28.12(@babel/core@7.28.5))
       '@embroider/util': 1.13.4(ember-source@3.28.12(@babel/core@7.28.5))
@@ -11708,6 +11708,7 @@ snapshots:
       ember-auto-import: 2.12.0(webpack@5.103.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
+      ember-modifier: 4.2.2(@babel/core@7.28.5)
       ember-source: 3.28.12(@babel/core@7.28.5)
       liquid-fire: 0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2)
       velocity-animate: 1.5.2
