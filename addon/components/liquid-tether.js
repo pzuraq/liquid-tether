@@ -2,26 +2,27 @@
 import { assert } from '@ember/debug';
 import { isNone } from '@ember/utils';
 import { camelize } from '@ember/string';
-import { get, computed } from '@ember/object';
+import { get } from '@ember/object';
 import { schedule } from '@ember/runloop';
+import { tracked } from '@glimmer/tracking';
 import LiquidWormhole from 'liquid-wormhole/components/liquid-wormhole';
 
-export default LiquidWormhole.extend({
-  classPrefix: 'liquid-tether',
-  target: null,
-  attachment: null,
-  targetAttachment: null,
-  offset: null,
-  targetOffset: null,
-  targetModifier: null,
-  constraints: null,
-  optimizations: null,
+export default class LiquidTether extends LiquidWormhole {
+  classPrefix = 'liquid-tether';
+  @tracked target = null;
+  @tracked attachment = null;
+  @tracked targetAttachment = null;
+  @tracked offset = null;
+  @tracked targetOffset = null;
+  @tracked targetModifier = null;
+  @tracked constraints = null;
+  @tracked optimizations = null;
 
   didInsertElement() {
-    this._super(...arguments);
+    super.didInsertElement(...arguments);
 
     this._tetherElement = this.nodes[0];
-  },
+  }
 
   willAppendNodes(bodyElement) {
     if (this._tether) {
@@ -29,23 +30,23 @@ export default LiquidWormhole.extend({
     }
 
     this.addTether(bodyElement);
-  },
+  }
 
   didAppendNodes() {
     this._tether.position();
-  },
+  }
 
   willRemoveNodes() {
     this._tether.position();
-  },
+  }
 
   willDestroyElement() {
-    this._super(...arguments);
+    super.willDestroyElement(...arguments);
 
     schedule('render', () => {
       this.removeTether();
     });
-  },
+  }
 
   addTether(bodyElement) {
     const target = this._tetherTarget;
@@ -71,15 +72,15 @@ export default LiquidWormhole.extend({
     });
 
     this._tether = new Tether(options);
-  },
+  }
 
   removeTether() {
     if (this._tether) {
       this._tether.destroy();
     }
-  },
+  }
 
-  _tetherTarget: computed('target', function () {
+  get _tetherTarget() {
     let target = this.target;
 
     if (target && target.element) {
@@ -94,15 +95,15 @@ export default LiquidWormhole.extend({
     );
 
     return target;
-  }),
+  }
 
-  actions: {
-    clickOverlay() {
-      // eslint-disable-next-line ember/no-get
-      if (get(this, 'on-overlay-click')) {
-        // eslint-disable-next-line
-        this.sendAction('on-overlay-click');
-      }
-    },
-  },
-});
+  // TODO: This did not seem to be used, but keeping it commented out for now.
+  // @action
+  // clickOverlay() {
+  //   // eslint-disable-next-line ember/no-get
+  //   if (get(this, 'on-overlay-click')) {
+  //     // eslint-disable-next-line
+  //     this.sendAction('on-overlay-click');
+  //   }
+  // }
+}
