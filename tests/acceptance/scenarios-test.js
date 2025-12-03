@@ -41,7 +41,7 @@ module('Acceptance | Scenarios', function (hooks) {
     await click('button');
 
     const redbox = find('.red-box').getBoundingClientRect();
-    const greenbox = find('.green-box').getBoundingClientRect();
+    // const greenbox = find('.green-box').getBoundingClientRect();
     const bluebox = find('.blue-box').getBoundingClientRect();
     const yellowbox = find('.yellow-box').getBoundingClientRect();
 
