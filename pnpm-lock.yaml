@@ -24,8 +24,8 @@ importers:
         specifier: ^6.3.0
         version: 6.3.0
       liquid-wormhole:
-        specifier: ^5.0.3
-        version: 5.0.3(@babel/core@7.28.5)(ember-source@4.12.4(@babel/core@7.28.5)(@glimmer/component@1.1.2(@babel/core@7.28.5))(webpack@5.103.0))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0)
+        specifier: ^6.0.0
+        version: 6.0.0(ember-source@4.12.4(@babel/core@7.28.5)(@glimmer/component@1.1.2(@babel/core@7.28.5))(webpack@5.103.0))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0)
       tether:
         specifier: ^1.4.7
         version: 1.4.7
@@ -4029,9 +4029,9 @@ packages:
     peerDependencies:
       velocity-animate: ^1.5.2
 
-  liquid-wormhole@5.0.3:
-    resolution: {integrity: sha512-xQ9/FXMHEdL/ViscReC9rCheGX9rXJL7BfmC7gImRc+LCTQXBcjyZjP6P3j4YRwBjqd63I68hPpLLekZRoM0qA==}
-    engines: {node: 14.* || 16.* || >= 18}
+  liquid-wormhole@6.0.0:
+    resolution: {integrity: sha512-ezsiM534auYippK1oJsGcyrVKhZwsUuCvneLOV/4bZHmlPAuoEC6myEyGDkHU3+dm9Pd01f0iirtTcUStnM+lw==}
+    engines: {node: '>= 18'}
     peerDependencies:
       liquid-fire: ^0.37.1
       velocity-animate: ^1.5.2
@@ -11289,20 +11289,20 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  liquid-wormhole@5.0.3(@babel/core@7.28.5)(ember-source@4.12.4(@babel/core@7.28.5)(@glimmer/component@1.1.2(@babel/core@7.28.5))(webpack@5.103.0))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0):
+  liquid-wormhole@6.0.0(ember-source@4.12.4(@babel/core@7.28.5)(@glimmer/component@1.1.2(@babel/core@7.28.5))(webpack@5.103.0))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0):
     dependencies:
+      '@babel/core': 7.28.5
       '@ember/render-modifiers': 3.0.0(ember-source@4.12.4(@babel/core@7.28.5)(@glimmer/component@1.1.2(@babel/core@7.28.5))(webpack@5.103.0))
       '@embroider/util': 1.13.5(ember-source@4.12.4(@babel/core@7.28.5)(@glimmer/component@1.1.2(@babel/core@7.28.5))(webpack@5.103.0))
       '@glimmer/component': 1.1.2(@babel/core@7.28.5)
       '@glimmer/tracking': 1.1.2
       ember-auto-import: 2.12.0(webpack@5.103.0)
-      ember-cli-babel: 7.26.11
+      ember-cli-babel: 8.2.0(@babel/core@7.28.5)
       ember-cli-htmlbars: 6.3.0
       ember-modifier: 4.2.2(@babel/core@7.28.5)
       liquid-fire: 0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2)
       velocity-animate: 1.5.2
     transitivePeerDependencies:
-      - '@babel/core'
       - '@glint/environment-ember-loose'
       - '@glint/template'
       - ember-source
