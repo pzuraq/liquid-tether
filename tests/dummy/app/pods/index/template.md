@@ -4,7 +4,7 @@
   </span>
 </div>
 <div class="front-page-container-2">
-  <button {{action 'toggleHello'}} id="hello-world-button" class="btn btn-primary btn-embossed">
+  <button {{on "click" this.toggleHello}} id="hello-world-button" class="btn btn-primary btn-embossed">
     Try Me
   </button>
   {{#if this.showHello}}

@@ -1,5 +1,5 @@
 <div class="example-button-container">
-  <button class="btn btn-primary btn-embossed" type="button" {{action "toggleFlyout"}}>Open Flyout</button>
+  <button class="btn btn-primary btn-embossed" type="button" {{on "click" this.toggleFlyout}}>Open Flyout</button>
 </div>
 
 {{#if this.showFlyout}}
@@ -18,7 +18,7 @@
         This div is easily fixed to the bottom of the screen, no need to worry about
         the target container messing with your positioning!
 
-        <button class="btn btn-primary btn-embossed btn-block" type="button" {{action 'toggleFlyout'}}>
+        <button class="btn btn-primary btn-embossed btn-block" type="button" {{on "click" this.toggleFlyout}}>
           Close
         </button>
       </div>

@@ -1,77 +1,100 @@
+import Controller from '@ember/controller';
+import { action } from '@ember/object';
 import { equal, gte } from '@ember/object/computed';
 import { run, scheduleOnce } from '@ember/runloop';
-import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend({
-  // eslint-disable-next-line
-  exampleConstraints: [{
+export default class DocsStacksController extends Controller {
+  exampleConstraints = [
+    {
       to: 'scrollParent',
       attachment: 'together',
       pin: true,
     },
-  ],
+  ];
 
-  showFirstModalDialog: equal('currentModalDialogStep', 1),
-  showSecondModalDialog: equal('currentModalDialogStep', 2),
-  showThirdModalDialog: equal('currentModalDialogStep', 3),
+  @tracked currentFlytoDialogStep = 0;
+  @tracked currentModalDialogStep = 0;
+  @tracked showFlyout = false;
+  @tracked showHello = false;
 
-  showFirstFlytoDialog: gte('currentFlytoDialogStep', 1),
-  showSecondFlytoDialog: gte('currentFlytoDialogStep', 2),
-  showThirdFlytoDialog: gte('currentFlytoDialogStep', 3),
+  @equal('currentModalDialogStep', 1)
+  showFirstModalDialog;
+  @equal('currentModalDialogStep', 2)
+  showSecondModalDialog;
+  @equal('currentModalDialogStep', 3)
+  showThirdModalDialog;
 
-  actions: {
-    toggleHello() {
-      this.toggleProperty('showHello');
-    },
+  @gte('currentFlytoDialogStep', 1)
+  showFirstFlytoDialog;
+  @gte('currentFlytoDialogStep', 2)
+  showSecondFlytoDialog;
+  @gte('currentFlytoDialogStep', 3)
+  showThirdFlytoDialog;
 
-    toggleFlyout() {
-      this.toggleProperty('showFlyout');
-    },
+  @action
+  toggleHello() {
+    this.showHello = !this.showHello;
+  }
 
-    openModalDialog() {
-      this.set('currentModalDialogStep', 1);
-    },
+  @action
+  toggleFlyout() {
+    this.showFlyout = !this.showFlyout;
+  }
 
-    prevModalDialog() {
-      this.decrementProperty('currentModalDialogStep');
-    },
+  @action
+  openModalDialog() {
+    this.currentModalDialogStep = 1;
+  }
 
-    nextModalDialog() {
-      this.incrementProperty('currentModalDialogStep');
-    },
+  @action
+  prevModalDialog() {
+    this.decrementProperty('currentModalDialogStep');
+  }
 
-    closeModalDialog() {
-      this.set('currentModalDialogStep', 0);
-    },
+  @action
+  nextModalDialog() {
+    this.incrementProperty('currentModalDialogStep');
+  }
 
-    openFlytoDialog() {
-      this.set('currentFlytoDialogStep', 1);
-    },
+  @action
+  closeModalDialog() {
+    this.currentModalDialogStep = 0;
+  }
 
-    prevFlytoDialog() {
-      this.decrementProperty('currentFlytoDialogStep');
-    },
+  @action
+  openFlytoDialog() {
+    this.currentFlytoDialogStep = 1;
+  }
 
-    nextFlytoDialog() {
-      this.incrementProperty('currentFlytoDialogStep');
-    },
+  @action
+  prevFlytoDialog() {
+    this.decrementProperty('currentFlytoDialogStep');
+  }
 
-    closeFlytoDialog() {
-      this.set('currentFlytoDialogStep', 0);
-    },
+  @action
+  nextFlytoDialog() {
+    this.incrementProperty('currentFlytoDialogStep');
+  }
 
-    addPassedAnchor(anchor) {
-      run(() => {
-        this.passedAnchors.pushObject(anchor);
-        scheduleOnce('afterRender', this, 'updateAnchor');
-      });
-    },
+  @action
+  closeFlytoDialog() {
+    this.currentFlytoDialogStep = 0;
+  }
 
-    removePassedAnchor(anchor) {
-      run(() => {
-        this.passedAnchors.removeObject(anchor);
-        scheduleOnce('afterRender', this, 'updateAnchor');
-      });
-    },
-  },
-});
+  @action
+  addPassedAnchor(anchor) {
+    run(() => {
+      this.passedAnchors.pushObject(anchor);
+      scheduleOnce('afterRender', this, 'updateAnchor');
+    });
+  }
+
+  @action
+  removePassedAnchor(anchor) {
+    run(() => {
+      this.passedAnchors.removeObject(anchor);
+      scheduleOnce('afterRender', this, 'updateAnchor');
+    });
+  }
+}

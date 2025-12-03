@@ -17,7 +17,7 @@ If you want to warp elements somewhere else, consider
 {{#link-to route="docs.destinations"}}creating a custom liquid-destination{{/link-to}}
 
 <div class="example-button-container">
-  <button {{action 'toggleHello'}} id="hello-world-button" class="btn btn-primary btn-embossed">
+  <button {{on "click" this.toggleHello}} id="hello-world-button" class="btn btn-primary btn-embossed">
     Give it a shot!
   </button>
   {{#if this.showHello}}
@@ -37,7 +37,7 @@ If you want to warp elements somewhere else, consider
 </div>
 
 ```hbs
-<button {{action 'toggleHello'}}>
+<button {{on "click" this.toggleHello}}>
   Give it a shot!
 </button>
 

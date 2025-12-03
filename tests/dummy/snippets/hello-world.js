@@ -1,8 +1,12 @@
 import Controller from '@ember/controller';
-export default Controller.extend({
-  actions: {
-    toggleHello() {
-      this.toggleProperty('showHello');
-    }
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+
+export default class SnippetsHelloWorldController extends Controller {
+  @tracked showHello = false;
+
+  @action
+  toggleHello() {
+    this.showHello = !this.showHello;
   }
-});
+}

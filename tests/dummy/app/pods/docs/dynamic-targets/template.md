@@ -30,10 +30,10 @@ dialogs, and more incredibly easily.
         {{this.currentStep.text}}
       </div>
       <div class="popover-content">
-        <a {{action "prevStep"}}>
+        <a {{on "click" this.prevStep}}>
           Back!
         </a>
-        <a {{action "nextStep"}}>
+        <a {{on "click" this.nextStep}}>
           Next!
         </a>
       </div>
@@ -61,10 +61,10 @@ dialogs, and more incredibly easily.
 
   ...
 
-  <a {{action "prevStep"}}>
+  <a {{on "click" this.prevStep}}>
     Back!
   </a>
-  <a {{action "nextStep"}}>
+  <a {{on "click" this.nextStep}}>
     Next!
   </a>
 {{/liquid-tether}}

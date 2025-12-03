@@ -1,5 +1,5 @@
 <div class="example-button-container">
-  <button class="btn btn-primary btn-embossed" type="button" {{action "openFlytoDialog"}}>Open Moving Modal</button>
+  <button class="btn btn-primary btn-embossed" type="button" {{on "click" this.openFlytoDialog}}>Open Moving Modal</button>
 </div>
 
 {{#if this.showFirstFlytoDialog}}
@@ -14,8 +14,8 @@
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-default btn-embossed" type="button" {{action "closeFlytoDialog"}}>Cancel</button>
-        <button class="btn btn-primary btn-embossed" type="button" {{action "nextFlytoDialog"}}>Next</button>
+        <button class="btn btn-default btn-embossed" type="button" {{on "click" this.closeFlytoDialog}}>Cancel</button>
+        <button class="btn btn-primary btn-embossed" type="button" {{on "click" this.nextFlytoDialog}}>Next</button>
       </div>
     </div>
   </LiquidTether>
@@ -37,8 +37,8 @@
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-default btn-embossed" type="button" {{action "prevFlytoDialog"}}>Back</button>
-        <button class="btn btn-primary btn-embossed" type="button" {{action "nextFlytoDialog"}}>Next</button>
+        <button class="btn btn-default btn-embossed" type="button" {{on "click" this.prevFlytoDialog}}>Back</button>
+        <button class="btn btn-primary btn-embossed" type="button" {{on "click" this.nextFlytoDialog}}>Next</button>
       </div>
     </div>
   </LiquidTether>
@@ -58,8 +58,8 @@
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-default btn-embossed" type="button" {{action "prevFlytoDialog"}}>Back</button>
-        <button class="btn btn-primary btn-embossed" type="button" {{action "closeFlytoDialog"}}>Finish</button>
+        <button class="btn btn-default btn-embossed" type="button" {{on "click" this.prevFlytoDialog}}>Back</button>
+        <button class="btn btn-primary btn-embossed" type="button" {{on "click" this.closeFlytoDialog}}>Finish</button>
       </div>
     </div>
   </LiquidTether>

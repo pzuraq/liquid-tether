@@ -1,5 +1,5 @@
 <div class="example-button-container">
-  <button type="button" {{action "openModalDialog"}}>
+  <button type="button" {{on "click" this.openModalDialog}}>
     Open Dialog
   </button>
 </div>
@@ -16,8 +16,8 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" {{action "closeModalDialog"}}>Cancel</button>
-        <button type="button" {{action "nextModalDialog"}}>Next</button>
+        <button type="button" {{on "click" this.closeModalDialog}}>Cancel</button>
+        <button type="button" {{on "click" this.nextModalDialog}}>Next</button>
       </div>
     </div>
   </LiquidTether>
@@ -39,8 +39,8 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" {{action "prevModalDialog"}}>Back</button>
-        <button type="button" {{action "nextModalDialog"}}>Next</button>
+        <button type="button" {{on "click" this.prevModalDialog}}>Back</button>
+        <button type="button" {{on "click" this.nextModalDialog}}>Next</button>
       </div>
     </div>
   </LiquidTether>
@@ -60,8 +60,8 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" {{action "prevModalDialog"}}>Back</button>
-        <button type="button" {{action "closeModalDialog"}}>Finish</button>
+        <button type="button" {{on "click" this.prevModalDialog}}>Back</button>
+        <button type="button" {{on "click" this.closeModalDialog}}>Finish</button>
       </div>
     </div>
   </LiquidTether>
