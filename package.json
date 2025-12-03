@@ -43,6 +43,7 @@
     "@embroider/test-setup": "^4.0.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@release-it-plugins/lerna-changelog": "^5.0.0",
     "bootstrap-sass": "~3.3.7",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.2.2",
@@ -74,6 +75,7 @@
     "prettier": "^3.7.4",
     "qunit": "^2.24.3",
     "qunit-dom": "^3.5.0",
+    "release-it": "^15.11.0",
     "sass": "^1.94.2",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
@@ -88,6 +90,9 @@
   },
   "engines": {
     "node": ">= 18"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "ember": {
     "edition": "octane"
@@ -105,5 +110,20 @@
       "fsevents",
       "highlight.js"
     ]
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it-plugins/lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    }
   }
 }
