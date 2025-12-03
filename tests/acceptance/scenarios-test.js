@@ -31,7 +31,7 @@ module('Acceptance | Scenarios', function (hooks) {
     assert.strictEqual(
       find('.liquid-wormhole-element').textContent.trim(),
       'testing',
-      'component markup still exists'
+      'component markup still exists',
     );
   });
 
@@ -58,20 +58,20 @@ module('Acceptance | Scenarios', function (hooks) {
 
     assert.ok(
       withinTolerance(redbox.top + redbox.height, bluebox.top),
-      'bluebox vertical pos within tolerance'
+      'bluebox vertical pos within tolerance',
     );
     assert.ok(
       withinTolerance(redbox.left, bluebox.left),
-      'bluebox horizontal pos within tolerance'
+      'bluebox horizontal pos within tolerance',
     );
 
     assert.ok(
       withinTolerance(bluebox.top + bluebox.height, yellowbox.top),
-      'yellowbox vertical pos within tolerance'
+      'yellowbox vertical pos within tolerance',
     );
     assert.ok(
       withinTolerance(bluebox.left, yellowbox.left),
-      'yellowbox horizontal pos within tolerance'
+      'yellowbox horizontal pos within tolerance',
     );
   });
 
@@ -80,7 +80,7 @@ module('Acceptance | Scenarios', function (hooks) {
 
     assert.strictEqual(
       find('.default-liquid-destination').textContent.trim(),
-      '456'
+      '456',
     );
   });
 
@@ -88,14 +88,14 @@ module('Acceptance | Scenarios', function (hooks) {
     assert.strictEqual(
       findAll('.default-liquid-destination.has-wormholes').length,
       0,
-      'No wormholes class'
+      'No wormholes class',
     );
 
     await visit('/scenarios/multiple-tethers');
 
     assert.ok(
       findAll('.default-liquid-destination.has-wormholes').length > 0,
-      'Has wormholes class'
+      'Has wormholes class',
     );
   });
 

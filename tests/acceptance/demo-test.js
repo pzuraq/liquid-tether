@@ -34,13 +34,13 @@ module('Acceptance | Demos', function (hooks) {
     await waitUntil(
       () =>
         findAll('.default-liquid-destination .liquid-destination-stack')
-          .length === 1
+          .length === 1,
     );
 
     assert.strictEqual(
       findAll('.default-liquid-destination .liquid-destination-stack').length,
       1,
-      "it's not empty"
+      "it's not empty",
     );
 
     await click('#hello-world-button');
@@ -48,13 +48,13 @@ module('Acceptance | Demos', function (hooks) {
     await waitUntil(
       () =>
         findAll('.default-liquid-destination .liquid-destination-stack')
-          .length === 0
+          .length === 0,
     );
 
     assert.strictEqual(
       findAll('.default-liquid-destination .liquid-destination-stack').length,
       0,
-      "it's empty"
+      "it's empty",
     );
   });
 
@@ -68,13 +68,13 @@ module('Acceptance | Demos', function (hooks) {
     await waitUntil(
       () =>
         findAll('.default-liquid-destination .liquid-wormhole-element')
-          .length === 1
+          .length === 1,
     );
 
     assert.strictEqual(
       findAll('.default-liquid-destination .liquid-wormhole-element').length,
       1,
-      'it exists'
+      'it exists',
     );
     ranWormholeTransition(app, assert, 'fade-down');
   });

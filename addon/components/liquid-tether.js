@@ -91,7 +91,7 @@ export default class LiquidTether extends LiquidWormhole {
 
     assert(
       `Tether target "${target}" does not exist in the document`,
-      target instanceof Element || document.querySelector(target) !== null
+      target instanceof Element || document.querySelector(target) !== null,
     );
 
     return target;

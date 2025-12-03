@@ -18,7 +18,7 @@ function wormholeTransitionName(name) {
 export function ranWormholeTransition(app, assert, name) {
   assert.ok(
     transitionMap(app).transitionFor.returned(wormholeTransitionName(name)),
-    `expected transition ${name}`
+    `expected transition ${name}`,
   );
 }
 
@@ -27,9 +27,9 @@ export function noTransitionsYet(app, assert) {
   var ranTransitions = A(tmap.transitionFor.returnValues);
   assert.ok(
     !ranTransitions.any(
-      (transition) => transition.animation !== tmap.defaultAction()
+      (transition) => transition.animation !== tmap.defaultAction(),
     ),
-    'expected no transitions'
+    'expected no transitions',
   );
 }
 

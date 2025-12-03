@@ -27,6 +27,7 @@ module.exports = {
     'ember/no-classic-classes': 'off',
     'ember/no-classic-components': 'off',
     'ember/no-component-lifecycle-hooks': 'off',
+    'ember/no-runloop': 'off',
     'ember/require-tagless-components': 'off',
   },
   overrides: [
@@ -57,6 +58,9 @@ module.exports = {
       // test files
       files: ['tests/**/*-test.{js,ts}'],
       extends: ['plugin:qunit/recommended'],
+      rules: {
+        'qunit/require-expect': 'off',
+      },
     },
   ],
 };
