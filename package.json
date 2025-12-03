@@ -84,7 +84,6 @@
     "webpack": "^5.103.0"
   },
   "peerDependencies": {
-    "ember-source": "^4.0.0",
     "liquid-fire": "^0.37.1",
     "velocity-animate": "^1.5.2"
   },
