@@ -6,7 +6,7 @@ function transitionMap(app) {
 }
 
 function wormholeTransitionName(name) {
-  return sinon.match(function(value) {
+  return sinon.match(function (value) {
     if (value.animation && value.animation.name === 'wormhole') {
       return value.animation.args[0].use.name === name;
     }
@@ -16,13 +16,21 @@ function wormholeTransitionName(name) {
 }
 
 export function ranWormholeTransition(app, assert, name) {
-  assert.ok(transitionMap(app).transitionFor.returned(wormholeTransitionName(name)), `expected transition ${name}`);
+  assert.ok(
+    transitionMap(app).transitionFor.returned(wormholeTransitionName(name)),
+    `expected transition ${name}`,
+  );
 }
 
 export function noTransitionsYet(app, assert) {
   var tmap = transitionMap(app);
   var ranTransitions = A(tmap.transitionFor.returnValues);
-  assert.ok(!ranTransitions.any((transition) => transition.animation !== tmap.defaultAction()), 'expected no transitions');
+  assert.ok(
+    !ranTransitions.any(
+      (transition) => transition.animation !== tmap.defaultAction(),
+    ),
+    'expected no transitions',
+  );
 }
 
 export function injectTransitionSpies(app) {

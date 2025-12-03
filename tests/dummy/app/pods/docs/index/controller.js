@@ -1,77 +1,105 @@
+/* eslint-disable ember/no-computed-properties-in-native-classes */
+import Controller from '@ember/controller';
+import { action } from '@ember/object';
 import { equal, gte } from '@ember/object/computed';
 import { run, scheduleOnce } from '@ember/runloop';
-import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend({
-
-  // eslint-disable-next-line
-  exampleConstraints: [{
-    to: 'scrollParent',
-    attachment: 'together',
-    pin: true
-  }],
-
-  showFirstModalDialog: equal('currentModalDialogStep', 1),
-  showSecondModalDialog: equal('currentModalDialogStep', 2),
-  showThirdModalDialog: equal('currentModalDialogStep', 3),
-
-  showFirstFlytoDialog: gte('currentFlytoDialogStep', 1),
-  showSecondFlytoDialog: gte('currentFlytoDialogStep', 2),
-  showThirdFlytoDialog: gte('currentFlytoDialogStep', 3),
-
-  actions: {
-    toggleHello() {
-      this.toggleProperty('showHello');
+export default class DocsIndexController extends Controller {
+  exampleConstraints = [
+    {
+      to: 'scrollParent',
+      attachment: 'together',
+      pin: true,
     },
+  ];
 
-    toggleFlyout() {
-      this.toggleProperty('showFlyout');
-    },
+  @tracked currentFlytoDialogStep = 0;
+  @tracked currentModalDialogStep = 0;
+  @tracked showFlyout = false;
+  @tracked showHello = false;
 
-    openModalDialog() {
-      this.set('currentModalDialogStep', 1);
-    },
+  @equal('currentModalDialogStep', 1)
+  showFirstModalDialog;
+  @equal('currentModalDialogStep', 2)
+  showSecondModalDialog;
+  @equal('currentModalDialogStep', 3)
+  showThirdModalDialog;
 
-    prevModalDialog() {
-      this.decrementProperty('currentModalDialogStep');
-    },
+  @gte('currentFlytoDialogStep', 1)
+  showFirstFlytoDialog;
+  @gte('currentFlytoDialogStep', 2)
+  showSecondFlytoDialog;
+  @gte('currentFlytoDialogStep', 3)
+  showThirdFlytoDialog;
 
-    nextModalDialog() {
-      this.incrementProperty('currentModalDialogStep');
-    },
-
-    closeModalDialog() {
-      this.set('currentModalDialogStep', 0);
-    },
-
-    openFlytoDialog() {
-      this.set('currentFlytoDialogStep', 1);
-    },
-
-    prevFlytoDialog() {
-      this.decrementProperty('currentFlytoDialogStep');
-    },
-
-    nextFlytoDialog() {
-      this.incrementProperty('currentFlytoDialogStep');
-    },
-
-    closeFlytoDialog() {
-      this.set('currentFlytoDialogStep', 0);
-    },
-
-    addPassedAnchor(anchor) {
-      run(() => {
-        this.get('passedAnchors').pushObject(anchor);
-        scheduleOnce('afterRender', this, 'updateAnchor');
-      });
-    },
-
-    removePassedAnchor(anchor) {
-      run(() => {
-        this.get('passedAnchors').removeObject(anchor);
-        scheduleOnce('afterRender', this, 'updateAnchor');
-      });
-    }
+  @action
+  toggleHello() {
+    this.showHello = !this.showHello;
   }
-});
+
+  @action
+  toggleFlyout() {
+    this.showFlyout = !this.showFlyout;
+  }
+
+  @action
+  openModalDialog() {
+    this.currentModalDialogStep = 1;
+  }
+
+  @action
+  prevModalDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.decrementProperty('currentModalDialogStep');
+  }
+
+  @action
+  nextModalDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.incrementProperty('currentModalDialogStep');
+  }
+
+  @action
+  closeModalDialog() {
+    this.currentModalDialogStep = 0;
+  }
+
+  @action
+  openFlytoDialog() {
+    this.currentFlytoDialogStep = 1;
+  }
+
+  @action
+  prevFlytoDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.decrementProperty('currentFlytoDialogStep');
+  }
+
+  @action
+  nextFlytoDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.incrementProperty('currentFlytoDialogStep');
+  }
+
+  @action
+  closeFlytoDialog() {
+    this.currentFlytoDialogStep = 0;
+  }
+
+  @action
+  addPassedAnchor(anchor) {
+    run(() => {
+      this.passedAnchors.pushObject(anchor);
+      scheduleOnce('afterRender', this, 'updateAnchor');
+    });
+  }
+
+  @action
+  removePassedAnchor(anchor) {
+    run(() => {
+      this.passedAnchors.removeObject(anchor);
+      scheduleOnce('afterRender', this, 'updateAnchor');
+    });
+  }
+}

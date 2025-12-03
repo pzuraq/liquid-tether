@@ -1,25 +1,19 @@
-import {
-  isAnimating,
-  finish,
-  timeSpent,
-  animate,
-  stop
-} from 'liquid-fire';
+import { isAnimating, finish, timeSpent, animate, stop } from 'liquid-fire';
 
-export default function fade(dimension, direction, opts, offset=20) {
+export default function fade(dimension, direction, opts, offset = 20) {
   const oldParams = { opacity: 0 },
-        newParams = { opacity: [(opts.maxOpacity || 1), 0] },
-        fadingElement = findFadingElement(this);
+    newParams = { opacity: [opts.maxOpacity || 1, 0] },
+    fadingElement = findFadingElement(this);
 
   let outOpts = opts,
-      firstStep;
+    firstStep;
 
   if (dimension.toLowerCase() === 'x') {
-    oldParams.translateX = `${(direction * offset)}px`;
-    newParams.translateX = ['0px', `${(direction * offset)}px`];
+    oldParams.translateX = `${direction * offset}px`;
+    newParams.translateX = ['0px', `${direction * offset}px`];
   } else {
-    oldParams.translateY = `${(direction * offset)}px`;
-    newParams.translateY = ['0px', `${(direction * offset)}px`];
+    oldParams.translateY = `${direction * offset}px`;
+    newParams.translateY = ['0px', `${direction * offset}px`];
   }
 
   if (fadingElement) {

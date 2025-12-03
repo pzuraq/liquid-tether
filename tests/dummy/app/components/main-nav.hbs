@@ -1,0 +1,43 @@
+<nav class='navbar navbar-inverse navbar-embossed'>
+  <div class='navbar-header'>
+    <button
+      type='button'
+      class='navbar-toggle fa fa-bars'
+      {{on "click" this.toggleNav}}
+    >
+      <span class='sr-only'>
+        Toggle navigation
+      </span>
+    </button>
+    <span class='navbar-brand'>
+      Liquid Tether
+    </span>
+  </div>
+  <div class='navbar-collapse {{unless this.navOpen 'collapse'}}'>
+    <ul class='nav navbar-nav navbar-left'>
+      <li>
+        <LinkTo @route='index' class='nav-item'>
+          Introduction
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='docs' class='nav-item'>
+          Docs
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route='upgrading' class='nav-item'>
+          Upgrading
+        </LinkTo>
+      </li>
+    </ul>
+    <ul class='nav navbar-nav navbar-right navbar-break'>
+      <li>
+        <a class='nav-item' href='https://github.com/pzuraq/liquid-tether'>
+          GitHub
+          <span class='fa fa-github'></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

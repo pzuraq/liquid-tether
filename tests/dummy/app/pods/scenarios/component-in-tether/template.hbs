@@ -1,9 +1,9 @@
-<button {{action "toggleModal"}} data-test-toggle>Toggle</button>
+<button data-test-toggle type="button" {{on "click" this.toggleModal}}>Toggle</button>
 
-{{#unless hideModal}}
-  {{#liquid-tether target="document.body" attachment="middle center" class="component-in-tether"}}
-    {{#test-component}}
+{{#unless this.hideModal}}
+  <LiquidTether @target="document.body" @attachment="middle center" @class="component-in-tether">
+    <TestComponent>
       testing
-    {{/test-component}}
-  {{/liquid-tether}}
+    </TestComponent>
+  </LiquidTether>
 {{/unless}}

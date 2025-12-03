@@ -1,10 +1,10 @@
 module.exports = {
-  normalizeEntityName: function() {},
+  normalizeEntityName: function () {},
 
-  afterInstall: function() {
+  afterInstall: function () {
     return this.addAddonToProject({
       name: 'liquid-fire',
-      version: '0.26.4'
+      version: '0.33.0',
     });
-  }
+  },
 };

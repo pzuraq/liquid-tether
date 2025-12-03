@@ -1,15 +1,20 @@
 import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
+import { findAll, click, visit, waitUntil } from '@ember/test-helpers';
 
-import { findAll,click, visit } from 'ember-native-dom-helpers';
-
-import { injectTransitionSpies, ranWormholeTransition, noTransitionsYet } from '../helpers/integration';
-import { startApp, destroyApp } from '../helpers/app-lifecycle';
+import {
+  injectTransitionSpies,
+  ranWormholeTransition,
+  noTransitionsYet,
+} from '../helpers/integration';
 
 let app;
 
-module('Acceptance | Demos', function(hooks) {
-  hooks.beforeEach(function() {
-    app = startApp();
+module('Acceptance | Demos', function (hooks) {
+  setupApplicationTest(hooks);
+
+  hooks.beforeEach(function () {
+    app = this.owner;
 
     // Conceptually, integration tests shouldn't be digging around in
     // the container. But animations are slippery, and it's easier to
@@ -18,28 +23,65 @@ module('Acceptance | Demos', function(hooks) {
     injectTransitionSpies(app);
   });
 
-  hooks.afterEach(function() {
-    destroyApp(app);
+  hooks.afterEach(function () {
+    document.querySelector('.liquid-target-container')?.remove();
   });
 
-  test('target container is cleaned when empty', async function(assert) {
+  test('target container is cleaned when empty', async function (assert) {
     await visit('/docs');
     await click('#hello-world-button');
+
+    await waitUntil(
+      () =>
+        findAll('.default-liquid-destination .liquid-destination-stack')
+          .length === 1,
+    );
+
+    assert.strictEqual(
+      findAll('.default-liquid-destination .liquid-destination-stack').length,
+      1,
+      "it's not empty",
+    );
+
     await click('#hello-world-button');
 
-    assert.equal(findAll('.default-liquid-destination .liquid-destination-stack').length, 0, 'it\'s empty');
+    await waitUntil(
+      () =>
+        findAll('.default-liquid-destination .liquid-destination-stack')
+          .length === 0,
+    );
+
+    assert.strictEqual(
+      findAll('.default-liquid-destination .liquid-destination-stack').length,
+      0,
+      "it's empty",
+    );
   });
 
-  test('basic liquid-tether works correctly', async function(assert) {
+  test('basic liquid-tether works correctly', async function (assert) {
+    assert.expect(3);
+
     await visit('/docs');
     noTransitionsYet(app, assert);
 
     await click('#hello-world-button');
-    assert.equal(findAll('.default-liquid-destination .liquid-wormhole-element').length, 1, 'it exists');
+    await waitUntil(
+      () =>
+        findAll('.default-liquid-destination .liquid-wormhole-element')
+          .length === 1,
+    );
+
+    assert.strictEqual(
+      findAll('.default-liquid-destination .liquid-wormhole-element').length,
+      1,
+      'it exists',
+    );
     ranWormholeTransition(app, assert, 'fade-down');
   });
 
-  test('tethers can determine context with stacks', async function(assert) {
+  test('tethers can determine context with stacks', async function (assert) {
+    assert.expect(4);
+
     await visit('/docs/stacks');
 
     await click('#animation-with-context-button');
@@ -55,7 +97,9 @@ module('Acceptance | Demos', function(hooks) {
     ranWormholeTransition(app, assert, 'fade');
   });
 
-  test('routed tethers can determine context with stacks', async function(assert) {
+  test('routed tethers can determine context with stacks', async function (assert) {
+    assert.expect(4);
+
     await visit('/docs/routed-tethers/step-one');
     ranWormholeTransition(app, assert, 'fade');
 
@@ -69,12 +113,15 @@ module('Acceptance | Demos', function(hooks) {
     ranWormholeTransition(app, assert, 'fade');
   });
 
-  test('clickable overlay responds and has correct class', async function(assert) {
+  test('clickable overlay responds and has correct class', async function (assert) {
+    assert.expect(3);
+
     await visit('/docs/stacks');
 
     await click('#animation-with-context-button');
     ranWormholeTransition(app, assert, 'fade');
-    assert.equal(findAll('.modal-backdrop').length, 1, 'overlay exists');
+    await waitUntil(() => findAll('.modal-backdrop').length === 1);
+    assert.strictEqual(findAll('.modal-backdrop').length, 1, 'overlay exists');
 
     await click('.modal-backdrop');
     ranWormholeTransition(app, assert, 'fade');

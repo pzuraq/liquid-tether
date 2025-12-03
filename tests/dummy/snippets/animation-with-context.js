@@ -1,24 +1,35 @@
 import Controller from '@ember/controller';
-export default Controller.extend({
-  showFirstModalDialog: gte('currentModalDialogStep', 1),
-  showSecondModalDialog: gte('currentModalDialogStep', 2),
-  showThirdModalDialog: gte('currentModalDialogStep', 3),
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+export default class AnimationWithContextController extends Controller {
+  @tracked currentModalDialogStep = 0;
 
-  actions: {
-    openModalDialog() {
-      this.set('currentModalDialogStep', 1);
-    },
+  @gte('currentModalDialogStep', 1)
+  showFirstModalDialog;
+  @gte('currentModalDialogStep', 2)
+  showSecondModalDialog;
+  @gte('currentModalDialogStep', 3)
+  showThirdModalDialog;
 
-    prevModalDialog() {
-      this.decrementProperty('currentModalDialogStep');
-    },
-
-    nextModalDialog() {
-      this.incrementProperty('currentModalDialogStep');
-    },
-
-    closeModalDialog() {
-      this.set('currentModalDialogStep', 0);
-    }
+  @action
+  openModalDialog() {
+    this.currentModalDialogStep = 1;
   }
-});
+
+  @action
+  prevModalDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.decrementProperty('currentModalDialogStep');
+  }
+
+  @action
+  nextModalDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.incrementProperty('currentModalDialogStep');
+  }
+
+  @action
+  closeModalDialog() {
+    this.currentModalDialogStep = 0;
+  }
+}

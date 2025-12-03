@@ -2,66 +2,108 @@
   "name": "liquid-tether",
   "version": "2.0.7",
   "description": "Modals made easy",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": "https://github.com/pzuraq/liquid-tether",
+  "license": "MIT",
+  "author": "Christopher Garrett <cmg@pzuraq.co>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build",
-    "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
+    "build": "ember build --environment=production",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "test": "ember try:testall"
+    "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
+    "test:ember": "ember test",
+    "test:ember-compatibility": "ember try:each"
   },
-  "repository": "https://github.com/pzuraq/liquid-tether",
-  "engines": {
-    "node": "^4.5 || 6.* || >= 7.*"
-  },
-  "author": "Christopher Garrett <cmg@pzuraq.co>",
-  "license": "MIT",
-  "devDependencies": {
-    "broccoli-asset-rev": "^2.4.5",
-    "ember-ajax": "^3.0.0",
-    "ember-cli": "~3.0.2",
-    "ember-cli-dependency-checker": "^2.0.0",
-    "ember-cli-eslint": "^4.2.1",
-    "ember-cli-github-pages": "0.1.2",
-    "ember-cli-htmlbars-inline-precompile": "^1.0.0",
-    "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-markdown-compiler": "pzuraq/ember-cli-markdown-compiler#example-site-fixes",
-    "ember-cli-qunit": "^4.1.1",
-    "ember-cli-sass": "^5.6.0",
-    "ember-cli-shims": "^1.2.0",
-    "ember-cli-sri": "^2.1.0",
-    "ember-cli-uglify": "^2.0.0",
-    "ember-disable-prototype-extensions": "^1.1.2",
-    "ember-export-application-global": "^2.0.0",
-    "ember-load-initializers": "^1.0.0",
-    "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-native-dom-helpers": "^0.6.2",
-    "ember-resolver": "^4.0.0",
-    "ember-source": "~3.0.0",
-    "ember-source-channel-url": "^1.0.1",
-    "ember-try": "^0.2.23",
-    "eslint-plugin-ember": "^5.0.0",
-    "eslint-plugin-node": "^5.2.1",
-    "liquid-fire": "0.28.0",
-    "loader.js": "^4.2.3"
-  },
-  "keywords": [
-    "ember-addon"
-  ],
   "dependencies": {
-    "broccoli-funnel": "^1.1.0",
-    "broccoli-merge-trees": "^1.2.4",
-    "ember-cli-babel": "^6.12.0",
-    "ember-cli-htmlbars": "^2.0.3",
-    "liquid-wormhole": "^2.1.4",
-    "tether": "^1.4.0"
+    "@babel/core": "^7.28.5",
+    "broccoli-funnel": "^3.0.8",
+    "broccoli-merge-trees": "^4.2.0",
+    "ember-auto-import": "^2.12.0",
+    "ember-cli-babel": "^8.2.0",
+    "ember-cli-htmlbars": "^6.3.0",
+    "liquid-wormhole": "^6.0.0",
+    "tether": "^1.4.7"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.28.5",
+    "@babel/plugin-proposal-decorators": "^7.28.0",
+    "@ember/optional-features": "^2.3.0",
+    "@ember/test-helpers": "^3.3.1",
+    "@embroider/test-setup": "^4.0.0",
+    "@glimmer/component": "^1.1.2",
+    "@glimmer/tracking": "^1.1.2",
+    "bootstrap-sass": "~3.3.7",
+    "broccoli-asset-rev": "^3.0.0",
+    "concurrently": "^8.2.2",
+    "ember-cli": "~5.12.0",
+    "ember-cli-clean-css": "^3.0.0",
+    "ember-cli-dependency-checker": "^3.3.3",
+    "ember-cli-github-pages": "^0.2.2",
+    "ember-cli-inject-live-reload": "^2.1.0",
+    "ember-cli-markdown-compiler": "github:RobbieTheWagner/ember-cli-markdown-compiler#930f9605920b90cb0ddd447750394f68b4ef72dd",
+    "ember-cli-sass": "^11.0.1",
+    "ember-cli-sri": "^2.1.1",
+    "ember-cli-terser": "^4.0.2",
+    "ember-load-initializers": "^2.1.2",
+    "ember-page-title": "^8.2.4",
+    "ember-qunit": "^8.1.1",
+    "ember-resolver": "^12.0.1",
+    "ember-source": "~5.12.0",
+    "ember-source-channel-url": "^3.0.0",
+    "ember-template-lint": "^6.1.0",
+    "ember-try": "^3.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-ember": "^12.7.5",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-qunit": "^8.2.5",
+    "liquid-fire": "^0.37.1",
+    "loader.js": "^4.7.0",
+    "prettier": "^3.7.4",
+    "qunit": "^2.24.3",
+    "qunit-dom": "^3.5.0",
+    "sass": "^1.94.2",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-prettier": "^4.1.0",
+    "velocity-animate": "^1.5.2",
+    "webpack": "^5.103.0"
+  },
+  "peerDependencies": {
+    "ember-source": "^4.0.0",
+    "liquid-fire": "^0.37.1",
+    "velocity-animate": "^1.5.2"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "ember": {
+    "edition": "octane"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "after": [
       "liquid-fire"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "core-js",
+      "fsevents",
+      "highlight.js"
     ]
   }
 }

@@ -1,17 +1,11 @@
 <div class="example-button-container">
-  <button {{action "openModalDialog"}}>
+  <button type="button" {{on "click" this.openModalDialog}}>
     Open Dialog
   </button>
 </div>
 
-{{#if showFirstModalDialog}}
-  {{#liquid-tether
-    to="modal-dialog"
-    target="document.body"
-    targetModifier="visible"
-    attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
+{{#if this.showFirstModalDialog}}
+  <LiquidTether @to="modal-dialog" @target="document.body" @targetModifier="visible" @attachment="middle center" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Modal Header</h4>
@@ -22,21 +16,15 @@
       </div>
 
       <div class="modal-footer">
-        <button {{action "closeModalDialog"}}>Cancel</button>
-        <button {{action "nextModalDialog"}}>Next</button>
+        <button type="button" {{on "click" this.closeModalDialog}}>Cancel</button>
+        <button type="button" {{on "click" this.nextModalDialog}}>Next</button>
       </div>
     </div>
-  {{/liquid-tether}}
+  </LiquidTether>
 {{/if}}
 
-{{#if showSecondModalDialog}}
-  {{#liquid-tether
-    to="modal-dialog"
-    target="document.body"
-    targetModifier="visible"
-    attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
+{{#if this.showSecondModalDialog}}
+  <LiquidTether @to="modal-dialog" @target="document.body" @targetModifier="visible" @attachment="middle center" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Another Modal</h4>
@@ -51,21 +39,15 @@
       </div>
 
       <div class="modal-footer">
-        <button {{action "prevModalDialog"}}>Back</button>
-        <button {{action "nextModalDialog"}}>Next</button>
+        <button type="button" {{on "click" this.prevModalDialog}}>Back</button>
+        <button type="button" {{on "click" this.nextModalDialog}}>Next</button>
       </div>
     </div>
-  {{/liquid-tether}}
+  </LiquidTether>
 {{/if}}
 
-{{#if showThirdModalDialog}}
-  {{#liquid-tether
-    to="modal-dialog"
-    target="document.body"
-    targetModifier="visible"
-    attachment="middle center"
-    tetherClass="modal-dialog"
-    overlayClass="modal-backdrop"}}
+{{#if this.showThirdModalDialog}}
+  <LiquidTether @to="modal-dialog" @target="document.body" @targetModifier="visible" @attachment="middle center" @tetherClass="modal-dialog" @overlayClass="modal-backdrop">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Another Modal</h4>
@@ -78,9 +60,9 @@
       </div>
 
       <div class="modal-footer">
-        <button {{action "prevModalDialog"}}>Back</button>
-        <button {{action "closeModalDialog"}}>Finish</button>
+        <button type="button" {{on "click" this.prevModalDialog}}>Back</button>
+        <button type="button" {{on "click" this.closeModalDialog}}>Finish</button>
       </div>
     </div>
-  {{/liquid-tether}}
+  </LiquidTether>
 {{/if}}

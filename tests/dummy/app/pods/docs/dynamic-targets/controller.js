@@ -1,35 +1,37 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend({
-  stepNumber: 0,
+export default class DocsDynamicTargetsController extends Controller {
+  @tracked stepNumber = 0;
 
-  // eslint-disable-next-line
-  steps: [{
-    target: '#feature1',
-    text: 'Here\'s a feature!'
-  }, {
-    target: '#feature2',
-    text: 'Another feature!'
-  }, {
-    target: '#feature3',
-    text: 'Last feature!'
-  }],
-
-  currentStep: computed('stepNumber', {
-    get() {
-      return this.get('steps')[this.get('stepNumber')];
-    }
-  }),
-
-  actions: {
-    prevStep() {
-      const stepNumber = this.get('stepNumber') - 1;
-      this.set('stepNumber', stepNumber === -1 ? 2 : stepNumber);
+  steps = [
+    {
+      target: '#feature1',
+      text: "Here's a feature!",
     },
+    {
+      target: '#feature2',
+      text: 'Another feature!',
+    },
+    {
+      target: '#feature3',
+      text: 'Last feature!',
+    },
+  ];
 
-    nextStep() {
-      this.set('stepNumber', (this.get('stepNumber') + 1) % 3);
-    }
+  get currentStep() {
+    return this.steps[this.stepNumber];
   }
-});
+
+  @action
+  prevStep() {
+    const stepNumber = this.stepNumber - 1;
+    this.stepNumber = stepNumber === -1 ? 2 : stepNumber;
+  }
+
+  @action
+  nextStep() {
+    this.stepNumber = (this.stepNumber + 1) % 3;
+  }
+}

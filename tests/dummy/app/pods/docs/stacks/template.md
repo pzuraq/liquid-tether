@@ -10,10 +10,10 @@ The stack name will be applied as the id to the tethers, allow you to match them
 the `matchSelector` helper from liquid-fire.
 
 <div class="example-button-container">
-  <button {{action "openModalDialog"}} id="animation-with-context-button" class="btn btn-primary btn-embossed">
+  <button {{on "click" this.openModalDialog}} id="animation-with-context-button" class="btn btn-primary btn-embossed">
     Open Dialog
   </button>
-  {{#if showFirstModalDialog}}
+  {{#if this.showFirstModalDialog}}
     {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
     {{#liquid-tether
       stack="modal-dialog"
@@ -31,14 +31,14 @@ the `matchSelector` helper from liquid-fire.
       </div>
       <div class="modal-footer">
         <button
-          {{action "closeModalDialog"}}
+          {{on "click" this.closeModalDialog}}
           class="btn btn-default btn-embossed"
           data-test-cancel
         >
           Cancel
         </button>
         <button
-          {{action "nextModalDialog"}}
+          {{on "click" this.nextModalDialog}}
           class="btn btn-primary btn-embossed"
           data-test-next
         >
@@ -47,7 +47,7 @@ the `matchSelector` helper from liquid-fire.
       </div>
     {{/liquid-tether}}
   {{/if}}
-  {{#if showSecondModalDialog}}
+  {{#if this.showSecondModalDialog}}
     {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
     {{#liquid-tether
       stack="modal-dialog"
@@ -67,14 +67,14 @@ the `matchSelector` helper from liquid-fire.
       </div>
       <div class="modal-footer">
         <button
-          {{action "prevModalDialog"}}
+          {{on "click" this.prevModalDialog}}
           class="btn btn-default btn-embossed"
           data-test-back
         >
           Back
         </button>
         <button
-          {{action "nextModalDialog"}}
+          {{on "click" this.nextModalDialog}}
           class="btn btn-primary btn-embossed"
           data-test-next
         >
@@ -83,7 +83,7 @@ the `matchSelector` helper from liquid-fire.
       </div>
     {{/liquid-tether}}
   {{/if}}
-  {{#if showThirdModalDialog}}
+  {{#if this.showThirdModalDialog}}
     {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
     {{#liquid-tether
       stack="modal-dialog"
@@ -101,14 +101,14 @@ the `matchSelector` helper from liquid-fire.
       </div>
       <div class="modal-footer">
         <button
-          {{action "prevModalDialog"}}
+          {{on "click" this.prevModalDialog}}
           class="btn btn-default btn-embossed"
           data-test-back
         >
           Back
         </button>
         <button
-          {{action "closeModalDialog"}}
+          {{on "click" this.closeModalDialog}}
           class="btn btn-primary btn-embossed"
           data-test-finish
         >
@@ -120,11 +120,11 @@ the `matchSelector` helper from liquid-fire.
 </div>
 
 ```
-<button {{action "openModalDialog"}}>
+<button {{on "click" this.openModalDialog}}>
   Open Dialog
 </button>
 
-{{#if showFirstModalDialog}}
+{{#if this.showFirstModalDialog}}
   {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
   {{#liquid-tether
     stack="modal-dialog"
@@ -140,7 +140,7 @@ the `matchSelector` helper from liquid-fire.
   {{/liquid-tether}}
 {{/if}}
 
-{{#if showSecondModalDialog}}
+{{#if this.showSecondModalDialog}}
   {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
   {{#liquid-tether
     stack="modal-dialog"
@@ -156,7 +156,7 @@ the `matchSelector` helper from liquid-fire.
   {{/liquid-tether}}
 {{/if}}
 
-{{#if showThirdModalDialog}}
+{{#if this.showThirdModalDialog}}
   {{liquid-wormhole stack="modal-backdrop" class="modal-backdrop"}}
   {{#liquid-tether
     stack="modal-dialog"

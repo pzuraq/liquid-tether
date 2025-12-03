@@ -3,17 +3,18 @@ in your application, it's as simple as creating a route and template with just
 a `liquid-tether`.
 
 <div class="example-button-container">
-  {{#link-to "docs.routed-tethers.step-one" class="btn btn-primary btn-embossed"}}
+  <LinkTo @route="docs.routed-tethers.step-one" class="btn btn-primary btn-embossed">
     Open Routed Tether
-  {{/link-to}}
+  </LinkTo>
 
-  {{outlet}}
+{{outlet}}
+
 </div>
 
 ```
-{{#link-to "docs.routed-tethers.step-one"}}
+<LinkTo @route="docs.routed-tethers.step-one">
   Open Routed Tether
-{{/link-to}}
+</LinkTo>
 
 {{outlet}}
 ```

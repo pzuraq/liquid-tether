@@ -19,7 +19,7 @@ dialogs, and more incredibly easily.
     </div>
   </div>
   {{#liquid-tether
-    target=currentStep.target
+    target=this.currentStep.target
     attachment="top center"
     offset="60 0"
     class="tour"
@@ -27,13 +27,13 @@ dialogs, and more incredibly easily.
     <div id="hello-world-popover" class="popover bottom">
       <div class="arrow"></div>
       <div class="popover-title">
-        {{currentStep.text}}
+        {{this.currentStep.text}}
       </div>
       <div class="popover-content">
-        <a {{action "prevStep"}}>
+        <a {{on "click" this.prevStep}}>
           Back!
         </a>
-        <a {{action "nextStep"}}>
+        <a {{on "click" this.nextStep}}>
           Next!
         </a>
       </div>
@@ -61,10 +61,10 @@ dialogs, and more incredibly easily.
 
   ...
 
-  <a {{action "prevStep"}}>
+  <a {{on "click" this.prevStep}}>
     Back!
   </a>
-  <a {{action "nextStep"}}>
+  <a {{on "click" this.nextStep}}>
     Next!
   </a>
 {{/liquid-tether}}

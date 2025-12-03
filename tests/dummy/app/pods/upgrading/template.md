@@ -175,7 +175,7 @@ overlays come _before_ the tethers in your templates.
 {{liquid-tether
   to="modal"
   overlayClass="modal-overlay"
-  onOverlayClick=(action "closeModal")
+  onOverlayClick=this.closeModal
 }}
 ```
 
@@ -188,7 +188,7 @@ this.transition(
 
 ### New:
 ```
-{{liquid-wormhole class="modal-overlay" click=(action "closeModal")}}
+{{liquid-wormhole class="modal-overlay" click=this.closeModal}}
 {{liquid-tether class="modal"}}
 ```
 

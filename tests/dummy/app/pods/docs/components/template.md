@@ -2,10 +2,10 @@ If you'd rather send a component than use a block template, you can set the
 `send` property to either a component name or helper:
 
 <div class="example-button-container">
-  <button {{action 'toggleHello'}} id="hello-world-button" class="btn btn-primary btn-embossed">
+  <button {{on "click" this.toggleHello}} id="hello-world-button" class="btn btn-primary btn-embossed">
     Press Me
   </button>
-  {{#if showHello}}
+  {{#if this.showHello}}
     {{liquid-tether
       send="hello-component"
       target="#hello-world-button"
@@ -17,11 +17,11 @@ If you'd rather send a component than use a block template, you can set the
 </div>
 
 ```
-<button {{action 'toggleHello'}}>
+<button {{on "click" this.toggleHello}}>
   Press Me
 </button>
 
-{{#if showHello}}
+{{#if this.showHello}}
   {{liquid-tether
     send="hello-component"
     target="#hello-world-button"

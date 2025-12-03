@@ -1,24 +1,36 @@
 import Controller from '@ember/controller';
-export default Controller.extend({
-  showFirstFlytoDialog: gte('currentFlytoDialogStep', 1),
-  showSecondFlytoDialog: gte('currentFlytoDialogStep', 2),
-  showThirdFlytoDialog: gte('currentFlytoDialogStep', 3),
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
-  actions: {
-    openFlytoDialog() {
-      this.set('currentFlytoDialogStep', 1);
-    },
+export default class FlytoDialogController extends Controller {
+  @tracked currentFlytoDialogStep = 0;
 
-    prevFlytoDialog() {
-      this.decrementProperty('currentFlytoDialogStep');
-    },
+  @gte('currentFlytoDialogStep', 1)
+  showFirstFlytoDialog;
+  @gte('currentFlytoDialogStep', 2)
+  showSecondFlytoDialog;
+  @gte('currentFlytoDialogStep', 3)
+  showThirdFlytoDialog;
 
-    nextFlytoDialog() {
-      this.incrementProperty('currentFlytoDialogStep');
-    },
-
-    closeFlytoDialog() {
-      this.set('currentFlytoDialogStep', 0);
-    }
+  @action
+  openFlytoDialog() {
+    this.currentFlytoDialogStep = 1;
   }
-});
+
+  @action
+  prevFlytoDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.decrementProperty('currentFlytoDialogStep');
+  }
+
+  @action
+  nextFlytoDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.incrementProperty('currentFlytoDialogStep');
+  }
+
+  @action
+  closeFlytoDialog() {
+    this.currentFlytoDialogStep = 0;
+  }
+}
