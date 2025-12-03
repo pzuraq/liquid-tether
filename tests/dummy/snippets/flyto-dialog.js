@@ -19,11 +19,13 @@ export default class FlytoDialogController extends Controller {
 
   @action
   prevFlytoDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
     this.decrementProperty('currentFlytoDialogStep');
   }
 
   @action
   nextFlytoDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
     this.incrementProperty('currentFlytoDialogStep');
   }
 

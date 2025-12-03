@@ -18,11 +18,13 @@ export default class AnimationWithContextController extends Controller {
 
   @action
   prevModalDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
     this.decrementProperty('currentModalDialogStep');
   }
 
   @action
   nextModalDialog() {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
     this.incrementProperty('currentModalDialogStep');
   }
 
