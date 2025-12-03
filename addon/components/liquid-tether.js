@@ -1,11 +1,11 @@
 /* globals Tether */
 import { assert } from '@ember/debug';
 import { isNone } from '@ember/utils';
-import { camelize } from '@ember/string';
 import { get } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
 import LiquidWormhole from 'liquid-wormhole/components/liquid-wormhole';
+import camelize from '../utils/camelize';
 
 export default class LiquidTether extends LiquidWormhole {
   classPrefix = 'liquid-tether';
