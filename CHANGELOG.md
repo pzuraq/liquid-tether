@@ -1,4 +1,13 @@
 
+
+## v3.1.0 (2025-12-07)
+
+#### :rocket: Enhancement
+* [#97](https://github.com/pzuraq/liquid-tether/pull/97) Tether 3.x ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v3.0.0 (2025-12-04)
 
 #### :boom: Breaking Change
