@@ -30,8 +30,8 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)(webpack@5.103.0)
       tether:
-        specifier: ^1.4.7
-        version: 1.4.7
+        specifier: ^3.0.2
+        version: 3.0.2
     devDependencies:
       '@babel/eslint-parser':
         specifier: ^7.28.5
@@ -6629,8 +6629,9 @@ packages:
     engines: {node: '>= 7.*'}
     hasBin: true
 
-  tether@1.4.7:
-    resolution: {integrity: sha512-Z0J1aExjoFU8pybVkQAo/vD2wfSO63r+XOPfWQMC5qtf1bI7IWqNk4MiyBcgvvnY8kqnY06dVdvwTK2S3PU/Fw==}
+  tether@3.0.2:
+    resolution: {integrity: sha512-eICJAAmQ5XU0hEAeoB04VtkHqCRoENxe7/uMggQuYYikMpuPIwm0nq/HsJs6M+tJj/AyQO/9Yz5RLR32oOKrmw==}
+    engines: {node: '>= 20', pnpm: '>= 10'}
 
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
@@ -15424,7 +15425,7 @@ snapshots:
       - walrus
       - whiskers
 
-  tether@1.4.7: {}
+  tether@3.0.2: {}
 
   text-table@0.2.0: {}
 

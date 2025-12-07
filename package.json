@@ -33,7 +33,7 @@
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
     "liquid-wormhole": "^6.0.0",
-    "tether": "^1.4.7"
+    "tether": "^3.0.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.5",
